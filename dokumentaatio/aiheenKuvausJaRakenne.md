@@ -1,6 +1,6 @@
 **Aihe:** Aikavälikertaukseen ja flash-kortteihin perustuva oppimisohjelma. Ohjelmaan lisätään tietoja kysymys-vastauspareissa. Kun tietty kysymys tulee kohdalle ja käyttäjä tarkistaa vastauksen, voi käyttäjä samalla arvioida kysymyksen vaikeutta. Kortteja sitten kierrätetään niin, että vaikempia kysymyksiä kysytään useammin kuin helppoja. Ohjelmassa voi olla monta eri kokoelmaa kortteja. Oppija toimii itse mahdollisesti tietojen lisääjänä.
 
-**Käyttäjät:** Korttien ja kokoelmien lisääjä ja oppija
+**Käyttäjät:** Korttien lisääjä ja oppija
 
 **Kaikkien käyttäjien toiminnot:** 
 - Järjestelmään kirjautuminen

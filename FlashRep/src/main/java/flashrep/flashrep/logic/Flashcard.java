@@ -5,6 +5,8 @@
  */
 package flashrep.flashrep.logic;
 
+import java.util.Objects;
+
 /**
  *
  * @author Raine Rantanen
@@ -42,4 +44,31 @@ public class Flashcard {
         this.question = answer;
         this.answer = question;
     }
+
+    @Override
+    public boolean equals(Object flashcard) {
+        if (flashcard == null) {
+            return false;
+        }
+        if (this.getClass() != flashcard.getClass()) {
+            return false;
+        }
+        if (this.question == null || this.question.isEmpty() || this.answer == null || this.answer.isEmpty()) {
+            return false;
+        }
+        Flashcard thatFlashcard = (Flashcard) flashcard;
+
+        return this.question.equals(thatFlashcard.question) && this.answer.equals(thatFlashcard.answer);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.question);
+        hash = 67 * hash + Objects.hashCode(this.answer);
+        return hash;
+    }
+    
+    
+
 }

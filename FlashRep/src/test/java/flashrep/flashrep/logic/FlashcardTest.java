@@ -14,11 +14,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author fuksi
+ * @author Raine Rantanen
  */
 public class FlashcardTest {
 
     Flashcard flashcard;
+    Flashcard secondFlashcard;
 
     @BeforeClass
     public static void setUpClass() {
@@ -31,6 +32,7 @@ public class FlashcardTest {
     @Before
     public void setUp() {
         flashcard = new Flashcard("Suomen presidentti", "Sauli Niinistö");
+        secondFlashcard = new Flashcard("Suomen presidentti", "Sauli Niinistö");
     }
 
     @After
@@ -59,11 +61,29 @@ public class FlashcardTest {
         String question = flashcard.getQuestion();
         assertEquals("Sauli Niinistö", question);
     }
-    
-     @Test
+
+    @Test
     public void swapSwitchesTheAnswer() {
         flashcard.swap();
         String answer = flashcard.getAnswer();
         assertEquals("Suomen presidentti", answer);
     }
+
+    @Test
+    public void equalsReallyEquals() {
+        assertEquals(flashcard, secondFlashcard);
+    }
+
+    @Test
+    public void equalsReallyEqualsAfterSwaps() {
+        flashcard.swap();
+        secondFlashcard.swap();
+        assertEquals(flashcard, secondFlashcard);
+    }
+
+    @Test
+    public void hashcodesAreTheSame() {
+        assertEquals(flashcard.hashCode(), secondFlashcard.hashCode());
+    }
+
 }

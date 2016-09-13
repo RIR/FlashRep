@@ -5,6 +5,7 @@
  */
 package flashrep.flashrep.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class FlashcardCollection {
 
     public FlashcardCollection(String name) {
         this.name = name;
+        this.flashcards = new ArrayList<>();
     }
 
     public void addFlashcardToCollection(Flashcard flashcard) {
@@ -29,4 +31,21 @@ public class FlashcardCollection {
             this.flashcards.remove(flashcard);
         }
     }
+
+    public List<Flashcard> getCardsFromCollection() {
+        return this.flashcards;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSize() {
+        return this.flashcards.size();
+    }
+
 }

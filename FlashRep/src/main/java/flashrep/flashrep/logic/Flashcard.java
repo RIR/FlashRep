@@ -15,10 +15,12 @@ public class Flashcard {
 
     private String question;
     private String answer;
+    private int rating;
 
     public Flashcard(String question, String answer) {
         this.question = question;
         this.answer = answer;
+        this.rating = 1;
     }
 
     public String getAnswer() {
@@ -35,6 +37,16 @@ public class Flashcard {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        if (rating >= 1 && rating <= 5) {
+            this.rating = rating;
+        }
     }
 
     public void swap() {
@@ -68,7 +80,5 @@ public class Flashcard {
         hash = 67 * hash + Objects.hashCode(this.answer);
         return hash;
     }
-    
-    
 
 }

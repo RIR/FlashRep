@@ -71,7 +71,7 @@ public class FlashcardCollectionTest {
     @Test
     public void listHasRightCardAfterAddingFlashcard() {
         flashCardCollection.addFlashcardToCollection(flashcard);
-        assertTrue(flashCardCollection.getCardsFromCollection().contains(flashcard));
+        assertTrue(flashCardCollection.getFlashcards().contains(flashcard));
     }
 
     @Test
@@ -82,17 +82,17 @@ public class FlashcardCollectionTest {
     }
 
     @Test
-    public void listHasnoCardsAfterRemovingFlashcard() {
+    public void RemovingFlashcardRemovesFlashcard() {
         flashCardCollection.addFlashcardToCollection(flashcard);
         flashCardCollection.removeFlashcardFromCollection(flashcard);
-        assertFalse(flashCardCollection.getCardsFromCollection().contains(flashcard));
+        assertFalse(flashCardCollection.getFlashcards().contains(flashcard));
     }
 
     @Test
     public void getCardsFromCollectionReturnsRightList() {
         flashCardCollection.addFlashcardToCollection(flashcard);
         flashcards.add(flashcard);
-        assertEquals(flashcards, flashCardCollection.getCardsFromCollection());
+        assertEquals(flashcards, flashCardCollection.getFlashcards());
     }
 
     @Test

@@ -32,8 +32,8 @@ public class FlashcardCollection {
         }
     }
 
-    public List<Flashcard> getCardsFromCollection() {
-        return this.flashcards;
+    public List<Flashcard> getFlashcards() {
+        return flashcards;
     }
 
     public String getName() {

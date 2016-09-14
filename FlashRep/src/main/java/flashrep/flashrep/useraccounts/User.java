@@ -1,6 +1,6 @@
-package flashrep.flashrep.userlogic;
+package flashrep.flashrep.useraccounts;
 
-import flashrep.flashrep.logic.Flashcard;
+import flashrep.flashrep.cards.Flashcard;
 import java.util.Objects;
 
 /**

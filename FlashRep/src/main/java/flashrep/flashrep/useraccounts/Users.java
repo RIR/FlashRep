@@ -1,4 +1,4 @@
-package flashrep.flashrep.userlogic;
+package flashrep.flashrep.useraccounts;
 
 import java.util.ArrayList;
 import java.util.List;

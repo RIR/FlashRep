@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flashrep.flashrep.userlogic;
+package flashrep.flashrep.useraccounts;
 
-import flashrep.flashrep.userlogic.Users;
-import flashrep.flashrep.userlogic.User;
+import flashrep.flashrep.useraccounts.User;
+import flashrep.flashrep.cards.Flashcard;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,12 +18,12 @@ import static org.junit.Assert.*;
  *
  * @author Raine Rantanen
  */
-public class UsersTest {
+public class UserTest {
 
-    Users users;
     User user;
+    Flashcard flashcard;
 
-    public UsersTest() {
+    public UserTest() {
     }
 
     @BeforeClass
@@ -36,8 +36,8 @@ public class UsersTest {
 
     @Before
     public void setUp() {
-        users = new Users();
         user = new User("user", "password");
+        flashcard = new Flashcard("Kysymys", "vastaus");
     }
 
     @After
@@ -49,24 +49,18 @@ public class UsersTest {
     }
 
     @Test
-    public void constructorInitializesListRight() {
-        assertEquals(0, users.getSize());
+    public void constructorSetsUsernameRight() {
+        assertEquals("user", user.getUserName());
     }
 
     @Test
-    public void addUserAddsUser() {
-        users.addUser(user);
-        assertEquals(true, users.getUsers().contains(user));
+    public void constructorSetsPasswordRight() {
+        assertEquals("password", user.getPassword());
     }
 
     @Test
-    public void removeUserRemovesUser() {
-        users.addUser(user);
-        assertEquals(1, users.getSize());
-        assertEquals(true, users.getUsers().contains(user));
-
-        users.removeUser(user);
-        assertEquals(0, users.getSize());
-        assertEquals(false, users.getUsers().contains(user));
+    public void rateCardIsWorkingRight() {
+        user.rateCard(flashcard, 4);
+        assertEquals(4, flashcard.getRating());
     }
 }

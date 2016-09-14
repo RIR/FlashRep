@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flashrep.flashrep.logic;
+package flashrep.flashrep.cards;
 
+import flashrep.flashrep.cards.FlashcardCollection;
+import flashrep.flashrep.cards.Flashcard;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;

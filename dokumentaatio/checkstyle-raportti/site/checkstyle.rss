@@ -46,6 +46,34 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.useraccounts.Users.java">flashrep/flashrep/useraccounts/Users.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.cards.Flashcard.java">flashrep/flashrep/cards/Flashcard.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.Main.java">flashrep/flashrep/Main.java</a>
                 </td>
                 <td>
@@ -60,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.logic.FlashcardCollection.java">flashrep/flashrep/logic/FlashcardCollection.java</a>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.cards.FlashcardCollection.java">flashrep/flashrep/cards/FlashcardCollection.java</a>
                 </td>
                 <td>
                   0
@@ -74,35 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.logic.Flashcard.java">flashrep/flashrep/logic/Flashcard.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.userlogic.User.java">flashrep/flashrep/userlogic/User.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.userlogic.Users.java">flashrep/flashrep/userlogic/Users.java</a>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.useraccounts.User.java">flashrep/flashrep/useraccounts/User.java</a>
                 </td>
                 <td>
                   0

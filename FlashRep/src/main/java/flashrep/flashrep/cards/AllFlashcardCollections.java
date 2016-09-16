@@ -12,11 +12,11 @@ import java.util.List;
  *
  * @author Raine Rantanen
  */
-public class ListOfFlashcardCollections {
+public class AllFlashcardCollections {
 
     private List<FlashcardCollection> flashcardCollections;
 
-    public ListOfFlashcardCollections() {
+    public AllFlashcardCollections() {
         flashcardCollections = new ArrayList<>();
     }
 

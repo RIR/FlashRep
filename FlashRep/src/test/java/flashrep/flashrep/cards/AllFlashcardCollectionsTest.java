@@ -18,12 +18,12 @@ import static org.junit.Assert.*;
  *
  * @author Raine Rantanen
  */
-public class ListOfFlashcardCollectionsTest {
+public class AllFlashcardCollectionsTest {
 
-    ListOfFlashcardCollections listOfFlashcardCollections;
+    AllFlashcardCollections listOfFlashcardCollections;
     FlashcardCollection flashcardCollection;
 
-    public ListOfFlashcardCollectionsTest() {
+    public AllFlashcardCollectionsTest() {
     }
 
     @BeforeClass
@@ -36,7 +36,7 @@ public class ListOfFlashcardCollectionsTest {
 
     @Before
     public void setUp() {
-        listOfFlashcardCollections = new ListOfFlashcardCollections();
+        listOfFlashcardCollections = new AllFlashcardCollections();
         flashcardCollection = new FlashcardCollection("Collection");
     }
 

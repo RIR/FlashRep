@@ -13,13 +13,14 @@ import java.util.List;
  * @author Raine Rantanen
  */
 public class ListOfFlashcardCollections {
+
     private List<FlashcardCollection> flashcardCollections;
 
     public ListOfFlashcardCollections() {
-        flashcardCollections=new ArrayList<>();
+        flashcardCollections = new ArrayList<>();
     }
-    
-     public void addCollection(FlashcardCollection flashcardCollection) {
+
+    public void addCollection(FlashcardCollection flashcardCollection) {
         this.flashcardCollections.add(flashcardCollection);
     }
 
@@ -32,8 +33,8 @@ public class ListOfFlashcardCollections {
     public List<FlashcardCollection> getFlashcardCollections() {
         return flashcardCollections;
     }
-    
-    
-    
-    
+
+    public int getAmountOfCollections() {
+        return this.flashcardCollections.size();
+    }
 }

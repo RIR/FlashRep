@@ -13,6 +13,7 @@
 - Käytettävän oppimiskokoelman valinta
 - Kysymys-vastausparin vaikeustason arviointi
 
+***Määrittelyvaiheen luokkakaavio:***
 
 ![Määrittelyvaiheen luokkakaavio](MaarittelyvaiheenLuokkakaavio.png "Määrittelyvaiheen luokkakaavio")
 

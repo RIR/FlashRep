@@ -9,15 +9,15 @@ import flashrep.flashrep.cards.FlashcardCollection;
  */
 public interface RepetitionLogic {
 
-    public Flashcard showFlashcard();
+    public Flashcard showCard();
 
-    public void placeFlashcardInCorrectPlace(Flashcard flashcard);
+    public void placeCardInCorrectPlace(Flashcard flashcard);
 
     public boolean isRemovedFromRotation();
 
     public void removeFromRotation();
 
-    public void removeAllFlashcardsFromRotation();
+    public void removeAllCardsFromRotation();
 
     public FlashcardCollection getFlashcardCollection();
 

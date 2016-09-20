@@ -40,7 +40,7 @@ public class SpacedRepetition implements RepetitionLogic {
         return false;
     }
 
-    public Flashcard showFlashcard() {
+    public Flashcard showCard() {
         this.removeFromRotation = false;
         for (int i = 0; i < this.rotationQueue.length; i++) {
             if (!queueIsEmpty(i)) {
@@ -50,7 +50,7 @@ public class SpacedRepetition implements RepetitionLogic {
         return null;
     }
 
-    public void placeFlashcardInCorrectPlace(Flashcard flashcard) {
+    public void placeCardInCorrectPlace(Flashcard flashcard) {
         int rating = flashcard.getRating() - 1;
         int lastQueue = 4;
         int placement = lastQueue - rating;
@@ -67,7 +67,7 @@ public class SpacedRepetition implements RepetitionLogic {
         this.removeFromRotation = true;
     }
 
-    public void removeAllFlashcardsFromRotation() {
+    public void removeAllCardsFromRotation() {
         for (int i = 0; i < queueCount; i++) {
             this.rotationQueue[i].clear();
         }

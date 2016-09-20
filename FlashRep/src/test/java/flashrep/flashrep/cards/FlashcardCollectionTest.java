@@ -60,8 +60,7 @@ public class FlashcardCollectionTest {
 
     @Test
     public void constructorInitializesList() {
-        List<Flashcard> flashcards = new ArrayList<Flashcard>();
-        assertEquals(flashcards.size(), flashCardCollection.getSize());
+        assertEquals(flashcards, flashCardCollection.getFlashcards());
     }
 
     @Test
@@ -88,6 +87,18 @@ public class FlashcardCollectionTest {
         flashCardCollection.addFlashcardToCollection(flashcard);
         flashCardCollection.removeFlashcardFromCollection(flashcard);
         assertFalse(flashCardCollection.getFlashcards().contains(flashcard));
+    }
+
+    @Test
+    public void RemovingAllFlashcardsRemovesFlashcards() {
+        for (int i = 0; i < 20; i++) {
+            String str = Integer.toString(i);
+            flashcard = new Flashcard("Kysymys" + str, "Vastaus" + str);
+            flashCardCollection.addFlashcardToCollection(flashcard);
+        }
+        assertEquals(20, flashCardCollection.getSize());
+        flashCardCollection.removeAllFlashcardsFromCollection();
+        assertEquals(0, flashCardCollection.getSize());
     }
 
     @Test

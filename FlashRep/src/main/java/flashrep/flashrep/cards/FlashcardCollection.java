@@ -33,6 +33,12 @@ public class FlashcardCollection {
         }
     }
 
+    public void removeAllFlashcardsFromCollection() {
+        if (!this.flashcards.isEmpty()) {
+            this.flashcards.clear();
+        }
+    }
+
     public List<Flashcard> getFlashcards() {
         return flashcards;
     }

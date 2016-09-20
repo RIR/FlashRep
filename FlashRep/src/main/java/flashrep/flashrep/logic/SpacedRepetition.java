@@ -17,7 +17,7 @@ public class SpacedRepetition implements RepetitionLogic {
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
         this.initiateQueues();
         this.flashcardCollection = flashcardCollection;
-        this.loadFlashcardCollectionIntoQueues();
+        this.loadFlashcardCollectionIntoRotation();
         removeFromRotation = false;
     }
 
@@ -28,7 +28,7 @@ public class SpacedRepetition implements RepetitionLogic {
         }
     }
 
-    private void loadFlashcardCollectionIntoQueues() {
+    private void loadFlashcardCollectionIntoRotation() {
         this.queues[0].addAll(this.flashcardCollection.getFlashcards());
     }
 
@@ -62,8 +62,8 @@ public class SpacedRepetition implements RepetitionLogic {
         return removeFromRotation;
     }
 
-    public void removeFromRotation(boolean removeFromRotation) {
-        this.removeFromRotation = removeFromRotation;
+    public void removeFromRotation() {
+        this.removeFromRotation = true;
     }
 
     public void removeAllFlashcardsFromRotation() {
@@ -78,6 +78,6 @@ public class SpacedRepetition implements RepetitionLogic {
 
     public void setFlashcardCollectionForRotation(FlashcardCollection flashcardCollection) {
         this.flashcardCollection = flashcardCollection;
-        this.loadFlashcardCollectionIntoQueues();
+        this.loadFlashcardCollectionIntoRotation();
     }
 }

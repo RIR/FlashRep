@@ -15,7 +15,7 @@ public interface RepetitionLogic {
 
     public boolean isRemovedFromRotation();
 
-    public void removeFromRotation(boolean removeFromRotation);
+    public void removeFromRotation();
 
     public void removeAllFlashcardsFromRotation();
 

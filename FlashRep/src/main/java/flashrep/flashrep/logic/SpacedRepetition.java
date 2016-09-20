@@ -13,6 +13,7 @@ public class SpacedRepetition implements RepetitionLogic {
     private ArrayDeque[] queues;
     private FlashcardCollection flashcardCollection;
     private boolean removeFromRotation;
+    final int queueAmount =5;
 
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
         this.initiateQueues();
@@ -22,8 +23,8 @@ public class SpacedRepetition implements RepetitionLogic {
     }
 
     private void initiateQueues() {
-        this.queues = new ArrayDeque[5];
-        for (int i = 0; i < 5; i++) {
+        this.queues = new ArrayDeque[queueAmount];
+        for (int i = 0; i < queueAmount; i++) {
             this.queues[i] = new ArrayDeque<Flashcard>();
         }
     }
@@ -67,7 +68,7 @@ public class SpacedRepetition implements RepetitionLogic {
     }
 
     public void removeAllFlashcardsFromRotation() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < queueAmount; i++) {
             this.queues[i].clear();
         }
     }

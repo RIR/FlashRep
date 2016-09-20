@@ -19,7 +19,7 @@ public interface RepetitionLogic {
 
     public void removeAllFlashcardsFromRotation();
 
-    public FlashcardCollection getFlashcardCollectionUsedInRotation();
+    public FlashcardCollection getFlashcardCollection();
 
-    public void setFlashcardCollectionForRotation(FlashcardCollection flashcardCollection);
+    public void setFlashcardCollection(FlashcardCollection flashcardCollection);
 }

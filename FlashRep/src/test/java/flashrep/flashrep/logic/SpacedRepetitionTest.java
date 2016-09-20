@@ -86,7 +86,8 @@ public class SpacedRepetitionTest {
         flashcardCollection.removeAllFlashcardsFromCollection();
 
         addFlashcardsIntoCollectionHelper(cards, flashcardCollection);
-        spacedRepetition.setFlashcardCollectionForRotation(flashcardCollection);
+        spacedRepetition.setFlashcardCollection(flashcardCollection);
+        spacedRepetition.loadFlashcardCollectionIntoRotation();
 
         placeFlashcardToCorrectPlaceHelper(5);
     }
@@ -107,7 +108,7 @@ public class SpacedRepetitionTest {
     @Test
     public void removeAllFLashcardsFromRotationIsWorking() {
         addFlashcardsIntoCollectionHelper(10, flashcardCollection);
-        spacedRepetition.setFlashcardCollectionForRotation(flashcardCollection);
+        spacedRepetition.setFlashcardCollection(flashcardCollection);
         assertNotEquals(null, spacedRepetition.showFlashcard());
 
         spacedRepetition.removeAllFlashcardsFromRotation();
@@ -116,25 +117,13 @@ public class SpacedRepetitionTest {
 
     @Test
     public void getFlashcardCollectionReturnsRightCollection() {
-        assertEquals(flashcardCollection, spacedRepetition.getFlashcardCollectionUsedInRotation());
+        assertEquals(flashcardCollection, spacedRepetition.getFlashcardCollection());
     }
 
     @Test
     public void setFlashcardCollectionSetsRightCollection() {
         FlashcardCollection fCollection = new FlashcardCollection("uusi kokoelma");
-        spacedRepetition.setFlashcardCollectionForRotation(fCollection);
-        assertEquals("uusi kokoelma", spacedRepetition.getFlashcardCollectionUsedInRotation().getName());
-    }
-
-    @Test
-    public void setFlashcardCollectionLoadsCollectionIntoRotation() {
-        spacedRepetition.removeAllFlashcardsFromRotation();
-
-        int cards = 10;
-        FlashcardCollection fCollection = new FlashcardCollection("uusi kokoelma");
-        addFlashcardsIntoCollectionHelper(cards, fCollection);
-        spacedRepetition.setFlashcardCollectionForRotation(fCollection);
-
-        CollectionAndRotationCardsInSameOrderTest(cards);
+        spacedRepetition.setFlashcardCollection(fCollection);
+        assertEquals("uusi kokoelma", spacedRepetition.getFlashcardCollection().getName());
     }
 }

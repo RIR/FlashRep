@@ -10,31 +10,31 @@ import java.util.ArrayDeque;
  */
 public class SpacedRepetition implements RepetitionLogic {
 
-    private ArrayDeque[] queues;
+    private ArrayDeque[] rotationQueue;
     private FlashcardCollection flashcardCollection;
     private boolean removeFromRotation;
-    final int queueAmount =5;
+    final int queueCount =5;
 
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
-        this.initiateQueues();
+        this.initiateRotationQueue();
         this.flashcardCollection = flashcardCollection;
         this.loadFlashcardCollectionIntoRotation();
         removeFromRotation = false;
     }
 
-    private void initiateQueues() {
-        this.queues = new ArrayDeque[queueAmount];
-        for (int i = 0; i < queueAmount; i++) {
-            this.queues[i] = new ArrayDeque<Flashcard>();
+    private void initiateRotationQueue() {
+        this.rotationQueue = new ArrayDeque[queueCount];
+        for (int i = 0; i < queueCount; i++) {
+            this.rotationQueue[i] = new ArrayDeque<Flashcard>();
         }
     }
 
-    private void loadFlashcardCollectionIntoRotation() {
-        this.queues[0].addAll(this.flashcardCollection.getFlashcards());
+    public void loadFlashcardCollectionIntoRotation() {
+        this.rotationQueue[0].addAll(this.flashcardCollection.getFlashcards());
     }
 
     private boolean queueIsEmpty(int queueNum) {
-        if (this.queues[queueNum].isEmpty()) {
+        if (this.rotationQueue[queueNum].isEmpty()) {
             return true;
         }
         return false;
@@ -42,9 +42,9 @@ public class SpacedRepetition implements RepetitionLogic {
 
     public Flashcard showFlashcard() {
         this.removeFromRotation = false;
-        for (int i = 0; i < this.queues.length; i++) {
+        for (int i = 0; i < this.rotationQueue.length; i++) {
             if (!queueIsEmpty(i)) {
-                return (Flashcard) this.queues[i].pollFirst();
+                return (Flashcard) this.rotationQueue[i].pollFirst();
             }
         }
         return null;
@@ -54,8 +54,8 @@ public class SpacedRepetition implements RepetitionLogic {
         int rating = flashcard.getRating() - 1;
         int lastQueue = 4;
         int placement = lastQueue - rating;
-        if (!removeFromRotation) {
-            this.queues[placement].add(flashcard);
+        if (!this.isRemovedFromRotation()) {
+            this.rotationQueue[placement].add(flashcard);
         }
     }
 
@@ -68,17 +68,16 @@ public class SpacedRepetition implements RepetitionLogic {
     }
 
     public void removeAllFlashcardsFromRotation() {
-        for (int i = 0; i < queueAmount; i++) {
-            this.queues[i].clear();
+        for (int i = 0; i < queueCount; i++) {
+            this.rotationQueue[i].clear();
         }
     }
 
-    public FlashcardCollection getFlashcardCollectionUsedInRotation() {
+    public FlashcardCollection getFlashcardCollection() {
         return this.flashcardCollection;
     }
 
-    public void setFlashcardCollectionForRotation(FlashcardCollection flashcardCollection) {
+    public void setFlashcardCollection(FlashcardCollection flashcardCollection) {
         this.flashcardCollection = flashcardCollection;
-        this.loadFlashcardCollectionIntoRotation();
     }
 }

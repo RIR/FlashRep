@@ -4,6 +4,7 @@ import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import java.util.ArrayDeque;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  *
@@ -23,7 +24,7 @@ public class SpacedRepetition implements RepetitionLogic {
     }
 
     public void loadFlashcardCollectionIntoRotation() {
-       this.rotationQueue.addAll(this.flashcardCollection.getFlashcards());
+        this.rotationQueue.addAll(this.flashcardCollection.getFlashcards());
     }
 
     public Flashcard showCard() {
@@ -52,6 +53,10 @@ public class SpacedRepetition implements RepetitionLogic {
         this.rotationQueue.clear();
     }
 
+    public Queue<Flashcard> cardsInRotation() {
+        return rotationQueue;
+    }
+
     public FlashcardCollection getFlashcardCollection() {
         return this.flashcardCollection;
     }
@@ -59,4 +64,5 @@ public class SpacedRepetition implements RepetitionLogic {
     public void setFlashcardCollection(FlashcardCollection flashcardCollection) {
         this.flashcardCollection = flashcardCollection;
     }
+
 }

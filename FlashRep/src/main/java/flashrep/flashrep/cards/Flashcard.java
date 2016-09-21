@@ -16,6 +16,7 @@ public class Flashcard implements Comparable<Flashcard> {
     private String question;
     private String answer;
     private int rating;
+    private int id;
 
     public Flashcard(String question, String answer) {
         this.question = question;
@@ -47,6 +48,14 @@ public class Flashcard implements Comparable<Flashcard> {
         if (rating >= 1 && rating <= 5) {
             this.rating = rating;
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void swap() {
@@ -83,6 +92,10 @@ public class Flashcard implements Comparable<Flashcard> {
 
     @Override
     public int compareTo(Flashcard f2) {
-       return f2.getRating()-this.rating;
+        if ((f2.getRating() - this.rating) == 0) {
+            return this.id - f2.id;
+        }
+        return f2.getRating() - this.rating;
     }
+
 }

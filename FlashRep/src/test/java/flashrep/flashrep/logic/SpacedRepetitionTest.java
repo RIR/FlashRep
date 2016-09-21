@@ -46,6 +46,7 @@ public class SpacedRepetitionTest {
             String str = Integer.toString(i);
             Flashcard flashcard = new Flashcard("Kysymys " + str, "Vastaus " + str);
             flashcardCollection.addFlashcardToCollection(flashcard);
+            flashcardCollection.setIdForFlashcard(flashcard);
         }
     }
 
@@ -69,9 +70,28 @@ public class SpacedRepetitionTest {
     }
 
     @Test
-
     public void constructorLoadsAllCardsToRotation() {
         assertTrue(spacedRepetition.cardsInRotation().containsAll(flashcardCollection.getFlashcards()));
+    }
+
+    @Test
+    public void showCardWorksWithSingleCard() {
+        spacedRepetition.removeAllCardsFromRotation();
+        flashcardCollection.removeAllFlashcardsFromCollection();
+        addCardsIntoCollectionHelper(1, flashcardCollection);
+        spacedRepetition.loadFlashcardCollectionIntoRotation();
+        assertEquals(flashcardCollection.getFlashcards().get(0), spacedRepetition.showCard());
+    }
+
+    @Test
+    public void showCardWorksWithMultipleCards() {
+        spacedRepetition.removeAllCardsFromRotation();
+        flashcardCollection.removeAllFlashcardsFromCollection();
+        addCardsIntoCollectionHelper(10, flashcardCollection);
+        spacedRepetition.loadFlashcardCollectionIntoRotation();
+        for (int i = 0; i < 10; i++) {
+            assertEquals(flashcardCollection.getFlashcards().get(i), spacedRepetition.showCard());
+        }
     }
 
     @Test

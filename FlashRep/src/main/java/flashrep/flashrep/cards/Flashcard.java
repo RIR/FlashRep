@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Raine Rantanen
  */
-public class Flashcard {
+public class Flashcard implements Comparable<Flashcard> {
 
     private String question;
     private String answer;
@@ -81,4 +81,8 @@ public class Flashcard {
         return hash;
     }
 
+    @Override
+    public int compareTo(Flashcard f2) {
+       return f2.getRating()-this.rating;
+    }
 }

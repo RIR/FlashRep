@@ -73,7 +73,7 @@ public class AllFlashcardCollectionsTest {
     }
 
     @Test
-    public void RemovingCollectionRemovesFlashcard() {
+    public void RemovingCollectionRemovesFlashcardCollection() {
         listOfFlashcardCollections.addCollection(flashcardCollection);
         listOfFlashcardCollections.removeCollection(flashcardCollection);
         assertFalse(listOfFlashcardCollections.getFlashcardCollections().contains(flashcardCollection));

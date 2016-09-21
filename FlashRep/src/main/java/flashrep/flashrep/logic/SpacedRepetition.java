@@ -3,6 +3,7 @@ package flashrep.flashrep.logic;
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import java.util.ArrayDeque;
+import java.util.PriorityQueue;
 
 /**
  *
@@ -10,45 +11,32 @@ import java.util.ArrayDeque;
  */
 public class SpacedRepetition implements RepetitionLogic {
 
-    private ArrayDeque[] rotationQueue;
+    private PriorityQueue<Flashcard> rotationQueue;
     private FlashcardCollection flashcardCollection;
     private boolean removeFromRotation;
-    final int queueCount = 5;
 
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
-        this.initiateRotationQueue();
+        this.rotationQueue = new PriorityQueue<Flashcard>();
         this.flashcardCollection = flashcardCollection;
         this.loadFlashcardCollectionIntoRotation();
         removeFromRotation = false;
     }
 
-    private void initiateRotationQueue() {
-        this.rotationQueue = new ArrayDeque[queueCount];
-        for (int i = 0; i < queueCount; i++) {
-            this.rotationQueue[i] = new ArrayDeque<Flashcard>();
-        }
-    }
-
     public void loadFlashcardCollectionIntoRotation() {
-        this.rotationQueue[0].addAll(this.flashcardCollection.getFlashcards());
+       this.rotationQueue.addAll(this.flashcardCollection.getFlashcards());
     }
 
     public Flashcard showCard() {
         this.removeFromRotation = false;
-        for (int i = 0; i < this.queueCount; i++) {
-            if (!this.rotationQueue[i].isEmpty()) {
-                return (Flashcard) this.rotationQueue[i].pollFirst();
-            }
+        if (!this.rotationQueue.isEmpty()) {
+            return this.rotationQueue.poll();
         }
         return null;
     }
 
-    public void placeCardInCorrectPlace(Flashcard flashcard) {
-        int rating = flashcard.getRating() - 1;
-        int lastQueue = 4;
-        int placement = lastQueue - rating;
-        if (!this.isRemovedFromRotation()) {
-            this.rotationQueue[placement].add(flashcard);
+    public void insertCardInToQueue(Flashcard flashcard) {
+        if (!isRemovedFromRotation()) {
+            this.rotationQueue.add(flashcard);
         }
     }
 
@@ -61,9 +49,7 @@ public class SpacedRepetition implements RepetitionLogic {
     }
 
     public void removeAllCardsFromRotation() {
-        for (int i = 0; i < queueCount; i++) {
-            this.rotationQueue[i].clear();
-        }
+        this.rotationQueue.clear();
     }
 
     public FlashcardCollection getFlashcardCollection() {

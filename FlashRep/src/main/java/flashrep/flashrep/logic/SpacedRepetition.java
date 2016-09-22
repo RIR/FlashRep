@@ -35,7 +35,7 @@ public class SpacedRepetition implements RepetitionLogic {
         return null;
     }
 
-    public void insertCardInToQueue(Flashcard flashcard) {
+    public void insertCardInToRotation(Flashcard flashcard) {
         if (!isRemovedFromRotation()) {
             this.rotationQueue.add(flashcard);
         }

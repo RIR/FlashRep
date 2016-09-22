@@ -22,17 +22,18 @@ public class FlashcardCollection {
     public FlashcardCollection(String name) {
         this.name = name;
         this.flashcards = new ArrayList<>();
-        this.idCounter=1;
+        this.idCounter = 1;
     }
 
     public void addFlashcardToCollection(Flashcard flashcard) {
         this.flashcards.add(flashcard);
     }
 
-    public void setIdForFlashcard(Flashcard flashcard){
-    flashcard.setId(idCounter);
-    idCounter++;
+    public void setIdForFlashcard(Flashcard flashcard) {
+        flashcard.setId(idCounter);
+        idCounter++;
     }
+
     public void removeFlashcardFromCollection(Flashcard flashcard) {
         if (this.flashcards.contains(flashcard)) {
             this.flashcards.remove(flashcard);

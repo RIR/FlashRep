@@ -54,7 +54,7 @@ public class SpacedRepetitionTest {
         for (int i = 1; i <= cards; i++) {
             Flashcard flashcard = new Flashcard("Kysymys", "Vastaus");
             flashcard.setRating(i);
-            spacedRepetition.insertCardInToQueue(flashcard);
+            spacedRepetition.insertCardInToRotation(flashcard);
         }
         for (int i = 0; i < cards; i++) {
             assertEquals(cards - i, spacedRepetition.showCard().getRating());
@@ -130,7 +130,7 @@ public class SpacedRepetitionTest {
     }
 
     @Test
-    public void insertCardIntoQueueGivesRightOrderWhenCardsRated() {
+    public void insertCardIntoRotationGivesRightOrderWhenCardsRated() {
         spacedRepetition.removeAllCardsFromRotation();
 
         placecardToCorrectPlaceHelper(5);

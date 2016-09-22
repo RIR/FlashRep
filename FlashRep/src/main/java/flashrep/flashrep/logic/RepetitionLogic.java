@@ -11,7 +11,7 @@ public interface RepetitionLogic {
 
     public Flashcard showCard();
 
-    public void insertCardInToQueue(Flashcard flashcard);
+    public void insertCardInToRotation(Flashcard flashcard);
 
     public boolean isRemovedFromRotation();
 

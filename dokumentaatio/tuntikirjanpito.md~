@@ -8,4 +8,5 @@ Päivä | Tunnit | Kuvaus
 16.09.2016 |2h 30min| Ohjelmointia ja luokkakaavion teko
 20.09.2016 |10h | Ohjelmointia, luokkien ja ohjelman rakenteen suunnittelua. Sekoilin käsittämättömän kauan lisäillessä ja poistellessa luokkia ja testejä ja lopulta en saanut juuri mitään aikaan. Testien kanssa oli ongelmia.
 21.09.2016 |4h |Koko ohjelman uudelleen tarkastelua ja muokkausta. Suurin osa ajasta meni Javan API:n selailuun ja testien muokkailuun.
+22.09.2016 |2h |Lähinnä kertailin Javan asioita ja varsinkin GUI:n tekemiseen liittyvää materiaalia.
 ... | ... | ...

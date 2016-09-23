@@ -37,11 +37,17 @@ public class AllFlashcardCollectionsTest {
     @Before
     public void setUp() {
         listOfFlashcardCollections = new AllFlashcardCollections();
-        flashcardCollection = new FlashcardCollection("Collection");
     }
 
     @After
     public void tearDown() {
+    }
+
+    private void collectionAdderHelper(int num) {
+        for (int i = 0; i < num; i++) {
+            flashcardCollection = new FlashcardCollection("Collection " + Integer.toString(i));
+            listOfFlashcardCollections.addCollection(flashcardCollection);
+        }
     }
 
     @Test
@@ -55,27 +61,34 @@ public class AllFlashcardCollectionsTest {
 
     @Test
     public void addingCollectionIncreasesListSize() {
-        listOfFlashcardCollections.addCollection(flashcardCollection);
+        collectionAdderHelper(1);
         assertEquals(1, listOfFlashcardCollections.getAmountOfCollections());
     }
 
     @Test
     public void listHasRightCollectionAfterAddingCollection() {
-        listOfFlashcardCollections.addCollection(flashcardCollection);
-        assertTrue(listOfFlashcardCollections.getFlashcardCollections().contains(flashcardCollection));
+        collectionAdderHelper(1);
+        assertTrue(listOfFlashcardCollections.getCollections().contains(flashcardCollection));
     }
 
     @Test
     public void removingCollectionDecreasesListSize() {
-        listOfFlashcardCollections.addCollection(flashcardCollection);
+        collectionAdderHelper(1);
         listOfFlashcardCollections.removeCollection(flashcardCollection);
         assertEquals(0, listOfFlashcardCollections.getAmountOfCollections());
     }
 
     @Test
-    public void RemovingCollectionRemovesFlashcardCollection() {
-        listOfFlashcardCollections.addCollection(flashcardCollection);
+    public void removingCollectionRemovesFlashcardCollection() {
+        collectionAdderHelper(1);
         listOfFlashcardCollections.removeCollection(flashcardCollection);
-        assertFalse(listOfFlashcardCollections.getFlashcardCollections().contains(flashcardCollection));
+        assertFalse(listOfFlashcardCollections.getCollections().contains(flashcardCollection));
+    }
+
+    @Test
+    public void removingAllCollectionsClearsCollections() {
+        collectionAdderHelper(10);
+        listOfFlashcardCollections.removeAllCollections();
+        assertEquals(0, listOfFlashcardCollections.getAmountOfCollections());
     }
 }

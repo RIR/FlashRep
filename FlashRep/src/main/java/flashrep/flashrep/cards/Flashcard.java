@@ -22,6 +22,7 @@ public class Flashcard implements Comparable<Flashcard> {
         this.question = question;
         this.answer = answer;
         this.rating = 1;
+        this.id = 0;
     }
 
     public String getAnswer() {
@@ -97,5 +98,4 @@ public class Flashcard implements Comparable<Flashcard> {
         }
         return f2.getRating() - this.rating;
     }
-
 }

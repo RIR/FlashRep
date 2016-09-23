@@ -37,7 +37,6 @@ public class FlashcardCollectionTest {
 
     @Before
     public void setUp() {
-        flashcard = new Flashcard("Kuka on kingi", "Rane");
         flashCardCollection = new FlashcardCollection("Suomi-Englanti");
         flashcards = new ArrayList<>();
     }
@@ -46,10 +45,15 @@ public class FlashcardCollectionTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
+    private void cardAdderHelper(int num) {
+        for (int i = 0; i < num; i++) {
+            String str = Integer.toString(i);
+            flashcard = new Flashcard("Kysymys: " + str, "Vastaus: " + str);
+            flashCardCollection.addCardToCollection(flashcard);
+        }
+    }
+
+    @Test
     public void hello() {
     }
 
@@ -60,52 +64,42 @@ public class FlashcardCollectionTest {
 
     @Test
     public void constructorInitializesList() {
-        assertEquals(flashcards, flashCardCollection.getFlashcards());
+        assertEquals(flashcards, flashCardCollection.getCards());
     }
 
     @Test
-    public void addingFlashcardIncreasesListSize() {
-        flashCardCollection.addFlashcardToCollection(flashcard);
+    public void addingCardIncreasesListSize() {
+        cardAdderHelper(1);
         assertEquals(1, flashCardCollection.getSize());
     }
 
     @Test
-    public void listHasRightCardAfterAddingFlashcard() {
-        flashCardCollection.addFlashcardToCollection(flashcard);
-        assertTrue(flashCardCollection.getFlashcards().contains(flashcard));
+    public void listHasRightCardAfterAddingCard() {
+        cardAdderHelper(1);
+        assertTrue(flashCardCollection.getCards().contains(flashcard));
     }
 
     @Test
-    public void removingFlashcardDecreasesListSize() {
-        flashCardCollection.addFlashcardToCollection(flashcard);
-        flashCardCollection.removeFlashcardFromCollection(flashcard);
+    public void RemovingCardRemovesCard() {
+        cardAdderHelper(1);
+        flashCardCollection.removeCardFromCollection(flashcard);
         assertEquals(0, flashCardCollection.getSize());
+        assertFalse(flashCardCollection.getCards().contains(flashcard));
     }
 
     @Test
-    public void RemovingFlashcardRemovesFlashcard() {
-        flashCardCollection.addFlashcardToCollection(flashcard);
-        flashCardCollection.removeFlashcardFromCollection(flashcard);
-        assertFalse(flashCardCollection.getFlashcards().contains(flashcard));
-    }
-
-    @Test
-    public void RemovingAllFlashcardsRemovesFlashcards() {
-        for (int i = 0; i < 20; i++) {
-            String str = Integer.toString(i);
-            flashcard = new Flashcard("Kysymys" + str, "Vastaus" + str);
-            flashCardCollection.addFlashcardToCollection(flashcard);
-        }
+    public void RemovingAllCardsRemovesCards() {
+        cardAdderHelper(20);
         assertEquals(20, flashCardCollection.getSize());
-        flashCardCollection.removeAllFlashcardsFromCollection();
+        flashCardCollection.removeAllCardsFromCollection();
         assertEquals(0, flashCardCollection.getSize());
     }
 
     @Test
     public void getCardsFromCollectionReturnsRightList() {
-        flashCardCollection.addFlashcardToCollection(flashcard);
+        cardAdderHelper(1);
         flashcards.add(flashcard);
-        assertEquals(flashcards, flashCardCollection.getFlashcards());
+        assertEquals(flashcards, flashCardCollection.getCards());
     }
 
     @Test
@@ -115,17 +109,13 @@ public class FlashcardCollectionTest {
 
     @Test
     public void getsizeReturnsRightSizeWithSingleCard() {
-        flashCardCollection.addFlashcardToCollection(flashcard);
+        cardAdderHelper(1);
         assertEquals(1, flashCardCollection.getSize());
     }
 
     @Test
     public void getsizeReturnsRightSizeWithMultipleCards() {
-        for (int i = 0; i < 9; i++) {
-            flashCardCollection.addFlashcardToCollection(flashcard);
-        }
+        cardAdderHelper(9);
         assertEquals(9, flashCardCollection.getSize());
     }
-    
-    
 }

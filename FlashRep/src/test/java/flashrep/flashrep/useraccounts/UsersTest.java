@@ -37,11 +37,18 @@ public class UsersTest {
     @Before
     public void setUp() {
         users = new Users();
-        user = new User("user", "password");
     }
 
     @After
     public void tearDown() {
+    }
+
+    private void userAdderHelper(int num) {
+        for (int i = 0; i < num; i++) {
+            String str = Integer.toString(i);
+            user = new User("username " + str, "password" + str);
+            users.addUser(user);
+        }
     }
 
     @Test
@@ -49,24 +56,47 @@ public class UsersTest {
     }
 
     @Test
-    public void constructorInitializesListRight() {
-        assertEquals(0, users.getSize());
+    public void constructorInitializesList() {
+        assertEquals(0, users.getUsercount());
     }
 
     @Test
-    public void addUserAddsUser() {
-        users.addUser(user);
+    public void addingUserIncreasesListSize() {
+        userAdderHelper(1);
+        assertEquals(1, users.getUsercount());
+    }
+
+    @Test
+    public void addUserAddsRightUser() {
+        userAdderHelper(1);
         assertEquals(true, users.getUsers().contains(user));
     }
 
     @Test
     public void removeUserRemovesUser() {
-        users.addUser(user);
-        assertEquals(1, users.getSize());
-        assertEquals(true, users.getUsers().contains(user));
-
+        userAdderHelper(1);
         users.removeUser(user);
-        assertEquals(0, users.getSize());
+        assertEquals(0, users.getUsercount());
         assertEquals(false, users.getUsers().contains(user));
+    }
+
+    @Test
+    public void RemovingAllUsersRemovesUsers() {
+        userAdderHelper(20);
+        assertEquals(20, users.getUsercount());
+        users.removeAllUsers();
+        assertEquals(0, users.getUsercount());
+    }
+
+    @Test
+    public void getUsersReturnsRightUsers() {
+        userAdderHelper(20);
+        int i = 0;
+        for (User user : users.getUsers()) {
+            String str = Integer.toString(i);
+            User comparisonUser = new User("username " + str, "password" + str);
+            assertEquals(user, comparisonUser);
+            i++;
+        }
     }
 }

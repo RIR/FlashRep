@@ -8,6 +8,8 @@ import flashrep.flashrep.cards.FlashcardCollection;
  * @author Raine Rantanen
  */
 public interface RepetitionLogic {
+  
+    public void loadFlashcardCollectionIntoRotation(FlashcardCollection flashcardCollection);
 
     public Flashcard showCard();
 
@@ -18,8 +20,4 @@ public interface RepetitionLogic {
     public void removeFromRotation();
 
     public void removeAllCardsFromRotation();
-
-    public FlashcardCollection getFlashcardCollection();
-
-    public void setFlashcardCollection(FlashcardCollection flashcardCollection);
 }

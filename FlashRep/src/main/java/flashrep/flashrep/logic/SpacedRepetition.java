@@ -2,6 +2,8 @@ package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -12,18 +14,21 @@ import java.util.Queue;
 public class SpacedRepetition implements RepetitionLogic {
 
     private PriorityQueue<Flashcard> rotationQueue;
-    private FlashcardCollection flashcardCollection;
     private boolean removeFromRotation;
+    private FlashcardCollection flashcardCollection;
 
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
         this.rotationQueue = new PriorityQueue<Flashcard>();
-        this.flashcardCollection = flashcardCollection;
-        this.loadFlashcardCollectionIntoRotation();
+        this.loadFlashcardCollectionIntoRotation(flashcardCollection);
         removeFromRotation = false;
     }
 
-    public void loadFlashcardCollectionIntoRotation() {
-        this.rotationQueue.addAll(this.flashcardCollection.getFlashcards());
+    public void loadFlashcardCollectionIntoRotation(FlashcardCollection flashcardCollection) {
+        this.flashcardCollection = flashcardCollection;
+        if (!this.rotationQueue.isEmpty()) {
+            removeAllCardsFromRotation();
+        }
+        this.rotationQueue.addAll(this.flashcardCollection.getCards());
     }
 
     public Flashcard showCard() {
@@ -52,16 +57,9 @@ public class SpacedRepetition implements RepetitionLogic {
         this.rotationQueue.clear();
     }
 
-    public Queue<Flashcard> cardsInRotation() {
-        return rotationQueue;
-    }
-
     public FlashcardCollection getFlashcardCollection() {
+        this.flashcardCollection.removeAllCardsFromCollection();
+        this.flashcardCollection.getCards().addAll(rotationQueue);
         return this.flashcardCollection;
     }
-
-    public void setFlashcardCollection(FlashcardCollection flashcardCollection) {
-        this.flashcardCollection = flashcardCollection;
-    }
-
 }

@@ -41,12 +41,15 @@ public class SpacedRepetitionTest {
         spacedRepetition = new SpacedRepetition(flashcardCollection);
     }
 
+    @After
+    public void tearDown() {
+    }
+
     private void addCardsIntoCollectionHelper(int cards, FlashcardCollection flashcardCollection) {
         for (int i = 0; i < cards; i++) {
             String str = Integer.toString(i);
             Flashcard flashcard = new Flashcard("Kysymys " + str, "Vastaus " + str);
-            flashcardCollection.addFlashcardToCollection(flashcard);
-            flashcardCollection.setIdForFlashcard(flashcard);
+            flashcardCollection.addCardToCollection(flashcard);
         }
     }
 
@@ -61,42 +64,33 @@ public class SpacedRepetitionTest {
         }
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void hello() {
     }
 
     @Test
     public void constructorLoadsAllCardsToRotation() {
-        assertTrue(spacedRepetition.cardsInRotation().containsAll(flashcardCollection.getFlashcards()));
+        assertEquals(spacedRepetition.getFlashcardCollection(), flashcardCollection);
     }
 
     @Test
     public void showCardWorksWithSingleCard() {
         spacedRepetition.removeAllCardsFromRotation();
-        flashcardCollection.removeAllFlashcardsFromCollection();
+        flashcardCollection.removeAllCardsFromCollection();
         addCardsIntoCollectionHelper(1, flashcardCollection);
-        spacedRepetition.loadFlashcardCollectionIntoRotation();
-        assertEquals(flashcardCollection.getFlashcards().get(0), spacedRepetition.showCard());
+        spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
+        assertEquals(flashcardCollection.getCards().get(0), spacedRepetition.showCard());
     }
 
     @Test
     public void showCardWorksWithMultipleCards() {
         spacedRepetition.removeAllCardsFromRotation();
-        flashcardCollection.removeAllFlashcardsFromCollection();
+        flashcardCollection.removeAllCardsFromCollection();
         addCardsIntoCollectionHelper(10, flashcardCollection);
-        spacedRepetition.loadFlashcardCollectionIntoRotation();
+        spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         for (int i = 0; i < 10; i++) {
-            assertEquals(flashcardCollection.getFlashcards().get(i), spacedRepetition.showCard());
+            assertEquals(flashcardCollection.getCards().get(i), spacedRepetition.showCard());
         }
-    }
-
-    @Test
-    public void isRemovedFromRotationIsFalseAtFirst() {
-        assertEquals(false, spacedRepetition.isRemovedFromRotation());
     }
 
     @Test
@@ -109,8 +103,7 @@ public class SpacedRepetitionTest {
 
     @Test
     public void removeAllCardsFromRotationIsWorking() {
-        addCardsIntoCollectionHelper(10, flashcardCollection);
-        spacedRepetition.setFlashcardCollection(flashcardCollection);
+        spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         assertNotEquals(null, spacedRepetition.showCard());
 
         spacedRepetition.removeAllCardsFromRotation();
@@ -123,9 +116,9 @@ public class SpacedRepetitionTest {
     }
 
     @Test
-    public void setFlashcardCollectionSetsRightCollection() {
+    public void loadFlashcardCollectionIntoRotationSetsRightCollection() {
         FlashcardCollection fCollection = new FlashcardCollection("uusi kokoelma");
-        spacedRepetition.setFlashcardCollection(fCollection);
+        spacedRepetition.loadFlashcardCollectionIntoRotation(fCollection);
         assertEquals("uusi kokoelma", spacedRepetition.getFlashcardCollection().getName());
     }
 

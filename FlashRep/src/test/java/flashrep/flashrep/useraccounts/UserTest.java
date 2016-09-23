@@ -59,8 +59,26 @@ public class UserTest {
     }
 
     @Test
-    public void rateCardIsWorkingRight() {
+    public void getUsernameGetsRightNameAfterSetUsernameUsed() {
+        user.setUserName("new user");
+        assertEquals("new user", user.getUserName());
+    }
+
+    @Test
+    public void getPasswordGetsRightPasswordAfterSetPasswordUsed() {
+        user.setPassword("new password");
+        assertEquals("new password", user.getPassword());
+    }
+
+    @Test
+    public void rateCardIsWorkingWithNumberInCorrectScale() {
         user.rateCard(flashcard, 4);
         assertEquals(4, flashcard.getRating());
+    }
+
+    @Test
+    public void rateCardIsWorkingWithNumberNotInCorrectScale() {
+        user.rateCard(flashcard, 7);
+        assertEquals(1, flashcard.getRating());
     }
 }

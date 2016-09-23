@@ -25,28 +25,29 @@ public class FlashcardCollection {
         this.idCounter = 1;
     }
 
-    public void addFlashcardToCollection(Flashcard flashcard) {
+    public void addCardToCollection(Flashcard flashcard) {
+        this.setIdForCard(flashcard);
         this.flashcards.add(flashcard);
     }
 
-    public void setIdForFlashcard(Flashcard flashcard) {
-        flashcard.setId(idCounter);
-        idCounter++;
+    public void setIdForCard(Flashcard flashcard) {
+        flashcard.setId(this.idCounter);
+        this.idCounter++;
     }
 
-    public void removeFlashcardFromCollection(Flashcard flashcard) {
+    public void removeCardFromCollection(Flashcard flashcard) {
         if (this.flashcards.contains(flashcard)) {
             this.flashcards.remove(flashcard);
         }
     }
 
-    public void removeAllFlashcardsFromCollection() {
+    public void removeAllCardsFromCollection() {
         if (!this.flashcards.isEmpty()) {
             this.flashcards.clear();
         }
     }
 
-    public List<Flashcard> getFlashcards() {
+    public List<Flashcard> getCards() {
         return flashcards;
     }
 

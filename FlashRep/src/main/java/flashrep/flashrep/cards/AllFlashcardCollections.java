@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package flashrep.flashrep.cards;
 
 import java.util.ArrayList;
@@ -17,7 +12,7 @@ public class AllFlashcardCollections {
     private List<FlashcardCollection> flashcardCollections;
 
     public AllFlashcardCollections() {
-        flashcardCollections = new ArrayList<>();
+        this.flashcardCollections = new ArrayList<>();
     }
 
     public void addCollection(FlashcardCollection flashcardCollection) {
@@ -30,8 +25,12 @@ public class AllFlashcardCollections {
         }
     }
 
-    public List<FlashcardCollection> getFlashcardCollections() {
-        return flashcardCollections;
+    public void removeAllCollections() {
+        this.flashcardCollections.clear();
+    }
+
+    public List<FlashcardCollection> getCollections() {
+        return this.flashcardCollections;
     }
 
     public int getAmountOfCollections() {

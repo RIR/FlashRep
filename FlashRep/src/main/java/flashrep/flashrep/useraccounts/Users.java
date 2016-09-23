@@ -29,7 +29,11 @@ public class Users {
         }
     }
 
-    public int getSize() {
+    public void removeAllUsers() {
+        this.users.clear();
+    }
+
+    public int getUsercount() {
         return this.users.size();
     }
 

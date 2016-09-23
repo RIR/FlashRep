@@ -1,6 +1,10 @@
 package flashrep.flashrep.useraccounts;
 
+import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.cards.Flashcard;
+import flashrep.flashrep.cards.FlashcardCollection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -11,10 +15,12 @@ public class User {
 
     private String userName;
     private String password;
+    private List<FlashcardCollection> ownCollections;
 
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
+        this.ownCollections = new ArrayList<>();
     }
 
     public String getUserName() {
@@ -35,6 +41,22 @@ public class User {
 
     public void rateCard(Flashcard flashcard, int rating) {
         flashcard.setRating(rating);
+    }
+
+    public void addToOwnCollections(FlashcardCollection flashcardCollection) {
+        this.ownCollections.add(flashcardCollection);
+    }
+
+    public void removeFromOwnCollections(FlashcardCollection flashcardCollection) {
+        this.ownCollections.remove(flashcardCollection);
+    }
+
+    public List<FlashcardCollection> getOwnCollections() {
+        return ownCollections;
+    }
+
+    public void setOwnCollections(List<FlashcardCollection> collections) {
+        this.ownCollections = collections;
     }
 
     @Override

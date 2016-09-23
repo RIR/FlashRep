@@ -36,7 +36,7 @@ public class AllFlashcardCollectionsTest {
 
     @Before
     public void setUp() {
-        listOfFlashcardCollections = new AllFlashcardCollections();
+        listOfFlashcardCollections = new AllFlashcardCollections("Joku");
     }
 
     @After
@@ -57,6 +57,11 @@ public class AllFlashcardCollectionsTest {
     @Test
     public void constructorInitializesList() {
         assertEquals(0, listOfFlashcardCollections.getAmountOfCollections());
+    }
+
+    @Test
+    public void constructorSetsName() {
+        assertEquals("Joku", listOfFlashcardCollections.getName());
     }
 
     @Test
@@ -90,5 +95,17 @@ public class AllFlashcardCollectionsTest {
         collectionAdderHelper(10);
         listOfFlashcardCollections.removeAllCollections();
         assertEquals(0, listOfFlashcardCollections.getAmountOfCollections());
+    }
+
+    @Test
+    public void collectionGetterGets() {
+        collectionAdderHelper(1);
+        assertEquals(flashcardCollection, listOfFlashcardCollections.getCollections().get(0));
+    }
+
+    @Test
+    public void nameGetterAndSetterSetsAndGets() {
+        listOfFlashcardCollections.setName("Joku muu");
+        assertEquals("Joku muu", listOfFlashcardCollections.getName());
     }
 }

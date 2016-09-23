@@ -5,8 +5,10 @@
  */
 package flashrep.flashrep.useraccounts;
 
+import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.cards.Flashcard;
+import flashrep.flashrep.cards.FlashcardCollection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,6 +24,7 @@ public class UserTest {
 
     User user;
     Flashcard flashcard;
+    FlashcardCollection flashcardCollection;
 
     public UserTest() {
     }
@@ -38,6 +41,7 @@ public class UserTest {
     public void setUp() {
         user = new User("user", "password");
         flashcard = new Flashcard("Kysymys", "vastaus");
+        flashcardCollection = new FlashcardCollection("Kokoelma");
     }
 
     @After
@@ -80,5 +84,28 @@ public class UserTest {
     public void rateCardIsWorkingWithNumberNotInCorrectScale() {
         user.rateCard(flashcard, 7);
         assertEquals(1, flashcard.getRating());
+    }
+
+    @Test
+    public void addToOwnCollectionsAddsCollection() {
+        user.addToOwnCollections(flashcardCollection);
+        assertTrue(user.getOwnCollections().contains(flashcardCollection));
+    }
+
+    @Test
+    public void removeFromOwnCollectionsRemovesCollection() {
+        user.addToOwnCollections(flashcardCollection);
+        user.removeFromOwnCollections(flashcardCollection);
+        assertFalse(user.getOwnCollections().contains(flashcardCollection));
+    }
+
+    @Test
+    public void setOwnCollectionsSetsCollections() {
+        AllFlashcardCollections someoneElsesCollections = new AllFlashcardCollections();
+        someoneElsesCollections.addCollection(flashcardCollection);
+        assertNotEquals(user.getOwnCollections(), someoneElsesCollections.getCollections());
+
+        user.setOwnCollections(someoneElsesCollections.getCollections());
+        assertEquals(user.getOwnCollections(), someoneElsesCollections.getCollections());
     }
 }

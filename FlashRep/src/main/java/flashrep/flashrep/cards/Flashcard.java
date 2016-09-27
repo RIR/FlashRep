@@ -6,7 +6,7 @@ import java.util.Objects;
  * @author Raine Rantanen
  */
 /**
- * Luokka tarjoaa kortin käsittelyyn tarvittavia metodeita.
+ * Luokka tarjoaa metodeita kortin käsittelyyn.
  */
 public class Flashcard implements Comparable<Flashcard> {
 
@@ -133,7 +133,7 @@ public class Flashcard implements Comparable<Flashcard> {
     }
 
     /**
-     * Metodi antaa kortille hajautusarvon
+     * Metodi antaa kortille hajautusarvon ja palauttaa sen.
      *
      * @return kortin hajautusarvo
      */

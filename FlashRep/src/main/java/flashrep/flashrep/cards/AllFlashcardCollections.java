@@ -9,7 +9,7 @@ import java.util.Objects;
  * @author Raine Rantanen
  */
 /**
- * Luokka tarjoaa kokoelmalistauksen käsittelyyn tarvittavia metodeita.
+ * Luokka tarjoaa metodeita kokoelmalistauksen käsittelyyn.
  */
 public class AllFlashcardCollections {
 
@@ -37,7 +37,7 @@ public class AllFlashcardCollections {
     /**
      * Metodi lisää korttikokoelman kokoelmalistaukseen.
      *
-     * @param flashcardCollection parametrina annettava korttikokoelma
+     * @param flashcardCollection Parametrina annettava korttikokoelma
      */
     public void addCollection(FlashcardCollection flashcardCollection) {
         this.flashcardCollections.add(flashcardCollection);
@@ -47,7 +47,7 @@ public class AllFlashcardCollections {
      * Metodi poistaa korttikokoelman kokoelmalistauksesta, jos kokoelma löytyy
      * listauksesta.
      *
-     * @param flashcardCollection parametrina annettava korttikokoelma
+     * @param flashcardCollection Parametrina annettava korttikokoelma
      */
     public void removeCollection(FlashcardCollection flashcardCollection) {
         if (this.flashcardCollections.contains(flashcardCollection)) {
@@ -93,14 +93,14 @@ public class AllFlashcardCollections {
     /**
      * Metodi asettaa kokoelmalistaukselle parametrina annettavan nimen.
      *
-     * @param name parametrina annettava nimi
+     * @param name Parametrina annettava nimi
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Metodi antaa kokoelmalistaukselle hajautusarvon.
+     * Metodi antaa kokoelmalistaukselle hajautusarvon ja palauttaa sen.
      *
      * @return kokoelmalistauksen hajautusarvo
      */
@@ -115,7 +115,7 @@ public class AllFlashcardCollections {
      * kokoelmalistausoliota keskenään tarkistaakseen ovatko ne sama
      * kokoelmalistaus.
      *
-     * @param allFlashcardCollections parametrina annettava kokoelmalistausolio
+     * @param allFlashcardCollections Parametrina annettava kokoelmalistausolio
      * @return true jos kokoelmalistaukset ovat samat, tai false jos
      * kokoelmalistaukset eivät ole samat.
      */

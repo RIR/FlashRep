@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package flashrep.flashrep.cards;
 
 import java.util.ArrayList;
@@ -13,49 +8,87 @@ import java.util.Objects;
  *
  * @author Raine Rantanen
  */
+
+/**
+ * Luokka tarjoaa metodeita korttikokoelman käsittelyyn.
+ */
 public class FlashcardCollection {
 
     private String name;
     private List<Flashcard> flashcards;
 
+    /**
+     * Luokan konstruktori, asettaa korttikokoelmalle parametrina annettavan nimen.
+     * @param name Parametrina annettava nimi
+     */
     public FlashcardCollection(String name) {
         this.name = name;
         this.flashcards = new ArrayList<>();
-
     }
 
-    public void addCardToCollection(Flashcard flashcard) {
+    /**
+     * Metodi lisää korttikokoelmaan parametrina annettavan kortin.
+     * @param flashcard parametrina annettava kortti
+     */
+    public void addCardToCollection(Flashcard flashcard) {       
         this.flashcards.add(flashcard);
     }
 
+    /**
+     * Metodi poistaa parametrina annettavan kortin korttikokoelmasta.
+     * @param flashcard parametrina annettava kortti
+     */
     public void removeCardFromCollection(Flashcard flashcard) {
         if (this.flashcards.contains(flashcard)) {
             this.flashcards.remove(flashcard);
         }
     }
 
+    /**
+     * Metodi poistaa kaikki kortit korttikokoelmasta.
+     */
     public void removeAllCardsFromCollection() {
         if (!this.flashcards.isEmpty()) {
             this.flashcards.clear();
         }
     }
 
+    /**
+     * Metodi palauttaa korttikokoelman.
+     * @return korttikokoelma
+     */
     public List<Flashcard> getCards() {
         return flashcards;
     }
 
+    /**
+     * Metodi palauttaa korttikokoelman nimen.
+     * @return korttikokoelman nimi
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Metodi asettaa korttikokoelmalle parametrina annettavan nimen.
+     * @param name Parametrina annettava nimi
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Metodi palauttaa korttikokoelman korttien lukumäärän.
+     * @return korttikokoelman korttien lukumäärä
+     */
     public int getSize() {
         return this.flashcards.size();
     }
 
+    /**
+     * Metodi antaa korttikokoelmalle hajautusarvon ja palauttaa sen.
+     * @return korttikokoelman hajautusarvo
+     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -64,18 +97,25 @@ public class FlashcardCollection {
         return hash;
     }
 
+    /**
+     * Metodi vertailee keskenään metodia käyttävää korttikokoelmaoliota ja 
+     * parametrina annettavaa korttikokoelmaoliota keskenään tarkistaakseen ovatko 
+     * korttikokoelmat sama kokoelma.
+     * @param flashcardcollection parametrina annettava korttikokoelmaolio
+     * @return true jos kokoelmat ovat sama kokoelma ja false jos ne eivät ole sama kokoelma
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object flashcardcollection) {
+        if (this == flashcardcollection) {
             return true;
         }
-        if (obj == null) {
+        if (flashcardcollection == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (getClass() != flashcardcollection.getClass()) {
             return false;
         }
-        final FlashcardCollection other = (FlashcardCollection) obj;
+        final FlashcardCollection other = (FlashcardCollection) flashcardcollection;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }

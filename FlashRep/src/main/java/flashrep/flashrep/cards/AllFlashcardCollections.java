@@ -111,11 +111,11 @@ public class AllFlashcardCollections {
     }
 
     /**
-     * Metodi vertailee kokoelmalistausoliota ja parametrina annettavaa
-     * kokoelmalistausoliota keskenään tarkistaakseen ovatko ne sama
+     * Metodi vertailee metodia käyttävää kokoelmalistausta ja parametrina annettavaa
+     * kokoelmalistausta keskenään tarkistaakseen ovatko ne sama
      * kokoelmalistaus.
      *
-     * @param allFlashcardCollections Parametrina annettava kokoelmalistausolio
+     * @param allFlashcardCollections Parametrina annettava kokoelmalistaus
      * @return true jos kokoelmalistaukset ovat samat, tai false jos
      * kokoelmalistaukset eivät ole samat.
      */

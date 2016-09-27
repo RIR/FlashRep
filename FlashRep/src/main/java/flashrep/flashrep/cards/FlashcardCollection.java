@@ -98,10 +98,10 @@ public class FlashcardCollection {
     }
 
     /**
-     * Metodi vertailee keskenään metodia käyttävää korttikokoelmaoliota ja 
-     * parametrina annettavaa korttikokoelmaoliota keskenään tarkistaakseen ovatko 
+     * Metodi vertailee keskenään metodia käyttävää korttikokoelmaa ja 
+     * parametrina annettavaa korttikokoelmaa keskenään tarkistaakseen ovatko 
      * korttikokoelmat sama kokoelma.
-     * @param flashcardcollection parametrina annettava korttikokoelmaolio
+     * @param flashcardcollection parametrina annettava korttikokoelma
      * @return true jos kokoelmat ovat sama kokoelma ja false jos ne eivät ole sama kokoelma
      */
     @Override

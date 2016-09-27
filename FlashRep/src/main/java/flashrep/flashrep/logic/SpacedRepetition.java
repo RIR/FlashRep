@@ -8,7 +8,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- *
  * @author Raine Rantanen
  */
 public class SpacedRepetition implements RepetitionLogic {
@@ -45,7 +44,7 @@ public class SpacedRepetition implements RepetitionLogic {
         }
     }
 
-    public boolean isRemovedFromRotation() {
+    private boolean isRemovedFromRotation() {
         return removeFromRotation;
     }
 

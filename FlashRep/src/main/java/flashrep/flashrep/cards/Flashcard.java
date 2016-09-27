@@ -108,11 +108,11 @@ public class Flashcard implements Comparable<Flashcard> {
     }
 
     /**
-     * Metodi vertailee metodia käyttävää korttioliota ja parametrina annettua
-     * korttioliota keskenään tarkistaakseen ovatko ne sama kortti.
+     * Metodi vertailee metodia käyttävää korttia ja parametrina annettua
+     * korttia keskenään tarkistaakseen ovatko ne sama kortti.
      *
-     * @param flashcard parametrina annettu toinen kortti johon tämän
-     * korttiolion tietoja verrataan
+     * @param flashcard Parametrina annettu toinen kortti johon tämän
+     * kortin tietoja verrataan
      * @return true, jos kortit ovat keskenään samat tai false jos kortit eivät
      * ole samat.
      */
@@ -146,15 +146,15 @@ public class Flashcard implements Comparable<Flashcard> {
     }
 
     /**
-     * Metodi vertailee korttiolion ja parametrina annettavan korttiolion
+     * Metodi vertailee metodia käyttävän kortin ja parametrina annettavan kortin
      * keskinäistä järjestystä käyttäen korttien luokitusta ja niiden
      * id-tunnuksia. Järjestyksellä on merkitystä erityisesti
      * toistovälikertauksessa.
      *
      * @param f2 parametrina annettava toinen kortti
-     * @return negatiivinen arvo, jos metodia käyttävä korttiolio on
+     * @return negatiivinen arvo, jos metodia käyttävä kortti on
      * järjestyksessä aikaisempi, 0 jos kortit ovat järjestykseltään samat ja
-     * positiivinen arvo jos parametrina annettu korttiolio on järjestyksessä
+     * positiivinen arvo jos parametrina annettu kortti on järjestyksessä
      * aikaisempi.
      */
     @Override

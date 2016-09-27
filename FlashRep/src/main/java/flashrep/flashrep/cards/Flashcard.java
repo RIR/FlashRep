@@ -16,13 +16,16 @@ public class Flashcard implements Comparable<Flashcard> {
     private String question;
     private String answer;
     private int rating;
+    private static int idLaskuri = 0;
     private int id;
 
     public Flashcard(String question, String answer) {
+        ++this.idLaskuri;
         this.question = question;
         this.answer = answer;
         this.rating = 1;
-        this.id = 0;
+        this.id = idLaskuri;
+
     }
 
     public String getAnswer() {
@@ -52,11 +55,7 @@ public class Flashcard implements Comparable<Flashcard> {
     }
 
     public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return this.id;
     }
 
     public void swap() {

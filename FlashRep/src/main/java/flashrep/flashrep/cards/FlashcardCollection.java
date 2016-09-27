@@ -13,26 +13,19 @@ import java.util.Objects;
  *
  * @author Raine Rantanen
  */
-public class FlashcardCollection {
+public class FlashcardCollection implements Name {
 
     private String name;
     private List<Flashcard> flashcards;
-    private static int idCounter;
 
     public FlashcardCollection(String name) {
         this.name = name;
         this.flashcards = new ArrayList<>();
-        this.idCounter = 1;
+
     }
 
     public void addCardToCollection(Flashcard flashcard) {
-        this.setIdForCard(flashcard);
         this.flashcards.add(flashcard);
-    }
-
-    public void setIdForCard(Flashcard flashcard) {
-        flashcard.setId(this.idCounter);
-        this.idCounter++;
     }
 
     public void removeCardFromCollection(Flashcard flashcard) {

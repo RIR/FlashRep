@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author Raine Rantanen
  */
-public class AllFlashcardCollections {
+public class AllFlashcardCollections implements Name {
 
     private List<FlashcardCollection> flashcardCollections;
     private String name;
@@ -79,5 +79,4 @@ public class AllFlashcardCollections {
         return true;
     }
 
-    
 }

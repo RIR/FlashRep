@@ -54,8 +54,8 @@ public class FlashcardCollection {
     }
 
     /**
-     * Metodi palauttaa korttikokoelman.
-     * @return korttikokoelma
+     * Metodi palauttaa korttikokoelman List-muodossa.
+     * @return korttikokoelma List-muodossa
      */
     public List<Flashcard> getCards() {
         return flashcards;

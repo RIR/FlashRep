@@ -72,8 +72,8 @@ public class SpacedRepetition implements RepetitionLogic {
         }
     }
 
-    //Yksityinen metodi ei JavaDociin
-    private boolean isRemovedFromRotation() {
+    //Yksityinen metodi ei JavaDociin??
+    public boolean isRemovedFromRotation() {
         return removeFromRotation;
     }
 

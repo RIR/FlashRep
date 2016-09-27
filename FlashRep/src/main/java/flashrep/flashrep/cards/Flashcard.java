@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package flashrep.flashrep.cards;
 
 import java.util.Objects;
 
 /**
- *
  * @author Raine Rantanen
+ */
+/**
+ * Luokka tarjoaa kortin käsittelyyn tarvittavia metodeita.
  */
 public class Flashcard implements Comparable<Flashcard> {
 
@@ -19,6 +16,12 @@ public class Flashcard implements Comparable<Flashcard> {
     private static int idLaskuri = 0;
     private int id;
 
+    /**
+     * Luokan konstruktori, asettaa kortille annetun kysymyksen ja vastauksen.
+     *
+     * @param question parametrina kortille annettava kysymys
+     * @param answer parametrina kortille annettava vastaus
+     */
     public Flashcard(String question, String answer) {
         ++this.idLaskuri;
         this.question = question;
@@ -28,36 +31,74 @@ public class Flashcard implements Comparable<Flashcard> {
 
     }
 
-    public String getAnswer() {
-        return answer;
-    }
-
+    /**
+     * Metodi palauttaa kortille asetetun kysymyksen.
+     *
+     * @return kysymys
+     */
     public String getQuestion() {
         return question;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    /**
+     * Metodi palauttaa kortille asetetun vastauksen.
+     *
+     * @return vastaus
+     */
+    public String getAnswer() {
+        return answer;
     }
 
+    /**
+     * Metodi asettaa kortille annetun kysymyksen.
+     *
+     * @param question kortille annettava kysymys
+     */
     public void setQuestion(String question) {
         this.question = question;
     }
 
+    /**
+     * Metodi asettaa kortille annetun vastauksen.
+     *
+     * @param answer parametrina kortille annettava vastaus
+     */
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    /**
+     * Metodi palauttaa kortille asetetun luokituksen.
+     *
+     * @return kortin luokitus
+     */
     public int getRating() {
         return rating;
     }
 
+    /**
+     * Metodi asettaa kortille luokituksen Annettava arvo oltava välillä 1-5.
+     *
+     * @param rating parametrina kortille annettava luokitus
+     */
     public void setRating(int rating) {
         if (rating >= 1 && rating <= 5) {
             this.rating = rating;
         }
     }
 
+    /**
+     * Metodi palauttaa kortin id-tunnuksen.
+     *
+     * @return kortin id-tunnus
+     */
     public int getId() {
         return this.id;
     }
 
+    /**
+     * Metodi vaihtaa kortille asetetun kysymyksen ja vastauksen keskenään.
+     */
     public void swap() {
         String question = this.question;
         String answer = this.answer;
@@ -66,6 +107,15 @@ public class Flashcard implements Comparable<Flashcard> {
         this.answer = question;
     }
 
+    /**
+     * Metodi vertailee metodia käyttävää korttioliota ja parametrina annettua
+     * korttioliota keskenään tarkistaakseen ovatko ne sama kortti.
+     *
+     * @param flashcard parametrina annettu toinen kortti johon tämän
+     * korttiolion tietoja verrataan
+     * @return true, jos kortit ovat keskenään samat tai false jos kortit eivät
+     * ole samat.
+     */
     @Override
     public boolean equals(Object flashcard) {
         if (flashcard == null) {
@@ -82,6 +132,11 @@ public class Flashcard implements Comparable<Flashcard> {
         return this.question.equals(thatFlashcard.question) && this.answer.equals(thatFlashcard.answer);
     }
 
+    /**
+     * Metodi antaa kortille hajautusarvon
+     *
+     * @return kortin hajautusarvo
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -90,6 +145,18 @@ public class Flashcard implements Comparable<Flashcard> {
         return hash;
     }
 
+    /**
+     * Metodi vertailee korttiolion ja parametrina annettavan korttiolion
+     * keskinäistä järjestystä käyttäen korttien luokitusta ja niiden
+     * id-tunnuksia. Järjestyksellä on merkitystä erityisesti
+     * toistovälikertauksessa.
+     *
+     * @param f2 parametrina annettava toinen kortti
+     * @return negatiivinen arvo, jos metodia käyttävä korttiolio on
+     * järjestyksessä aikaisempi, 0 jos kortit ovat järjestykseltään samat ja
+     * positiivinen arvo jos parametrina annettu korttiolio on järjestyksessä
+     * aikaisempi.
+     */
     @Override
     public int compareTo(Flashcard f2) {
         if ((f2.getRating() - this.rating) == 0) {

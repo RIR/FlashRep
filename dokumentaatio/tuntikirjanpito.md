@@ -10,4 +10,5 @@ Päivä | Tunnit | Kuvaus
 21.09.2016 |4h |Koko ohjelman uudelleen tarkastelua ja muokkausta. Suurin osa ajasta meni Javan API:n selailuun ja testien muokkailuun.
 22.09.2016 |2h |Lähinnä kertailin Javan asioita ja varsinkin GUI:n tekemiseen liittyvää materiaalia. Päivitin myös raportit.
 23.09.2016 |5h30min |Luokkakaavion päivitystä joka samalla johti aikamoiseen refaktorointiin. Raportit päivitetty myös. GUI:n tekemisen aloittelua.
+27.09.2016 |3h|Viikkopalautteen luku, ohjelman muokkausta ja Javadocin aloittelua. 
 ... | ... | ...

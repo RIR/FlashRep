@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Raine Rantanen
  */
-public class FlashcardCollection implements Name {
+public class FlashcardCollection {
 
     private String name;
     private List<Flashcard> flashcards;

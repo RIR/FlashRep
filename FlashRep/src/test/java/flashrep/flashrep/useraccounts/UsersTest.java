@@ -99,4 +99,13 @@ public class UsersTest {
             i++;
         }
     }
+
+    @Test
+    public void addUserReturnsFalseIfTryToAddSameUser() {
+        user = new User("k", "p");
+        assertEquals(true, users.addUser(user));
+
+        User newUser = new User("k", "p");
+        assertEquals(false, users.addUser(newUser));
+    }
 }

@@ -1,10 +1,13 @@
 package flashrep.flashrep.gui;
 
+import java.awt.Component;
 import java.awt.GridLayout;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -16,16 +19,28 @@ import javax.swing.JTextField;
 public class SignInMenuPanel extends JPanel {
 
     public SignInMenuPanel() {
-        super(new GridLayout(0, 2));
+        BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
+        this.setLayout(layout);
         initComponents();
     }
 
     //Luodaan valikon komponentit
     private void initComponents() {
         // luodaan komponentit
+
+        //Aloitusruudun teksti luodaan, keskitetään ja lisätään
+        JLabel label1 = new JLabel("Kirjaudu tai luo tunnus");
+        label1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(label1);
+
+        //Lisätään paneeli paneelin sisälle jotta saadaan haluttu tyyli
+        JPanel signInMenuPanel = new JPanel(new GridLayout(0, 2));
+        add(signInMenuPanel);
+
         JLabel usernameText = new JLabel("Käyttäjätunnus");
-        JTextField usernameField = new JTextField();
+        JTextField usernameField = new JTextField(20);
         JButton signInOrCreateUserButton = new JButton("Kirjaudu");
+        signInOrCreateUserButton.setActionCommand("pushed");
 
         //Jos on jo tunnukset
         JLabel areUaUserText = new JLabel("Onko sinulla jo käyttäjätunnus?");
@@ -33,7 +48,7 @@ public class SignInMenuPanel extends JPanel {
         JRadioButton isUserButton = new JRadioButton("Kyllä, salasanani on:");
         isUserButton.setActionCommand("isUser");
         isUserButton.setSelected(true);
-        JTextField isUserPasswordField = new JTextField();
+        JPasswordField isUserPasswordField = new JPasswordField(20);
 
         //Kun ei ole vielä tunnuksia
         JRadioButton isNotUserButton = new JRadioButton("Ei, haluan luoda tunnukset!");
@@ -44,11 +59,11 @@ public class SignInMenuPanel extends JPanel {
          */
         JLabel newPasswordText = new JLabel("Keksi salasana:");
         newPasswordText.setVisible(false);
-        JTextField newPasswordField = new JTextField();
+        JPasswordField newPasswordField = new JPasswordField(20);
         newPasswordField.setVisible(false);
         JLabel repeatPasswordText = new JLabel("Toista salasana:");
         repeatPasswordText.setVisible(false);
-        JTextField repeatPasswordField = new JTextField();
+        JPasswordField repeatPasswordField = new JPasswordField(20);
         repeatPasswordField.setVisible(false);
 
         //Lisätään valintanapit ryhmään
@@ -57,27 +72,27 @@ public class SignInMenuPanel extends JPanel {
         buttonGroup.add(isNotUserButton);
 
         //lisätään komponentit
-        add(usernameText);
-        add(usernameField);
-        add(areUaUserText);
-        add(empty);
-        add(isUserButton);
-        add(isUserPasswordField);
-        add(isNotUserButton);
-        add(new JLabel(""));
-        add(newPasswordText);
-        add(newPasswordField);
-        add(repeatPasswordText);
-        add(repeatPasswordField);
-        add(new JLabel(""));
-        add(new JLabel(""));
-        add(new JLabel(""));
-        add(signInOrCreateUserButton);
+        signInMenuPanel.add(usernameText);
+        signInMenuPanel.add(usernameField);
+        signInMenuPanel.add(areUaUserText);
+        signInMenuPanel.add(empty);
+        signInMenuPanel.add(isUserButton);
+        signInMenuPanel.add(isUserPasswordField);
+        signInMenuPanel.add(isNotUserButton);
+        signInMenuPanel.add(new JLabel(""));
+        signInMenuPanel.add(newPasswordText);
+        signInMenuPanel.add(newPasswordField);
+        signInMenuPanel.add(repeatPasswordText);
+        signInMenuPanel.add(repeatPasswordField);
+        signInMenuPanel.add(new JLabel(""));
+        signInMenuPanel.add(new JLabel(""));
+        signInMenuPanel.add(new JLabel(""));
+        signInMenuPanel.add(signInOrCreateUserButton);
 
         //lisätään kuuntelija      
         SignInMenuListener listener = new SignInMenuListener(isUserPasswordField, newPasswordText, newPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton);
         isUserButton.addActionListener(listener);
         isNotUserButton.addActionListener(listener);
-
+        signInOrCreateUserButton.addActionListener(listener);
     }
 }

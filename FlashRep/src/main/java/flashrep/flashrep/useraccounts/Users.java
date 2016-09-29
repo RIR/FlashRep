@@ -26,10 +26,12 @@ public class Users {
      *
      * @param user Parametrina annettava käyttäjä
      */
-    public void addUser(User user) {
+    public boolean addUser(User user) {
         if (!this.users.contains(user)) {
             this.users.add(user);
+            return true;
         }
+        return false;
     }
 
     /**

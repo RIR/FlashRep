@@ -108,4 +108,9 @@ public class AllFlashcardCollectionsTest {
         listOfFlashcardCollections.setName("Joku muu");
         assertEquals("Joku muu", listOfFlashcardCollections.getName());
     }
+    
+    @Test
+    public void toStringReturnsName() {
+        assertEquals("Joku", listOfFlashcardCollections.toString());
+    }
 }

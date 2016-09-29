@@ -1,8 +1,11 @@
 package flashrep.flashrep.gui;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
 /**
@@ -30,7 +33,15 @@ public class GUI implements Runnable {
     }
 
     private void initComponents(Container container) {
-
+        //Käyttöliittymän asetteluksi BoxLayout
+        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+        container.setLayout(layout);
+        //Aloitusruudun teksti luodaan, keskitetään ja lisätään
+        JLabel label1 = new JLabel("Kirjaudu tai luo tunnus");
+        label1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        container.add(label1);
+        // lisätään kirjautumisvalikko
+        container.add(new SignInMenuPanel());
     }
 
     public JFrame getFrame() {

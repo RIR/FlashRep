@@ -108,4 +108,9 @@ public class UserTest {
         user.setOwnCollections(someoneElsesCollections.getCollections());
         assertEquals(user.getOwnCollections(), someoneElsesCollections.getCollections());
     }
+
+    @Test
+    public void toStringReturnsUserame() {
+        assertEquals("user", user.toString());
+    }
 }

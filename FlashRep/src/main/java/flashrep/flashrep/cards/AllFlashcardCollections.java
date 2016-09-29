@@ -111,8 +111,8 @@ public class AllFlashcardCollections {
     }
 
     /**
-     * Metodi vertailee metodia käyttävää kokoelmalistausta ja parametrina annettavaa
-     * kokoelmalistausta keskenään tarkistaakseen ovatko ne sama
+     * Metodi vertailee metodia käyttävää kokoelmalistausta ja parametrina
+     * annettavaa kokoelmalistausta keskenään tarkistaakseen ovatko ne sama
      * kokoelmalistaus.
      *
      * @param allFlashcardCollections Parametrina annettava kokoelmalistaus
@@ -138,6 +138,11 @@ public class AllFlashcardCollections {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 
 }

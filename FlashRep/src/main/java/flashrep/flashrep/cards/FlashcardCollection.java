@@ -8,7 +8,6 @@ import java.util.Objects;
  *
  * @author Raine Rantanen
  */
-
 /**
  * Luokka tarjoaa metodeita korttikokoelman käsittelyyn.
  */
@@ -18,7 +17,9 @@ public class FlashcardCollection {
     private List<Flashcard> flashcards;
 
     /**
-     * Luokan konstruktori, asettaa korttikokoelmalle parametrina annettavan nimen.
+     * Luokan konstruktori, asettaa korttikokoelmalle parametrina annettavan
+     * nimen.
+     *
      * @param name Parametrina annettava nimi
      */
     public FlashcardCollection(String name) {
@@ -28,14 +29,16 @@ public class FlashcardCollection {
 
     /**
      * Metodi lisää korttikokoelmaan parametrina annettavan kortin.
+     *
      * @param flashcard parametrina annettava kortti
      */
-    public void addCardToCollection(Flashcard flashcard) {       
+    public void addCardToCollection(Flashcard flashcard) {
         this.flashcards.add(flashcard);
     }
 
     /**
      * Metodi poistaa parametrina annettavan kortin korttikokoelmasta.
+     *
      * @param flashcard parametrina annettava kortti
      */
     public void removeCardFromCollection(Flashcard flashcard) {
@@ -55,6 +58,7 @@ public class FlashcardCollection {
 
     /**
      * Metodi palauttaa korttikokoelman List-muodossa.
+     *
      * @return korttikokoelma List-muodossa
      */
     public List<Flashcard> getCards() {
@@ -63,6 +67,7 @@ public class FlashcardCollection {
 
     /**
      * Metodi palauttaa korttikokoelman nimen.
+     *
      * @return korttikokoelman nimi
      */
     public String getName() {
@@ -71,6 +76,7 @@ public class FlashcardCollection {
 
     /**
      * Metodi asettaa korttikokoelmalle parametrina annettavan nimen.
+     *
      * @param name Parametrina annettava nimi
      */
     public void setName(String name) {
@@ -79,6 +85,7 @@ public class FlashcardCollection {
 
     /**
      * Metodi palauttaa korttikokoelman korttien lukumäärän.
+     *
      * @return korttikokoelman korttien lukumäärä
      */
     public int getSize() {
@@ -87,6 +94,7 @@ public class FlashcardCollection {
 
     /**
      * Metodi antaa korttikokoelmalle hajautusarvon ja palauttaa sen.
+     *
      * @return korttikokoelman hajautusarvo
      */
     @Override
@@ -98,11 +106,13 @@ public class FlashcardCollection {
     }
 
     /**
-     * Metodi vertailee keskenään metodia käyttävää korttikokoelmaa ja 
-     * parametrina annettavaa korttikokoelmaa keskenään tarkistaakseen ovatko 
+     * Metodi vertailee keskenään metodia käyttävää korttikokoelmaa ja
+     * parametrina annettavaa korttikokoelmaa keskenään tarkistaakseen ovatko
      * korttikokoelmat sama kokoelma.
+     *
      * @param flashcardcollection parametrina annettava korttikokoelma
-     * @return true jos kokoelmat ovat sama kokoelma ja false jos ne eivät ole sama kokoelma
+     * @return true jos kokoelmat ovat sama kokoelma ja false jos ne eivät ole
+     * sama kokoelma
      */
     @Override
     public boolean equals(Object flashcardcollection) {
@@ -124,4 +134,10 @@ public class FlashcardCollection {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 }

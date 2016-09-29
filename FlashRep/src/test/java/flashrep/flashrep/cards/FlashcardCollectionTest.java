@@ -118,4 +118,9 @@ public class FlashcardCollectionTest {
         cardAdderHelper(9);
         assertEquals(9, flashCardCollection.getSize());
     }
+
+    @Test
+    public void toStringReturnsName() {
+        assertEquals("Suomi-Englanti", flashCardCollection.getName());
+    }
 }

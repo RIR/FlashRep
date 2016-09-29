@@ -1,10 +1,6 @@
 package flashrep.flashrep;
 
-import flashrep.flashrep.cards.Flashcard;
-import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.gui.GUI;
-import flashrep.flashrep.logic.SpacedRepetition;
-import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
 /**

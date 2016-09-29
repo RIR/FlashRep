@@ -20,7 +20,9 @@ public class User {
     private List<FlashcardCollection> ownCollections;
 
     /**
-     * Luokan konstruktori joka asettaa käyttäjälle parametreina annettavat käyttäjätunnuksen ja salasanan.
+     * Luokan konstruktori joka asettaa käyttäjälle parametreina annettavat
+     * käyttäjätunnuksen ja salasanan.
+     *
      * @param userName parametrina annettava käyttäjätunnus
      * @param password parametrina annettava salasana
      */
@@ -29,9 +31,10 @@ public class User {
         this.password = password;
         this.ownCollections = new ArrayList<>();
     }
-    
+
     /**
      * Metodi palauttaa käyttäjän käyttäjätunnuksen.
+     *
      * @return käyttäjätunnus
      */
     public String getUserName() {
@@ -40,6 +43,7 @@ public class User {
 
     /**
      * Metodi asettaa käyttäjälle parametrina annettavan käyttäjätunnuksen.
+     *
      * @param userName parametrina annettava käyttäjätunnus
      */
     public void setUserName(String userName) {
@@ -48,6 +52,7 @@ public class User {
 
     /**
      * Metodi palauttaa käyttäjän salasanan.
+     *
      * @return käyttäjän salasana
      */
     public String getPassword() {
@@ -56,6 +61,7 @@ public class User {
 
     /**
      * Metodi asettaa käyttäjälle parametrina annettavan salasanan.
+     *
      * @param password parametrina annettava salasana
      */
     public void setPassword(String password) {
@@ -63,7 +69,9 @@ public class User {
     }
 
     /**
-     * Metodi asettaa parametrina annettavalle kortille parametrina annettavan luokituksen.
+     * Metodi asettaa parametrina annettavalle kortille parametrina annettavan
+     * luokituksen.
+     *
      * @param flashcard parametrina annettava kortti
      * @param rating parametrina annettava luokitus
      */
@@ -72,7 +80,9 @@ public class User {
     }
 
     /**
-     * Metodi lisää parametrina annettavan korttikokoelman käyttäjän omaan kokoelmalistaukseen.
+     * Metodi lisää parametrina annettavan korttikokoelman käyttäjän omaan
+     * kokoelmalistaukseen.
+     *
      * @param flashcardCollection parametrina annettava korttikokoelma
      */
     public void addToOwnCollections(FlashcardCollection flashcardCollection) {
@@ -80,7 +90,9 @@ public class User {
     }
 
     /**
-     * Metodi poistaa parametrina annettavan korttikokoelman käyttäjän omasta kokoelmalistauksesta.
+     * Metodi poistaa parametrina annettavan korttikokoelman käyttäjän omasta
+     * kokoelmalistauksesta.
+     *
      * @param flashcardCollection parametrina annettava korttikokoelma
      */
     public void removeFromOwnCollections(FlashcardCollection flashcardCollection) {
@@ -89,6 +101,7 @@ public class User {
 
     /**
      * Metodi palauttaa käyttäjän kokoelmalistauksen LIST-muodossa.
+     *
      * @return käyttäjän kokoelmalistaus LIST-muodossa
      */
     public List<FlashcardCollection> getOwnCollections() {
@@ -96,7 +109,9 @@ public class User {
     }
 
     /**
-     * Metodi asettaa parametrina annettavan kokoelmalistauksen käyttäjän kokoelmalistaukseksi.
+     * Metodi asettaa parametrina annettavan kokoelmalistauksen käyttäjän
+     * kokoelmalistaukseksi.
+     *
      * @param collections parametrina annettava kokoelmalistaus List-muodossa
      */
     public void setOwnCollections(List<FlashcardCollection> collections) {
@@ -105,6 +120,7 @@ public class User {
 
     /**
      * Metodi asettaa käyttäjälle hajautusarvon ja palauttaa sen.
+     *
      * @return käyttäjän hajautusarvo
      */
     @Override
@@ -115,9 +131,12 @@ public class User {
     }
 
     /**
-     * Metodi vertailee metodia käyttävän käyttäjän ja parametrina annettavan käyttäjän yhtäläisyyttä.
+     * Metodi vertailee metodia käyttävän käyttäjän ja parametrina annettavan
+     * käyttäjän yhtäläisyyttä.
+     *
      * @param user parametrina annettava käyttäjä
-     * @return true, jos käyttäjät ovat sama käyttäjä, false jos käyttäjät eivät ole sama käyttäjä.
+     * @return true, jos käyttäjät ovat sama käyttäjä, false jos käyttäjät eivät
+     * ole sama käyttäjä.
      */
     @Override
     public boolean equals(Object user) {
@@ -140,4 +159,8 @@ public class User {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return this.userName;
+    }
 }

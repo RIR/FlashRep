@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.text.View;
 
 /**
  *
@@ -18,7 +19,10 @@ import javax.swing.JTextField;
 //Kirjautumisvalikko
 public class SignInMenuPanel extends JPanel {
 
-    public SignInMenuPanel() {
+    Views views;
+
+    public SignInMenuPanel(Views views) {
+        this.views = views;
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
         initComponents();
@@ -90,7 +94,7 @@ public class SignInMenuPanel extends JPanel {
         signInMenuPanel.add(signInOrCreateUserButton);
 
         //lisätään kuuntelija      
-        SignInMenuListener listener = new SignInMenuListener(isUserPasswordField, newPasswordText, newPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton);
+        SignInMenuListener listener = new SignInMenuListener(isUserPasswordField, newPasswordText, newPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, this.views);
         isUserButton.addActionListener(listener);
         isNotUserButton.addActionListener(listener);
         signInOrCreateUserButton.addActionListener(listener);

@@ -10,7 +10,9 @@ import javax.swing.JTextField;
  *
  * @author Raine Rantanen
  */
-//Käyttäjävalikko
+/*Käyttäjävalikko, toistaiseksi vaan kopsattu toisesta valikosta
+näkymien välillä liikkumisen testailua varten
+*/
 public class UserMenuPanel extends JPanel {
 
     public UserMenuPanel() {

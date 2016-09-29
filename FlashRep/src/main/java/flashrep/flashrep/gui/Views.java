@@ -16,21 +16,26 @@ import javax.swing.JPanel;
  * @author Raine Rantanen
  */
 public class Views extends JPanel {
-    final static String signInMenuPanel = "Sign in view";
-    final static String userMenuPanel = "Users personal view";
+    final static String signInMenuPanel = "Sign in menu";
+    final static String userMenuPanel = "User menu";
+    private CardLayout cardLayout;
 
     public Views() {
-        super(new CardLayout());
+        cardLayout=new CardLayout();
+        this.setLayout(cardLayout);
         initComponents();
     }
 
     //Luodaan valikon komponentit
     private void initComponents() {
         // luodaan komponentit
-        JPanel view1 = new SignInMenuPanel();
+        JPanel view1 = new SignInMenuPanel(this);
         JPanel view2 = new UserMenuPanel();
         add(view1, signInMenuPanel);
         add (view2, userMenuPanel);
         
+    }
+    public void switchToView(String view){
+     cardLayout.show(this, view);
     }
 }

@@ -11,5 +11,5 @@ Päivä | Tunnit | Kuvaus
 22.09.2016 |2h |Lähinnä kertailin Javan asioita ja varsinkin GUI:n tekemiseen liittyvää materiaalia. Päivitin myös raportit.
 23.09.2016 |5h30min |Luokkakaavion päivitystä joka samalla johti aikamoiseen refaktorointiin. Raportit päivitetty myös. GUI:n tekemisen aloittelua.
 27.09.2016 |3h|Viikkopalautteen luku, ohjelman muokkausta ja Javadocin aloittelua. 
-29.09.2016 |8h|GUIn vääntöä, joka edistyy erittäin hitaasti. Jumissa aika ajoin ja iso aika menee selaillessa oppaita.
+29.09.2016 |8h|GUIn vääntöä, joka edistyy erittäin hitaasti. Jumissa aika ajoin ja iso aika menee selaillessa oppaita. 
 ... | ... | ...

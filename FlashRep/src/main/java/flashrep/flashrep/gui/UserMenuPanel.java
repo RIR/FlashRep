@@ -14,9 +14,10 @@ import javax.swing.JTextField;
 näkymien välillä liikkumisen testailua varten
 */
 public class UserMenuPanel extends JPanel {
-
-    public UserMenuPanel() {
+  Views views;
+    public UserMenuPanel(Views views) {   
         super(new GridLayout(0, 2));
+           this.views=views;
         initComponents();
     }
 

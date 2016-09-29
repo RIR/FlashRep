@@ -6,9 +6,6 @@
 package flashrep.flashrep.gui;
 
 import java.awt.CardLayout;
-import java.awt.GridLayout;
-import java.awt.event.ItemEvent;
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 /**
@@ -30,7 +27,7 @@ public class Views extends JPanel {
     private void initComponents() {
         // luodaan komponentit
         JPanel view1 = new SignInMenuPanel(this);
-        JPanel view2 = new UserMenuPanel();
+        JPanel view2 = new UserMenuPanel(this);
         add(view1, signInMenuPanel);
         add (view2, userMenuPanel);
         

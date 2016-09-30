@@ -1,5 +1,6 @@
 package flashrep.flashrep.gui;
 
+import flashrep.flashrep.useraccounts.Users;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
@@ -19,7 +20,7 @@ import javax.swing.text.View;
 //Kirjautumisvalikko
 public class SignInMenuPanel extends JPanel {
 
-    Views views;
+    private Views views;
 
     public SignInMenuPanel(Views views) {
         this.views = views;
@@ -61,10 +62,10 @@ public class SignInMenuPanel extends JPanel {
         /*Uuden käyttäjän salasanan luonti on aluksi piilossa 
         kunnes käyttäjä ilmoittaa, ettei hänellä ole tunnuksia
          */
-        JLabel newPasswordText = new JLabel("Keksi salasana:");
-        newPasswordText.setVisible(false);
-        JPasswordField newPasswordField = new JPasswordField(20);
-        newPasswordField.setVisible(false);
+        JLabel createPasswordText = new JLabel("Keksi salasana:");
+        createPasswordText.setVisible(false);
+        JPasswordField createPasswordField = new JPasswordField(20);
+        createPasswordField.setVisible(false);
         JLabel repeatPasswordText = new JLabel("Toista salasana:");
         repeatPasswordText.setVisible(false);
         JPasswordField repeatPasswordField = new JPasswordField(20);
@@ -84,8 +85,8 @@ public class SignInMenuPanel extends JPanel {
         signInMenuPanel.add(isUserPasswordField);
         signInMenuPanel.add(isNotUserButton);
         signInMenuPanel.add(new JLabel(""));
-        signInMenuPanel.add(newPasswordText);
-        signInMenuPanel.add(newPasswordField);
+        signInMenuPanel.add(createPasswordText);
+        signInMenuPanel.add(createPasswordField);
         signInMenuPanel.add(repeatPasswordText);
         signInMenuPanel.add(repeatPasswordField);
         signInMenuPanel.add(new JLabel(""));
@@ -94,7 +95,7 @@ public class SignInMenuPanel extends JPanel {
         signInMenuPanel.add(signInOrCreateUserButton);
 
         //lisätään kuuntelija      
-        SignInMenuListener listener = new SignInMenuListener(isUserPasswordField, newPasswordText, newPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, this.views);
+        SignInMenuListener listener = new SignInMenuListener(usernameField, isUserPasswordField, createPasswordText, createPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, this.views);
         isUserButton.addActionListener(listener);
         isNotUserButton.addActionListener(listener);
         signInOrCreateUserButton.addActionListener(listener);

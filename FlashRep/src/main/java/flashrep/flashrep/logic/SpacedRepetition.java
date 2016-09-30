@@ -73,7 +73,7 @@ public class SpacedRepetition implements RepetitionLogic {
     }
 
     //Yksityinen metodi ei JavaDociin??
-    public boolean isRemovedFromRotation() {
+    private boolean isRemovedFromRotation() {
         return removeFromRotation;
     }
 
@@ -84,10 +84,10 @@ public class SpacedRepetition implements RepetitionLogic {
         this.removeFromRotation = true;
     }
 
-    /**
+       /**
      * Metodi poistaa kaikki kortit toistojonosta.
      */
-    public void removeAllCardsFromRotation() {
+    private void removeAllCardsFromRotation() {
         this.rotationQueue.clear();
     }
 

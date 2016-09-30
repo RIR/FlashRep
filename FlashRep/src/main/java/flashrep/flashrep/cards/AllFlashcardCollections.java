@@ -104,9 +104,11 @@ public class AllFlashcardCollections {
      *
      * @return kokoelmalistauksen hajautusarvo
      */
-    @Override
+    @Override  
     public int hashCode() {
         int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.flashcardCollections);
+        hash = 61 * hash + Objects.hashCode(this.name);
         return hash;
     }
 

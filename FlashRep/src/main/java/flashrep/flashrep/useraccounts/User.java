@@ -153,9 +153,6 @@ public class User {
         if (!Objects.equals(this.userName, other.userName)) {
             return false;
         }
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
         return true;
     }
 

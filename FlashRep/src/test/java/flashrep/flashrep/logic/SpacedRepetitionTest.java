@@ -53,7 +53,7 @@ public class SpacedRepetitionTest {
         }
     }
 
-    private void placecardToCorrectPlaceHelper(int cards) {
+    private void placecardToCorrectPlaceHelper(int cards, SpacedRepetition spacedRepetition) {
         for (int i = 1; i <= cards; i++) {
             Flashcard flashcard = new Flashcard("Kysymys", "Vastaus");
             flashcard.setRating(i);
@@ -74,40 +74,19 @@ public class SpacedRepetitionTest {
     }
 
     @Test
-    public void showCardWorksWithSingleCard() {
-        spacedRepetition.removeAllCardsFromRotation();
-        flashcardCollection.removeAllCardsFromCollection();
+    public void showCardWorksWithSingleCard() {  
         addCardsIntoCollectionHelper(1, flashcardCollection);
         spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         assertEquals(flashcardCollection.getCards().get(0), spacedRepetition.showCard());
     }
 
     @Test
-    public void showCardWorksWithMultipleCards() {
-        spacedRepetition.removeAllCardsFromRotation();
-        flashcardCollection.removeAllCardsFromCollection();
+    public void showCardWorksWithMultipleCards() {     
         addCardsIntoCollectionHelper(10, flashcardCollection);
         spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         for (int i = 0; i < 10; i++) {
             assertEquals(flashcardCollection.getCards().get(i), spacedRepetition.showCard());
         }
-    }
-
-    @Test
-    public void removeFromRotationIsWorking() {
-        assertEquals(false, spacedRepetition.isRemovedFromRotation());
-
-        spacedRepetition.removeFromRotation();
-        assertEquals(true, spacedRepetition.isRemovedFromRotation());
-    }
-
-    @Test
-    public void removeAllCardsFromRotationIsWorking() {
-        spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
-        assertNotEquals(null, spacedRepetition.showCard());
-
-        spacedRepetition.removeAllCardsFromRotation();
-        assertEquals(null, spacedRepetition.showCard());
     }
 
     @Test
@@ -124,8 +103,7 @@ public class SpacedRepetitionTest {
 
     @Test
     public void insertCardIntoRotationGivesRightOrderWhenCardsRated() {
-        spacedRepetition.removeAllCardsFromRotation();
-
-        placecardToCorrectPlaceHelper(5);
+        flashcardCollection.removeAllCardsFromCollection();
+        placecardToCorrectPlaceHelper(5, new SpacedRepetition(flashcardCollection));
     }
 }

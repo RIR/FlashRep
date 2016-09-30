@@ -39,9 +39,4 @@ public interface RepetitionLogic {
      * Metodi poistaa metodia käyttävän kortin toistojonosta.
      */
     public void removeFromRotation();
-
-    /**
-     * Metodi poistaa kaikki kortit toistojonosta.
-     */
-    public void removeAllCardsFromRotation();
 }

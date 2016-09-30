@@ -22,12 +22,13 @@ public class Users {
     }
 
     /**
-     * Metodi lisää parametrina annettavan käyttäjän käyttäjälistaukseen.
+     * Metodi lisää parametrina annettavan käyttäjän käyttäjälistaukseen ja
+     * palauttaa true jos lisäys onnistui, false jos lisäys ei onnistunut.
      *
      * @param user Parametrina annettava käyttäjä
      */
     public boolean addUser(User user) {
-        if (!this.users.contains(user)) {
+        if (!containsUser(user)) {
             this.users.add(user);
             return true;
         }
@@ -36,6 +37,7 @@ public class Users {
 
     /**
      * Metodi poistaa parametrina annettavan käyttäjän käyttäjälistauksesta.
+     *
      * @param user Parametrina annettava käyttäjä
      */
     public void removeUser(User user) {
@@ -53,6 +55,7 @@ public class Users {
 
     /**
      * Metodi palauttaa käyttäjälistauksen käyttäjien lukumäärän.
+     *
      * @return käyttäjien lukumäärä
      */
     public int getUsercount() {
@@ -61,9 +64,23 @@ public class Users {
 
     /**
      * Metodi palauttaa käyttäjälistauksen List-muodossa.
+     *
      * @return käyttäjät List-muodossa
      */
     public List<User> getUsers() {
         return users;
+    }
+
+    /**
+     * Metodi palauttaa true jos käyttäjä löytyy käyttäjälistauksesta, muuten
+     * false.
+     *
+     * @return true jos käyttäjä löytyy, false jos käyttäjää ei löydy
+     */
+    public boolean containsUser(User user) {
+        if (this.users.contains(user)) {
+            return true;
+        }
+        return false;
     }
 }

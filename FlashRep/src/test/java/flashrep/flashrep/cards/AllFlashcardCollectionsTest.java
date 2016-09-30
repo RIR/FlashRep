@@ -7,6 +7,7 @@ package flashrep.flashrep.cards;
  */
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -112,5 +113,5 @@ public class AllFlashcardCollectionsTest {
     @Test
     public void toStringReturnsName() {
         assertEquals("Joku", listOfFlashcardCollections.toString());
-    }
+    }   
 }

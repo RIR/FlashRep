@@ -1,5 +1,6 @@
 package flashrep.flashrep.gui;
 
+import flashrep.flashrep.useraccounts.Users;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
@@ -15,9 +16,8 @@ import javax.swing.WindowConstants;
  * @author Raine Rantanen
  */
 public class GUI implements Runnable {
-
     private JFrame frame;
-
+    
     public GUI() {
     }
 

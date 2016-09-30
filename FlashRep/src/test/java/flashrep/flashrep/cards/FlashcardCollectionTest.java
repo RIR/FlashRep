@@ -120,7 +120,14 @@ public class FlashcardCollectionTest {
     }
 
     @Test
-    public void toStringReturnsName() {
-        assertEquals("Suomi-Englanti", flashCardCollection.getName());
+    public void setNameSetsName() {
+        flashCardCollection.setName("Nimi");
+        assertEquals("Nimi", flashCardCollection.getName());
     }
+
+    @Test
+    public void toStringReturnsName() {
+        assertEquals("Suomi-Englanti", flashCardCollection.toString());
+    }
+
 }

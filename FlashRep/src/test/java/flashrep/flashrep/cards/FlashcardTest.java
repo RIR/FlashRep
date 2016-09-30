@@ -67,6 +67,12 @@ public class FlashcardTest {
     }
 
     @Test
+    public void setRatingSetsRatingWithCorrectValue() {
+        flashcard.setRating(3);
+        assertEquals(3, flashcard.getRating());
+    }
+
+    @Test
     public void setRatingWillNotSetRatingWithNumberTooLow() {
         flashcard.setRating(0);
         assertEquals(1, flashcard.getRating());
@@ -109,4 +115,15 @@ public class FlashcardTest {
         assertEquals(flashcard.hashCode(), secondFlashcard.hashCode());
     }
 
+    @Test
+    public void setQuestionSetsQuestion() {
+        flashcard.setQuestion("Mitä?");
+        assertEquals("Mitä?", flashcard.getQuestion());
+    }
+
+    @Test
+    public void setAnswerSetsAnswer() {
+        flashcard.setAnswer("Sitä!");
+        assertEquals("Sitä!", flashcard.getAnswer());
+    }
 }

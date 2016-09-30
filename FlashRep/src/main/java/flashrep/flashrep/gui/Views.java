@@ -18,7 +18,7 @@ public class Views extends JPanel {
     final static String signInMenuPanel = "Sign in menu";
     // Käyttäjävalikko
     final static String userMenuPanel = "User menu";
-    
+
     private CardLayout cardLayout;
     private Users users;
     private AllFlashcardCollections allFlashcardCollections;
@@ -33,9 +33,9 @@ public class Views extends JPanel {
     public Views(Users users, AllFlashcardCollections allFlashcardCollections) {
         cardLayout = new CardLayout();
         this.setLayout(cardLayout);
-        initComponents();
         this.users = users;
         this.allFlashcardCollections = allFlashcardCollections;
+        initComponents();
     }
 
     private void initComponents() {

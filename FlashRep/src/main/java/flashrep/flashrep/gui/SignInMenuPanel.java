@@ -35,9 +35,9 @@ public class SignInMenuPanel extends JPanel {
     public SignInMenuPanel(Views views, Users users) {
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
-        initComponents();
         this.views = views;
         this.users = users;
+        initComponents();
     }
 
     //Luodaan valikon komponentit

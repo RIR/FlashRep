@@ -15,7 +15,7 @@ public class Users {
     private List<User> users;
 
     /**
-     * Luokan konstruktori.
+     * Luokan konstruktori joka luo listan käyttäjiä varten.
      */
     public Users() {
         users = new ArrayList<>();
@@ -27,12 +27,10 @@ public class Users {
      *
      * @param user Parametrina annettava käyttäjä
      */
-    public boolean addUser(User user) {
+    public void addUser(User user) {
         if (!containsUser(user)) {
             this.users.add(user);
-            return true;
         }
-        return false;
     }
 
     /**
@@ -41,7 +39,7 @@ public class Users {
      * @param user Parametrina annettava käyttäjä
      */
     public void removeUser(User user) {
-        if (this.users.contains(user)) {
+        if (containsUser(user)) {
             this.users.remove(user);
         }
     }
@@ -75,6 +73,7 @@ public class Users {
      * Metodi palauttaa true jos käyttäjä löytyy käyttäjälistauksesta, muuten
      * false.
      *
+     * @param user Käyttäjä
      * @return true jos käyttäjä löytyy, false jos käyttäjää ei löydy
      */
     public boolean containsUser(User user) {

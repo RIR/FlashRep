@@ -9,6 +9,7 @@ import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.cards.Flashcard;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -128,6 +129,24 @@ public class FlashcardCollectionTest {
     @Test
     public void toStringReturnsName() {
         assertEquals("Suomi-Englanti", flashCardCollection.toString());
+    }
+
+    @Test
+    public void hashIsCorrect() {
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(flashCardCollection.getName());
+        hash = 53 * hash + Objects.hashCode(flashCardCollection.getCards());
+        assertEquals(hash, flashCardCollection.hashCode());
+    }
+
+    @Test
+    public void equalsIsWorking() {
+        FlashcardCollection newCollection = new FlashcardCollection("Suomi-Englanti");
+        assertEquals(flashCardCollection, newCollection);
+        flashCardCollection.addCardToCollection(flashcard);
+        assertNotEquals(flashCardCollection, newCollection);
+        newCollection.addCardToCollection(flashcard);
+        assertEquals(flashCardCollection, newCollection);
     }
 
 }

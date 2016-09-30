@@ -84,7 +84,7 @@ public class SpacedRepetition implements RepetitionLogic {
         this.removeFromRotation = true;
     }
 
-       /**
+    /**
      * Metodi poistaa kaikki kortit toistojonosta.
      */
     private void removeAllCardsFromRotation() {

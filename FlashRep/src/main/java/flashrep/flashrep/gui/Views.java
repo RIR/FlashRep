@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package flashrep.flashrep.gui;
 
 import flashrep.flashrep.cards.AllFlashcardCollections;
@@ -14,39 +9,50 @@ import javax.swing.JPanel;
  *
  * @author Raine Rantanen
  */
+/**
+ * JPanel luokka CardLayoutilla eri ikkunanäkymiä varten.
+ */
 public class Views extends JPanel {
 
+    // Kirjautumisvalikko
     final static String signInMenuPanel = "Sign in menu";
+    // Käyttäjävalikko
     final static String userMenuPanel = "User menu";
+    
     private CardLayout cardLayout;
     private Users users;
     private AllFlashcardCollections allFlashcardCollections;
 
-    public Views() {
+    /**
+     * Luokan konstruktori joka injektoi näkymien käyttöön parametreina
+     * annettavat oliot.
+     *
+     * @param users Käyttäjälistaus
+     * @param allFlashcardCollections Kokoelmalistaus
+     */
+    public Views(Users users, AllFlashcardCollections allFlashcardCollections) {
         cardLayout = new CardLayout();
         this.setLayout(cardLayout);
         initComponents();
-        this.users = new Users();
-        this.allFlashcardCollections=new AllFlashcardCollections();
+        this.users = users;
+        this.allFlashcardCollections = allFlashcardCollections;
     }
 
-    //Luodaan valikon komponentit
     private void initComponents() {
-        // luodaan komponentit
-        JPanel view1 = new SignInMenuPanel(this);
+        // luodaan näkymät ja lisätään ne käyttöön
+        JPanel view1 = new SignInMenuPanel(this, users);
         JPanel view2 = new UserMenuPanel(this);
         add(view1, signInMenuPanel);
         add(view2, userMenuPanel);
 
     }
 
+    /**
+     * Metodi vaihtaa ikkunanäkymää annetun parametrin perusteella.
+     *
+     * @param view Näytettävä ikkunanäkymä
+     */
     public void switchToView(String view) {
         cardLayout.show(this, view);
     }
-
-    public Users users() {
-        return users;
-    }
-    
-    
 }

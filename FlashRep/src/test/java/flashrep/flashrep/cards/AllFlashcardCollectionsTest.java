@@ -109,9 +109,28 @@ public class AllFlashcardCollectionsTest {
         listOfFlashcardCollections.setName("Joku muu");
         assertEquals("Joku muu", listOfFlashcardCollections.getName());
     }
-    
+
     @Test
     public void toStringReturnsName() {
         assertEquals("Joku", listOfFlashcardCollections.toString());
-    }   
+    }
+
+    @Test
+    public void hashIsCorrect() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(listOfFlashcardCollections.getCollections());
+        hash = 61 * hash + Objects.hashCode(listOfFlashcardCollections.getName());
+        assertEquals(hash, listOfFlashcardCollections.hashCode());
+    }
+
+    @Test
+    public void equalsIsWorking() {
+        AllFlashcardCollections newListOfCollections = new AllFlashcardCollections("Joku");
+        assertEquals(listOfFlashcardCollections, newListOfCollections);
+        listOfFlashcardCollections.addCollection(flashcardCollection);
+        assertNotEquals(listOfFlashcardCollections, newListOfCollections);
+        newListOfCollections.addCollection(flashcardCollection);
+        assertEquals(listOfFlashcardCollections, newListOfCollections);
+    }
+
 }

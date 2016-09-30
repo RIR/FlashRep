@@ -74,6 +74,12 @@ public class SpacedRepetitionTest {
     }
 
     @Test
+    public void showCardReturnsNullIfRotationQueueIsEmpty() {  
+       flashcardCollection.removeAllCardsFromCollection();
+       spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
+        assertEquals(null, spacedRepetition.showCard());
+    }
+    @Test
     public void showCardWorksWithSingleCard() {  
         addCardsIntoCollectionHelper(1, flashcardCollection);
         spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);

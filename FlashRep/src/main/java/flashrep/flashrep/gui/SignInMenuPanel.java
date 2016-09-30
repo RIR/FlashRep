@@ -17,21 +17,31 @@ import javax.swing.text.View;
  *
  * @author Raine Rantanen
  */
-//Kirjautumisvalikko
+/**
+ * JPanelin toiminnot perivä luokka joka toteuttaa kirjautumisvalikon.
+ */
 public class SignInMenuPanel extends JPanel {
 
     private Views views;
+    private Users users;
 
-    public SignInMenuPanel(Views views) {
-        this.views = views;
+    /**
+     * Luokan konstruktori joka injektoi näkymän käyttöön parametreina
+     * annettavat oliot.
+     *
+     * @param views Ikkunanäkymät
+     * @param users Käyttäjälistaus
+     */
+    public SignInMenuPanel(Views views, Users users) {
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
         initComponents();
+        this.views = views;
+        this.users = users;
     }
 
     //Luodaan valikon komponentit
     private void initComponents() {
-        // luodaan komponentit
 
         //Aloitusruudun teksti luodaan, keskitetään ja lisätään
         JLabel label1 = new JLabel("Kirjaudu tai luo tunnus");
@@ -42,22 +52,26 @@ public class SignInMenuPanel extends JPanel {
         JPanel signInMenuPanel = new JPanel(new GridLayout(0, 2));
         add(signInMenuPanel);
 
+        //Luodaan tekstit, kentät ja painikkeet
         JLabel usernameText = new JLabel("Käyttäjätunnus");
         JTextField usernameField = new JTextField(20);
-        JButton signInOrCreateUserButton = new JButton("Kirjaudu");
-        signInOrCreateUserButton.setActionCommand("pushed");
 
-        //Jos on jo tunnukset
         JLabel areUaUserText = new JLabel("Onko sinulla jo käyttäjätunnus?");
         JLabel empty = new JLabel("");
+
+        //Jos on jo tunnukset
         JRadioButton isUserButton = new JRadioButton("Kyllä, salasanani on:");
-        isUserButton.setActionCommand("isUser");
+
         isUserButton.setSelected(true);
         JPasswordField isUserPasswordField = new JPasswordField(20);
 
         //Kun ei ole vielä tunnuksia
         JRadioButton isNotUserButton = new JRadioButton("Ei, haluan luoda tunnukset!");
-        isNotUserButton.setActionCommand("isNotUser");
+
+        //Lisätään valintanapit ryhmään
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(isUserButton);
+        buttonGroup.add(isNotUserButton);
 
         /*Uuden käyttäjän salasanan luonti on aluksi piilossa 
         kunnes käyttäjä ilmoittaa, ettei hänellä ole tunnuksia
@@ -71,12 +85,15 @@ public class SignInMenuPanel extends JPanel {
         JPasswordField repeatPasswordField = new JPasswordField(20);
         repeatPasswordField.setVisible(false);
 
-        //Lisätään valintanapit ryhmään
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(isUserButton);
-        buttonGroup.add(isNotUserButton);
+        //Kirjautuminen/tunnusten luontipainike
+        JButton signInOrCreateUserButton = new JButton("Kirjaudu");
 
-        //lisätään komponentit
+        //Komentotunnisteet kuuntelijaa varten 
+        isUserButton.setActionCommand("isUser");
+        isNotUserButton.setActionCommand("isNotUser");
+        signInOrCreateUserButton.setActionCommand("pushed");
+
+        //lisätään komponentit paneeliin
         signInMenuPanel.add(usernameText);
         signInMenuPanel.add(usernameField);
         signInMenuPanel.add(areUaUserText);
@@ -94,8 +111,8 @@ public class SignInMenuPanel extends JPanel {
         signInMenuPanel.add(new JLabel(""));
         signInMenuPanel.add(signInOrCreateUserButton);
 
-        //lisätään kuuntelija      
-        SignInMenuListener listener = new SignInMenuListener(usernameField, isUserPasswordField, createPasswordText, createPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, this.views);
+        //lisätään kuuntelija ja asetetaan se eri painikkeille      
+        SignInMenuListener listener = new SignInMenuListener(usernameField, isUserPasswordField, createPasswordText, createPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, views, users);
         isUserButton.addActionListener(listener);
         isNotUserButton.addActionListener(listener);
         signInOrCreateUserButton.addActionListener(listener);

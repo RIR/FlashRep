@@ -25,8 +25,6 @@ public class FlashRepApp {
         this.allFlashcardCollections = new AllFlashcardCollections();
     }
     
-    
-    
     /**
      * Metodi käynnistää ohjelman käyttämän käyttöliittymän.
      */

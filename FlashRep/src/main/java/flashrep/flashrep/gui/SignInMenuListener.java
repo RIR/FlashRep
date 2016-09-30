@@ -87,26 +87,27 @@ public class SignInMenuListener implements ActionListener {
             this.repeatPasswordField.setVisible(false);
             this.signInOrCreateUserButton.setText("Kirjaudu");
         }
-        //Jos nappia on painettu
-        if (ac.equals("pushed")) {
-            //Jos napin toiminto oli tunnusten luonti
-            if (signInOrCreateUserButton.getText().equals("Luo tunnukset")) {
+        //Jos on painettu nappia tunnusten luontia varten
+        if (ac.equals("pushed") && signInOrCreateUserButton.getText().equals("Luo tunnukset")) {
 
-                //jos joku on kentistä tyhjä, näytetään virheviesti
-                if (fieldIsEmpty(usernameField) || fieldIsEmpty(createPasswordField) || fieldIsEmpty(repeatPasswordField)) {
-                    JOptionPane.showMessageDialog(views, "Et täyttänyt kaikkia kenttiä!");
+            //jos joku on kentistä tyhjä, näytetään virheviesti
+            if (fieldIsEmpty(usernameField) || fieldIsEmpty(createPasswordField) || fieldIsEmpty(repeatPasswordField)) {
+                JOptionPane.showMessageDialog(views, "Et täyttänyt kaikkia kenttiä!");
 
-                    //Jos luotava salasana ja sen kertaus eivät täsmää näytetään virheviesti.
-                } else if (!fieldsAreEqual(createPasswordField, repeatPasswordField)) {
-                    JOptionPane.showMessageDialog(views, "Salasanat eivät täsmänneet");
+                //Jos luotava salasana ja sen kertaus eivät täsmää näytetään virheviesti.
+            } else if (!fieldsAreEqual(createPasswordField, repeatPasswordField)) {
+                JOptionPane.showMessageDialog(views, "Salasanat eivät täsmänneet");
 
-                    //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon
+            } else {
+                //Luodaan käyttäjä
+                User user = new User(this.usernameField.getText(), "jotain");
+                //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon
+                if (!this.users.containsUser(user)) {
+                    this.users.addUser(user);
+                    this.views.switchToView("UserMenu");
+                    //Jos käyttäjätunnus on jo varattu
                 } else {
-                    User user = new User(this.usernameField.getText(), "jotain");
-                    if (!this.users.containsUser(user)) {
-                        this.users.addUser(user);
-                        this.views.switchToView("User menu");
-                    }
+                    JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
                 }
             }
         }

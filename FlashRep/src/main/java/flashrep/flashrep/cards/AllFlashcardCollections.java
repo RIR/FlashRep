@@ -17,7 +17,7 @@ public class AllFlashcardCollections {
     private String name;
 
     /**
-     * Luokan konstruktori
+     * Luokan konstruktori.
      */
     public AllFlashcardCollections() {
         this.flashcardCollections = new ArrayList<>();

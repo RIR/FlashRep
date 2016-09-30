@@ -8,7 +8,7 @@
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit-raportti] ( https://htmlpreview.github.io/?https://github.com/RIR/FlashRep/blob/master/dokumentaatio/pit-raportti/201609231841/index.html)
+[pit-raportti] ( https://htmlpreview.github.io/?https://github.com/RIR/FlashRep/blob/master/dokumentaatio/pit-raportti/201609301920/index.html)
 
 [CheckStyle-raportti] ( https://htmlpreview.github.io/?https://github.com/RIR/FlashRep/blob/master/dokumentaatio/checkstyle-raportti/site/checkstyle.html)
 

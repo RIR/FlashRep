@@ -12,13 +12,17 @@ import javax.swing.JTextField;
  *
  * @author Raine Rantanen
  */
-/*Käyttäjävalikko, toistaiseksi vaan kopsattu toisesta valikosta
-näkymien välillä liikkumisen testailua varten
+/**
+ * Käyttäjävalikkoluokka.
  */
 public class UserMenuPanel extends JPanel {
 
     private Views views;
 
+    /**
+     * Luokan konstruktori joka saa injektoituna näkymiä hallitsevan Views-luokan olion.
+     * @param views Views-luokan olio
+     */
     public UserMenuPanel(Views views) {
         this.views = views;
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);

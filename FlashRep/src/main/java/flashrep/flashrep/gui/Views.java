@@ -15,9 +15,9 @@ import javax.swing.JPanel;
 public class Views extends JPanel {
 
     // Kirjautumisvalikko
-    final static String signInMenuPanel = "Sign in menu";
+    final static String SIGNINMENUPANEL = "SignInMenu";
     // Käyttäjävalikko
-    final static String userMenuPanel = "User menu";
+    final static String USERMENUPANEL = "UserMenu";
 
     private CardLayout cardLayout;
     private Users users;
@@ -42,8 +42,8 @@ public class Views extends JPanel {
         // luodaan näkymät ja lisätään ne käyttöön
         JPanel view1 = new SignInMenuPanel(this, users);
         JPanel view2 = new UserMenuPanel(this);
-        add(view1, signInMenuPanel);
-        add(view2, userMenuPanel);
+        add(view1, SIGNINMENUPANEL);
+        add(view2, USERMENUPANEL);
 
     }
 

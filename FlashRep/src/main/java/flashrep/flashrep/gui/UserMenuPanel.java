@@ -42,5 +42,10 @@ public class UserMenuPanel extends JPanel {
         //Lisätään paneeli paneelin sisälle jotta saadaan haluttu tyyli
         JPanel userMenuPanel = new JPanel(new GridLayout(0, 2));
         add(userMenuPanel);
+        
+        JButton signOutButton = new JButton("Kirjaudu ulos");
+        userMenuPanel.add(signOutButton);
+        UserMenuListener listener = new UserMenuListener(views, signOutButton);
+        signOutButton.addActionListener(listener);
     }
 }

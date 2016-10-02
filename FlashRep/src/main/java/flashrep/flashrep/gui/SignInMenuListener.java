@@ -76,8 +76,8 @@ public class SignInMenuListener implements ActionListener {
             this.repeatPasswordText.setVisible(true);
             this.repeatPasswordField.setVisible(true);
             this.signInOrCreateUserButton.setText("Luo tunnukset");
-            
-        //Jos käyttäjä ja haluaa kirjautua sisään
+
+            //Jos käyttäjä ja haluaa kirjautua sisään
         } else if (ac.equals("isUser")) {
             this.isUserPasswordField.setEditable(true);
             this.createPasswordText.setVisible(false);
@@ -101,11 +101,12 @@ public class SignInMenuListener implements ActionListener {
                 
             } else {
                 //Luodaan käyttäjä
-                User user = new User(this.usernameField.getText(), this.createPasswordField.getPassword().toString());
-                //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon
+                User user = new User(this.usernameField.getText(), String.valueOf(this.createPasswordField.getPassword()));
+                //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon ja tyhjennetään kentät
                 if (!this.users.containsUser(user)) {
                     this.users.addUser(user);
                     this.views.switchToView("UserMenu");
+                       clearFields();
                     //Jos käyttäjätunnus on jo varattu näytetään viesti
                 } else {
                     JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
@@ -115,15 +116,16 @@ public class SignInMenuListener implements ActionListener {
         //Jos kirjautumisnappia painetaan
         if (ac.equals("pushed") && signInOrCreateUserButton.getText().equals("Kirjaudu")) {
             //Luodaan käyttäjä
-            User user = new User(this.usernameField.getText(), this.createPasswordField.getPassword().toString());
+            User user = new User(this.usernameField.getText(), String.valueOf(this.isUserPasswordField.getPassword()));
             //Jos käyttäjä löytyy käyttäjälistauksesta ja salasana on oikein
-            if (this.users.containsUser(user) && this.users.getUser(user).getPassword().equals(this.createPasswordField.getPassword().toString())) {
-                //siirrytään käyttäjävalikkoon
+            if (this.users.containsUser(user) && this.users.getUser(user).getPassword().equals(String.valueOf(this.isUserPasswordField.getPassword()))) {
+                //siirrytään käyttäjävalikkoon ja tyhjennetään kentät
                 this.views.switchToView("UserMenu");
+                   clearFields();
             } else {
                 JOptionPane.showMessageDialog(views, "Käyttäjätunnus tai salasana on väärin!");
             }
-        }
+        }   
     }
 
     // Jos kenttä on tyhjä
@@ -140,5 +142,13 @@ public class SignInMenuListener implements ActionListener {
             return true;
         }
         return false;
+    }
+    
+    //Tyhjennä kentät
+    private void clearFields() {
+        this.usernameField.setText("");        
+        this.isUserPasswordField.setText("");
+        this.createPasswordField.setText("");
+        this.repeatPasswordField.setText("");
     }
 }

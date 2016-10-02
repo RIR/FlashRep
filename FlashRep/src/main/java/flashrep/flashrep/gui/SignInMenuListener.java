@@ -2,16 +2,13 @@ package flashrep.flashrep.gui;
 
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.text.View;
 
 /**
  *
@@ -21,7 +18,7 @@ import javax.swing.text.View;
  * Luokka joka toteuttaa kirjautumisvalikon toimintojen kuuntelun.
  */
 public class SignInMenuListener implements ActionListener {
-
+    
     private JTextField usernameField;
     private JPasswordField isUserPasswordField;
     private JLabel createPasswordText;
@@ -72,19 +69,23 @@ public class SignInMenuListener implements ActionListener {
 
         //Jos uusi käyttäjä ja haluaa luoda tunnukset
         if (ac.equals("isNotUser")) {
+            this.isUserPasswordField.setText("");
             this.isUserPasswordField.setEditable(false);
             this.createPasswordText.setVisible(true);
             this.createPasswordField.setVisible(true);
             this.repeatPasswordText.setVisible(true);
             this.repeatPasswordField.setVisible(true);
             this.signInOrCreateUserButton.setText("Luo tunnukset");
-
+            
+        //Jos käyttäjä ja haluaa kirjautua sisään
         } else if (ac.equals("isUser")) {
             this.isUserPasswordField.setEditable(true);
             this.createPasswordText.setVisible(false);
             this.createPasswordField.setVisible(false);
+            this.createPasswordField.setText("");
             this.repeatPasswordText.setVisible(false);
             this.repeatPasswordField.setVisible(false);
+            this.repeatPasswordField.setText("");
             this.signInOrCreateUserButton.setText("Kirjaudu");
         }
         //Jos on painettu nappia tunnusten luontia varten
@@ -97,18 +98,30 @@ public class SignInMenuListener implements ActionListener {
                 //Jos luotava salasana ja sen kertaus eivät täsmää näytetään virheviesti.
             } else if (!fieldsAreEqual(createPasswordField, repeatPasswordField)) {
                 JOptionPane.showMessageDialog(views, "Salasanat eivät täsmänneet");
-
+                
             } else {
                 //Luodaan käyttäjä
-                User user = new User(this.usernameField.getText(), "jotain");
+                User user = new User(this.usernameField.getText(), this.createPasswordField.getPassword().toString());
                 //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon
                 if (!this.users.containsUser(user)) {
                     this.users.addUser(user);
                     this.views.switchToView("UserMenu");
-                    //Jos käyttäjätunnus on jo varattu
+                    //Jos käyttäjätunnus on jo varattu näytetään viesti
                 } else {
                     JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
                 }
+            }
+        }
+        //Jos kirjautumisnappia painetaan
+        if (ac.equals("pushed") && signInOrCreateUserButton.getText().equals("Kirjaudu")) {
+            //Luodaan käyttäjä
+            User user = new User(this.usernameField.getText(), this.createPasswordField.getPassword().toString());
+            //Jos käyttäjä löytyy käyttäjälistauksesta ja salasana on oikein
+            if (this.users.containsUser(user) && this.users.getUser(user).getPassword().equals(this.createPasswordField.getPassword().toString())) {
+                //siirrytään käyttäjävalikkoon
+                this.views.switchToView("UserMenu");
+            } else {
+                JOptionPane.showMessageDialog(views, "Käyttäjätunnus tai salasana on väärin!");
             }
         }
     }

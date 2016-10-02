@@ -99,4 +99,20 @@ public class UsersTest {
             i++;
         }
     }
+
+    @Test
+    public void GetUserGetsUserIfUserAdded() {
+        user = new User("user", "password");
+        users.addUser(user);
+        assertEquals(user, users.getUser(user));
+    }
+
+    @Test
+    public void GetUserReturnsNullWhenUserNotInList() {
+        user = new User("user", "password");
+        users.addUser(user);
+        users.removeAllUsers();
+        assertEquals(null, users.getUser(user));
+    }
+
 }

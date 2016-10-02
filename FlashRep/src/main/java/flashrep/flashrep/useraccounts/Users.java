@@ -61,6 +61,24 @@ public class Users {
     }
 
     /**
+     * Metodi palauttaa parametrina annettavan käyttäjän
+     * jos käyttäjä löytyy käyttäjälistauksesta tai null jos 
+     * käyttäjää ei löydy.
+     * @param user Haettava käyttäjä
+     * @return käyttäjä jos haettava käyttäjä löytyy tai null jos käyttäjää ei löydy
+     */
+    public User getUser(User user) {
+        if (containsUser(user)) {
+            for (User u : this.users) {
+                if (u.equals(user)) {
+                    return u;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * Metodi palauttaa käyttäjälistauksen List-muodossa.
      *
      * @return käyttäjät List-muodossa

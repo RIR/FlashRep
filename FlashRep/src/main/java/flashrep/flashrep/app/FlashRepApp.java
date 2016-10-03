@@ -1,4 +1,4 @@
-package flashrep.flashrep;
+package flashrep.flashrep.app;
 
 import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.gui.GUI;

@@ -1,4 +1,4 @@
-package flashrep.flashrep;
+package flashrep.flashrep.app;
 
 import flashrep.flashrep.useraccounts.User;
 import javax.swing.JPasswordField;

@@ -101,6 +101,7 @@ public class SignInMenuListener implements ActionListener {
                 
             } else {
                 //Luodaan käyttäjä
+                     
                 User user = new User(this.usernameField.getText(), String.valueOf(this.createPasswordField.getPassword()));
                 //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon ja tyhjennetään kentät
                 if (!this.users.containsUser(user)) {

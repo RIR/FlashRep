@@ -21,7 +21,9 @@ public class Controller {
      */
     public Controller() {
         this.users = new Users();
+        this.user = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
+        
     }
 
     /**
@@ -63,6 +65,6 @@ public class Controller {
      * @return Ohjelman tämänhetkinen käyttäjä
      */
     public User currentUser() {
-        return this.user;
+        return this.user;      
     }
 }

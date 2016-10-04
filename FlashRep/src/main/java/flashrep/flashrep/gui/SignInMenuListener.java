@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  * Luokka joka toteuttaa kirjautumisvalikon toimintojen kuuntelun.
  */
 public class SignInMenuListener implements ActionListener {
-    
+
     private JTextField usernameField;
     private JPasswordField isUserPasswordField;
     private JLabel createPasswordText;
@@ -28,7 +28,7 @@ public class SignInMenuListener implements ActionListener {
     private Views views;
     private Controller controller;
 
-        /**
+    /**
      * Luokan konstruktori joka injektoi kuuntelijan käyttöön parametreina
      * annettavat oliot.
      *
@@ -45,7 +45,6 @@ public class SignInMenuListener implements ActionListener {
      * @param views Views-paneeli ikkunanäkymien vaihtoa varten
      * @param controller kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    
     public SignInMenuListener(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, Views views, Controller controller) {
         this.usernameField = usernameField;
         this.isUserPasswordField = isUserPasswordField;
@@ -57,6 +56,7 @@ public class SignInMenuListener implements ActionListener {
         this.views = views;
         this.controller = controller;
     }
+
     /**
      * Metodi reagoi Käyttäjävalikon toimintoihin.
      *
@@ -97,29 +97,27 @@ public class SignInMenuListener implements ActionListener {
                 //Jos luotava salasana ja sen kertaus eivät täsmää näytetään virheviesti.
             } else if (!fieldsAreEqual(createPasswordField, repeatPasswordField)) {
                 JOptionPane.showMessageDialog(views, "Salasanat eivät täsmänneet");
-                
-            } else {          
-                //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon ja tyhjennetään kentät
-                if (this.controller.canAddNewUser(usernameField.getText(), createPasswordField.getPassword())) {             
-                    this.views.switchToView("UserMenu");
-                       clearFields();
-                    //Jos käyttäjätunnus on jo varattu näytetään viesti
-                } else {
-                    JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
-                }
+
+            } else //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon ja tyhjennetään kentät
+            if (this.controller.canAddNewUser(usernameField.getText(), createPasswordField.getPassword())) {
+                this.views.switchToView("UserMenu");
+                clearFields();
+                //Jos käyttäjätunnus on jo varattu näytetään viesti
+            } else {
+                JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
             }
         }
         //Jos kirjautumisnappia painetaan
         if (ac.equals("pushed") && signInOrCreateUserButton.getText().equals("Kirjaudu")) {
             //Jos käyttäjä löytyy käyttäjälistauksesta ja salasana on oikein
             if (this.controller.canSignInUser(usernameField.getText(), isUserPasswordField.getPassword())) {
-                //siirrytään käyttäjävalikkoon ja tyhjennetään kentät
+                //siirrytään käyttäjävalikkoon ja tyhjennetään kentät            
                 this.views.switchToView("UserMenu");
-                   clearFields();
+                clearFields();
             } else {
                 JOptionPane.showMessageDialog(views, "Käyttäjätunnus tai salasana on väärin!");
             }
-        }   
+        }
     }
 
     // Jos kenttä on tyhjä
@@ -131,10 +129,10 @@ public class SignInMenuListener implements ActionListener {
     private boolean fieldsAreEqual(JTextField field1, JTextField field2) {
         return field1.getText().equals(field2.getText());
     }
-    
+
     //Tyhjennä kentät
     private void clearFields() {
-        this.usernameField.setText("");        
+        this.usernameField.setText("");
         this.isUserPasswordField.setText("");
         this.createPasswordField.setText("");
         this.repeatPasswordField.setText("");

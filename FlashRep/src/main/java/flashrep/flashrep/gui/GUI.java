@@ -3,6 +3,7 @@ package flashrep.flashrep.gui;
 import flashrep.flashrep.logic.Controller;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -46,6 +47,7 @@ public class GUI implements Runnable {
     private void initComponents(Container container) {
         // lisätään näkymät
         Views views = new Views(controller);
+        views.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
         container.add(views);
     }
 

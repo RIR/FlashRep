@@ -4,6 +4,7 @@ import flashrep.flashrep.logic.Controller;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -53,13 +54,14 @@ public class UserMenuPanel extends JPanel {
         }
 
         //Lisätään kömpelösti paneeleja jotta saadaan jotenkin haluttu näkö
-        JPanel userMenuPanel = new JPanel(new GridLayout(2, 0, 10, 10));
-        JPanel listAndListButtonsPanel = new JPanel(new GridLayout(0, 2, 10, 10));
-        JPanel listButtonsPanel = new JPanel(new GridLayout(2, 0, 10, 10));
-        JPanel studyAndSignOutButtonsPanel = new JPanel(new GridLayout(2, 2, 10, 10));
+        JPanel userMenuPanel = new JPanel(new GridLayout(0, 2, 10, 10));
+        JPanel listPanel = new JPanel();
+        BoxLayout layout = new BoxLayout(listPanel, BoxLayout.Y_AXIS);
+        listPanel.setLayout(layout);
+        JPanel buttonsPanel = new JPanel(new GridLayout(4, 0, 10, 10));
 
-        userMenuPanel.add(listAndListButtonsPanel);
-        userMenuPanel.add(studyAndSignOutButtonsPanel);
+        userMenuPanel.add(listPanel);
+        userMenuPanel.add(buttonsPanel);
         add(userMenuPanel);
 
         this.collectionlist = new JList(this.controller.getCollectionsInArray()); //data has type Object[]
@@ -69,7 +71,6 @@ public class UserMenuPanel extends JPanel {
         this.collectionlist.setFixedCellHeight(20);
         this.collectionlist.setFixedCellWidth(140);
         JScrollPane listScroller = new JScrollPane(collectionlist);
-        listScroller.setPreferredSize(new Dimension(250, 80));
 
         JLabel ownCollectionsLabel = new JLabel("Omat kokoelmat");
         JButton StudyNowButton = new JButton("Opiskele nyt");
@@ -77,16 +78,14 @@ public class UserMenuPanel extends JPanel {
         JButton createNewCollectionButton = new JButton("Luo uusi kokoelma");
         JButton signOutButton = new JButton("Kirjaudu ulos");
 
-        //Lisätään komponentit 
-        listAndListButtonsPanel.add(listScroller);
-        listAndListButtonsPanel.add(listButtonsPanel);
-        listButtonsPanel.add(createNewCollectionButton);
-        listButtonsPanel.add(removeCollectionButton);
+        ownCollectionsLabel.setAlignmentX(CENTER_ALIGNMENT);
+        listPanel.add(ownCollectionsLabel);
+        listPanel.add(listScroller);
 
-        studyAndSignOutButtonsPanel.add(new JLabel(""));
-        studyAndSignOutButtonsPanel.add(new JLabel(""));
-        studyAndSignOutButtonsPanel.add(StudyNowButton);
-        studyAndSignOutButtonsPanel.add(signOutButton);
+        buttonsPanel.add(createNewCollectionButton);
+        buttonsPanel.add(removeCollectionButton);
+        buttonsPanel.add(StudyNowButton);
+        buttonsPanel.add(signOutButton);
 
         UserMenuListener listener = new UserMenuListener(views, controller, signOutButton);
         signOutButton.addActionListener(listener);

@@ -1,7 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.cards.AllFlashcardCollections;
-import flashrep.flashrep.useraccounts.Users;
+import flashrep.flashrep.logic.Controller;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -20,28 +19,23 @@ public class Views extends JPanel {
     final static String USERMENUPANEL = "UserMenu";
 
     private CardLayout cardLayout;
-    private Users users;
-    private AllFlashcardCollections allFlashcardCollections;
+    private Controller controller;
 
     /**
-     * Luokan konstruktori joka injektoi näkymien käyttöön parametreina
-     * annettavat oliot.
-     *
-     * @param users Käyttäjälistaus
-     * @param allFlashcardCollections Kokoelmalistaus
+     * Luokan konstruktori joka injektoi näkymien käyttöön kontrollerin.
+     * @param controller Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public Views(Users users, AllFlashcardCollections allFlashcardCollections) {
+    public Views(Controller controller) {
         cardLayout = new CardLayout();
         this.setLayout(cardLayout);
-        this.users = users;
-        this.allFlashcardCollections = allFlashcardCollections;
+        this.controller=controller;
         initComponents();
     }
 
     private void initComponents() {
         // luodaan näkymät ja lisätään ne käyttöön
-        JPanel view1 = new SignInMenuPanel(this, users);
-        JPanel view2 = new UserMenuPanel(this);
+        JPanel view1 = new SignInMenuPanel(this, controller);
+        JPanel view2 = new UserMenuPanel(this, controller);
         add(view1, SIGNINMENUPANEL);
         add(view2, USERMENUPANEL);
 

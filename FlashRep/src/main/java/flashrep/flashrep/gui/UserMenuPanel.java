@@ -1,5 +1,6 @@
 package flashrep.flashrep.gui;
 
+import flashrep.flashrep.logic.Controller;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
@@ -18,13 +19,15 @@ import javax.swing.JTextField;
 public class UserMenuPanel extends JPanel {
 
     private Views views;
+    private Controller controller;
 
     /**
      * Luokan konstruktori joka saa injektoituna näkymiä hallitsevan Views-luokan olion.
      * @param views Views-luokan olio
      */
-    public UserMenuPanel(Views views) {
+    public UserMenuPanel(Views views, Controller controller) {
         this.views = views;
+        this.controller=controller;
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
         initComponents();
@@ -42,6 +45,7 @@ public class UserMenuPanel extends JPanel {
         //Lisätään paneeli paneelin sisälle jotta saadaan haluttu tyyli
         JPanel userMenuPanel = new JPanel(new GridLayout(0, 2));
         add(userMenuPanel);
+        
         
         JButton signOutButton = new JButton("Kirjaudu ulos");
         userMenuPanel.add(signOutButton);

@@ -1,8 +1,7 @@
 package flashrep.flashrep.app;
 
-import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.gui.GUI;
-import flashrep.flashrep.useraccounts.Users;
+import flashrep.flashrep.logic.Controller;
 import javax.swing.SwingUtilities;
 
 /**
@@ -13,23 +12,20 @@ import javax.swing.SwingUtilities;
  * Luokka jossa luodaan ohjelman tarvitsemat toiminnot.
 */
 public class FlashRepApp {
-
-    private Users users;
-    private AllFlashcardCollections allFlashcardCollections;
+    private Controller controller;
 
     /**
      * Luokan konstruktori.
      */
     public FlashRepApp() {
-        this.users = new Users();
-        this.allFlashcardCollections = new AllFlashcardCollections();
+        this.controller=new Controller();
     }
     
     /**
      * Metodi käynnistää ohjelman käyttämän käyttöliittymän.
      */
     public void start() {
-        GUI gui = new GUI(users, allFlashcardCollections);
+        GUI gui = new GUI(this.controller);
         SwingUtilities.invokeLater(gui);
     }
     

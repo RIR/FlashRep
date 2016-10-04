@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.useraccounts.Users;
+import flashrep.flashrep.logic.Controller;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.text.View;
 
 /**
  *
@@ -23,20 +22,19 @@ import javax.swing.text.View;
 public class SignInMenuPanel extends JPanel {
 
     private Views views;
-    private Users users;
+    private Controller controller;
 
     /**
-     * Luokan konstruktori joka injektoi näkymän käyttöön parametreina
-     * annettavat oliot.
+     * Luokan konstruktori joka injektoi kontrollerin.
      *
      * @param views Ikkunanäkymät
-     * @param users Käyttäjälistaus
+     * @param controller  Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public SignInMenuPanel(Views views, Users users) {
+    public SignInMenuPanel(Views views, Controller controller) {
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
-        this.views = views;
-        this.users = users;
+        this.views=views;
+        this.controller=controller;
         initComponents();
     }
 
@@ -112,7 +110,7 @@ public class SignInMenuPanel extends JPanel {
         signInMenuPanel.add(signInOrCreateUserButton);
 
         //lisätään kuuntelija ja asetetaan se eri painikkeille      
-        SignInMenuListener listener = new SignInMenuListener(usernameField, isUserPasswordField, createPasswordText, createPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, views, users);
+        SignInMenuListener listener = new SignInMenuListener(usernameField, isUserPasswordField, createPasswordText, createPasswordField, repeatPasswordText, repeatPasswordField, signInOrCreateUserButton, views, controller);
         isUserButton.addActionListener(listener);
         isNotUserButton.addActionListener(listener);
         signInOrCreateUserButton.addActionListener(listener);

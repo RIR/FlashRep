@@ -1,7 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.useraccounts.User;
-import flashrep.flashrep.useraccounts.Users;
+import flashrep.flashrep.logic.Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -27,9 +26,9 @@ public class SignInMenuListener implements ActionListener {
     private JPasswordField repeatPasswordField;
     private JButton signInOrCreateUserButton;
     private Views views;
-    private Users users;
+    private Controller controller;
 
-    /**
+        /**
      * Luokan konstruktori joka injektoi kuuntelijan käyttöön parametreina
      * annettavat oliot.
      *
@@ -44,9 +43,10 @@ public class SignInMenuListener implements ActionListener {
      * @param signInOrCreateUserButton Käyttäjävalikon painike
      * kirjautumiseen/tunnusten luontiin
      * @param views Views-paneeli ikkunanäkymien vaihtoa varten
-     * @param users Käyttäjälistaus
+     * @param controller kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public SignInMenuListener(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, Views views, Users users) {
+    
+    public SignInMenuListener(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, Views views, Controller controller) {
         this.usernameField = usernameField;
         this.isUserPasswordField = isUserPasswordField;
         this.createPasswordText = createPasswordText;
@@ -55,9 +55,8 @@ public class SignInMenuListener implements ActionListener {
         this.repeatPasswordField = repeatPasswordField;
         this.signInOrCreateUserButton = signInOrCreateUserButton;
         this.views = views;
-        this.users = users;
+        this.controller = controller;
     }
-
     /**
      * Metodi reagoi Käyttäjävalikon toimintoihin.
      *
@@ -99,13 +98,9 @@ public class SignInMenuListener implements ActionListener {
             } else if (!fieldsAreEqual(createPasswordField, repeatPasswordField)) {
                 JOptionPane.showMessageDialog(views, "Salasanat eivät täsmänneet");
                 
-            } else {
-                //Luodaan käyttäjä
-                     
-                User user = new User(this.usernameField.getText(), String.valueOf(this.createPasswordField.getPassword()));
+            } else {          
                 //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon ja tyhjennetään kentät
-                if (!this.users.containsUser(user)) {
-                    this.users.addUser(user);
+                if (this.controller.canAddNewUser(usernameField.getText(), createPasswordField.getPassword())) {             
                     this.views.switchToView("UserMenu");
                        clearFields();
                     //Jos käyttäjätunnus on jo varattu näytetään viesti
@@ -116,10 +111,8 @@ public class SignInMenuListener implements ActionListener {
         }
         //Jos kirjautumisnappia painetaan
         if (ac.equals("pushed") && signInOrCreateUserButton.getText().equals("Kirjaudu")) {
-            //Luodaan käyttäjä
-            User user = new User(this.usernameField.getText(), String.valueOf(this.isUserPasswordField.getPassword()));
             //Jos käyttäjä löytyy käyttäjälistauksesta ja salasana on oikein
-            if (this.users.containsUser(user) && this.users.getUser(user).getPassword().equals(String.valueOf(this.isUserPasswordField.getPassword()))) {
+            if (this.controller.canSignInUser(usernameField.getText(), isUserPasswordField.getPassword())) {
                 //siirrytään käyttäjävalikkoon ja tyhjennetään kentät
                 this.views.switchToView("UserMenu");
                    clearFields();
@@ -131,18 +124,12 @@ public class SignInMenuListener implements ActionListener {
 
     // Jos kenttä on tyhjä
     private boolean fieldIsEmpty(JTextField field) {
-        if (field.getText().trim().equals("")) {
-            return true;
-        }
-        return false;
+        return field.getText().trim().equals("");
     }
 
     //Jos kentät ovat yhtäläiset
     private boolean fieldsAreEqual(JTextField field1, JTextField field2) {
-        if (field1.getText().equals(field2.getText())) {
-            return true;
-        }
-        return false;
+        return field1.getText().equals(field2.getText());
     }
     
     //Tyhjennä kentät

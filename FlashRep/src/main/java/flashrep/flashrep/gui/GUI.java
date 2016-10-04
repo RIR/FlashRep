@@ -47,7 +47,7 @@ public class GUI implements Runnable {
     private void initComponents(Container container) {
         // lisätään näkymät
         Views views = new Views(controller);
-        views.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
+        views.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
         container.add(views);
     }
 

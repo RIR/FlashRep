@@ -28,10 +28,12 @@ public class UserMenuPanel extends JPanel {
     private JList collectionlist;
 
     /**
-     * Luokan konstruktori joka saa injektoituna näkymiä hallitsevan
-     * Views-luokan olion.
+     * Luokan konstruktori jolle annetaan parametreina näkymiä hallitseva
+     * Views-luokan olio sekä kortti- ja käyttäjäluokkia hallinnoiva
+     * kontrolleri.
      *
      * @param views Views-luokan olio
+     * @param controller Kontrolleri
      */
     public UserMenuPanel(Views views, Controller controller) {
         this.views = views;
@@ -53,15 +55,20 @@ public class UserMenuPanel extends JPanel {
             add(new JLabel("\n"));
         }
 
-        //Lisätään kömpelösti paneeleja jotta saadaan jotenkin haluttu näkö
+        //Luodaan ja lisätään kömpelösti paneeleja jotta saadaan jotenkin haluttu näkö
         JPanel userMenuPanel = new JPanel(new GridLayout(0, 2, 10, 10));
         JPanel listPanel = new JPanel();
+        JPanel buttonsPanelWrapper = new JPanel();
         BoxLayout layout = new BoxLayout(listPanel, BoxLayout.Y_AXIS);
+        BoxLayout layout2 = new BoxLayout(buttonsPanelWrapper, BoxLayout.Y_AXIS);
         listPanel.setLayout(layout);
-        JPanel buttonsPanel = new JPanel(new GridLayout(4, 0, 10, 10));
+        buttonsPanelWrapper.setLayout(layout2);
+        JPanel buttonsPanel = new JPanel(new GridLayout(8, 0, 20, 20));
 
         userMenuPanel.add(listPanel);
-        userMenuPanel.add(buttonsPanel);
+        userMenuPanel.add(buttonsPanelWrapper);
+        buttonsPanelWrapper.add(new JLabel("\n"));
+        buttonsPanelWrapper.add(buttonsPanel);
         add(userMenuPanel);
 
         this.collectionlist = new JList(this.controller.getCollectionsInArray()); //data has type Object[]
@@ -72,6 +79,7 @@ public class UserMenuPanel extends JPanel {
         this.collectionlist.setFixedCellWidth(140);
         JScrollPane listScroller = new JScrollPane(collectionlist);
 
+        // Luodaan tekstit ja painikkeet sekä lisätään ne
         JLabel ownCollectionsLabel = new JLabel("Omat kokoelmat");
         JButton StudyNowButton = new JButton("Opiskele nyt");
         JButton removeCollectionButton = new JButton("Poista omista kokoelmista");
@@ -90,6 +98,5 @@ public class UserMenuPanel extends JPanel {
         UserMenuListener listener = new UserMenuListener(views, controller, signOutButton);
         signOutButton.addActionListener(listener);
 
-        System.out.println(this.controller.currentUser().toString());
     }
 }

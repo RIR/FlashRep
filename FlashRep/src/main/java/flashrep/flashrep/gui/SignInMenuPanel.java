@@ -45,9 +45,9 @@ public class SignInMenuPanel extends JPanel {
         JLabel label1 = new JLabel("Kirjaudu tai luo tunnus");
         label1.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(label1);
-
+      
         //Lisätään paneeli paneelin sisälle jotta saadaan haluttu tyyli
-        JPanel signInMenuPanel = new JPanel(new GridLayout(0, 2));
+        JPanel signInMenuPanel = new JPanel(new GridLayout(0, 2,10,10));
         add(signInMenuPanel);
 
         //Luodaan tekstit, kentät ja painikkeet

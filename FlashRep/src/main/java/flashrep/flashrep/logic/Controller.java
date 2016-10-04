@@ -1,6 +1,8 @@
 package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.AllFlashcardCollections;
+import flashrep.flashrep.cards.Flashcard;
+import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
 
@@ -23,7 +25,7 @@ public class Controller {
         this.users = new Users();
         this.user = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
-        
+
     }
 
     /**
@@ -62,9 +64,21 @@ public class Controller {
 
     /**
      * Metodi palauttaa ohjelman tämänhetkisen käyttäjän.
+     *
      * @return Ohjelman tämänhetkinen käyttäjä
      */
     public User currentUser() {
-        return this.user;      
+        return this.user;
+    }
+
+    public FlashcardCollection[] getCollectionsInArray() {
+        int collectionsCount = this.currentUser().getOwnCollections().size();
+        FlashcardCollection[] flashcardCollectionsArray = this.currentUser().getOwnCollections().toArray(new FlashcardCollection[collectionsCount]);
+        return flashcardCollectionsArray;
+    }
+
+    public User[] getUsersInArray() {
+        User[] usersArray = this.users.getUsers().toArray(new User[this.users.getUsercount()]);
+        return usersArray;
     }
 }

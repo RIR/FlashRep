@@ -17,11 +17,14 @@ public class Views extends JPanel {
     final static String SIGNINMENUPANEL = "SignInMenu";
     // Käyttäjävalikko
     final static String USERMENUPANEL = "UserMenu";
+    //Opiskelunäkymä
+    final static String STUDYPANEL="StudyView";
 
     private CardLayout cardLayout;
     private Controller controller;
     private JPanel view1;
     private JPanel view2;
+    private JPanel view3;
 
     /**
      * Luokan konstruktori joka injektoi näkymien käyttöön kontrollerin.
@@ -39,8 +42,10 @@ public class Views extends JPanel {
         // luodaan näkymät ja lisätään ne käyttöön   
         this.view1 = new SignInMenuPanel(this, this.controller);
         this.view2 = new UserMenuPanel(this, this.controller);
+        this.view3= new StudyViewPanel(this, controller);
         add(view1, SIGNINMENUPANEL);
         add(view2, USERMENUPANEL);
+        add(view3, STUDYPANEL);
 
     }
 
@@ -48,6 +53,7 @@ public class Views extends JPanel {
     private void refreshComponents() {
         this.remove(this.view1);
         this.remove(this.view2);
+        this.remove (this.view3);
         initComponents();
     }
 

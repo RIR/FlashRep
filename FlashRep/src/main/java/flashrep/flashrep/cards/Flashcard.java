@@ -77,12 +77,12 @@ public class Flashcard implements Comparable<Flashcard> {
     }
 
     /**
-     * Metodi asettaa kortille luokituksen Annettava arvo oltava välillä 1-5.
+     * Metodi asettaa kortille luokituksen Annettava arvo oltava välillä 1-4.
      *
      * @param rating parametrina kortille annettava luokitus
      */
     public void setRating(int rating) {
-        if (rating >= 1 && rating <= 5) {
+        if (rating >= 1 && rating <= 4) {
             this.rating = rating;
         }
     }

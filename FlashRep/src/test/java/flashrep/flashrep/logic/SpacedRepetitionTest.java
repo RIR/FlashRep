@@ -110,6 +110,6 @@ public class SpacedRepetitionTest {
     @Test
     public void insertCardIntoRotationGivesRightOrderWhenCardsRated() {
         flashcardCollection.removeAllCardsFromCollection();
-        placecardToCorrectPlaceHelper(5, new SpacedRepetition(flashcardCollection));
+        placecardToCorrectPlaceHelper(4, new SpacedRepetition(flashcardCollection));
     }
 }

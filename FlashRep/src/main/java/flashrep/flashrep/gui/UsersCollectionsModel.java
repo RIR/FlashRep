@@ -12,14 +12,10 @@ import javax.swing.AbstractListModel;
  */
 public class UsersCollectionsModel extends AbstractListModel {
 
-    private Controller controller;
     private List<FlashcardCollection> usersCollections;
-    private User user;
 
-    public UsersCollectionsModel(Controller controller) {
-        this.controller = controller;
-        this.user = this.controller.currentUser();
-        this.usersCollections = this.user.getOwnCollections();
+    public UsersCollectionsModel(List<FlashcardCollection>  usersCollections) {
+        this.usersCollections = usersCollections;
     }
 
     public void addNewCollection(String collectionName) {

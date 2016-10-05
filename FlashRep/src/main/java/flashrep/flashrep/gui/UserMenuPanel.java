@@ -74,7 +74,7 @@ public class UserMenuPanel extends JPanel {
         add(userMenuPanel);
         
         this.collectionlist = new JList(); //data has type Object[]
-        this.model=new UsersCollectionsModel(controller);
+        this.model=this.controller.getCurrentUsersCollections();
         this.collectionlist.setModel(model);
   
         this.collectionlist.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);

@@ -3,6 +3,7 @@ package flashrep.flashrep.logic;
 import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
+import flashrep.flashrep.gui.UsersCollectionsModel;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
 
@@ -17,6 +18,7 @@ public class Controller {
     User currentUser;
     AllFlashcardCollections allFlashcardCollections;
     RepetitionLogic repetitionLogic;
+    UsersCollectionsModel usersCollections;
 
     /**
      * Luokan konstruktori.
@@ -25,6 +27,7 @@ public class Controller {
         this.users = new Users();
         this.currentUser = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
+        this.usersCollections = new UsersCollectionsModel(this.currentUser.getOwnCollections());
     }
 
     /**
@@ -70,5 +73,10 @@ public class Controller {
     public User currentUser() {
         return this.currentUser;
     }
+
+    public UsersCollectionsModel getCurrentUsersCollections() {
+        return usersCollections;
+    }
+    
 
 }

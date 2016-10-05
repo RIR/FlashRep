@@ -3,6 +3,7 @@ package flashrep.flashrep.gui;
 import flashrep.flashrep.logic.Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -21,7 +22,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
     private Views views;
     private Controller controller;
-    private JList collectionlist;
+    private JList collectionList;
     private JButton studyNowButton;
     private JButton createNewCollectionButton;
     private JButton removeCollectionButton;
@@ -34,17 +35,17 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
      *
      * @param views Ikkunanäkymiä hallitseva views-luokan olio
      * @param controller Kontrolleri joka hallinnoi käyttäjä/korttiluokkia
-     * @param collectionlist Kokoelmalistaus
+     * @param collectionList Kokoelmalistaus
      * @param studyNowButton Painike opiskelunäkymään siirtymistä varten
      * @param createNewCollectionButton Painike uuden kokoelmaan luontia varten
      * käyttäjän kokoelmalistaukseen
      * @param removeCollectionButton Painike kokoelman poistamista varten
      * @param signOutButton Uloskirjautumispainike
      */
-    public UserMenuListener(Views views, Controller controller, JList collectionlist, UsersCollectionsModel model, JButton studyNowButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
+    public UserMenuListener(Views views, Controller controller, JList collectionList, UsersCollectionsModel model, JButton studyNowButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
         this.views = views;
         this.controller = controller;
-        this.collectionlist = collectionlist;
+        this.collectionList = collectionList;
         this.model = model;
         this.studyNowButton = studyNowButton;
         this.createNewCollectionButton = createNewCollectionButton;
@@ -67,7 +68,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
             }
         }
         if (ac.equals("remove")) {
-            this.model.removeCollection(collectionlist.getSelectedIndex());
+            this.model.removeCollection(collectionList.getSelectedIndex());
         }
 
         if (ac.equals("signOut")) {
@@ -79,7 +80,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
     public void valueChanged(ListSelectionEvent e) {
         if (e.getValueIsAdjusting() == false) {
 
-            if (collectionlist.getSelectedIndex() == -1) {
+            if (collectionList.getSelectedIndex() == -1) {
                 //No selection, disable fire button.
                 removeCollectionButton.setEnabled(false);
 

@@ -42,8 +42,4 @@ public class UsersCollectionsModel extends AbstractListModel {
     public Object getElementAt(int index) {
         return usersCollections.get(index);
     }
-    public void saveCollectionsForLater(){
-    this.user.setOwnCollections(usersCollections);
-    }
-
 }

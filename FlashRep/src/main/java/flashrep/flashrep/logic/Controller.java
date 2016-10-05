@@ -14,7 +14,7 @@ import flashrep.flashrep.useraccounts.Users;
 public class Controller {
 
     Users users;
-    User user;
+    User currentUser;
     AllFlashcardCollections allFlashcardCollections;
     RepetitionLogic repetitionLogic;
 
@@ -23,7 +23,7 @@ public class Controller {
      */
     public Controller() {
         this.users = new Users();
-        this.user = new User("", "");
+        this.currentUser = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
     }
 
@@ -36,9 +36,9 @@ public class Controller {
      * @return true jos käyttäjän voi lisätä, false jos käyttäjää ei voi lisätä
      */
     public boolean canAddNewUser(String username, char[] password) {
-        this.user = new User(username, String.valueOf(password));
-        if (!this.users.containsUser(user)) {
-            this.users.addUser(user);
+        this.currentUser = new User(username, String.valueOf(password));
+        if (!this.users.containsUser(currentUser)) {
+            this.users.addUser(currentUser);
             return true;
         }
         return false;
@@ -54,8 +54,9 @@ public class Controller {
      * kirjautua, false jos ei voi kirjautua.
      */
     public boolean canSignInUser(String username, char[] password) {
-        this.user = new User(username, String.valueOf(password));
-        if (this.users.containsUser(user) && this.users.getUser(user).getPassword().equals(String.valueOf(password))) {
+        User oldUser = new User(username, String.valueOf(password));
+        if (this.users.containsUser(oldUser) && this.users.getUser(oldUser).getPassword().equals(String.valueOf(password))) {
+            this.currentUser = this.users.getUser(oldUser);
             return true;
         }
         return false;
@@ -67,7 +68,7 @@ public class Controller {
      * @return Ohjelman tämänhetkinen käyttäjä
      */
     public User currentUser() {
-        return this.user;
+        return this.currentUser;
     }
 
 }

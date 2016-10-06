@@ -1,16 +1,15 @@
 package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.AllFlashcardCollections;
-import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
-import flashrep.flashrep.gui.UsersCollectionsModel;
+import flashrep.flashrep.gui.CollectionsModel;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
 
 /**
- * Luokka käyttäjä- ja korttiluokkien käyttöä ja hallinnointia varten.
+ * Luokka jonka avulla käyttöliittymä saa käyttöönsä
+ * ohjelman käyttäjä-, kokoelma ja logiikkaluokat ja niiden toiminnot.
  *
- * @author rairanta@cs
  */
 public class Controller {
 
@@ -18,7 +17,8 @@ public class Controller {
     User currentUser;
     AllFlashcardCollections allFlashcardCollections;
     RepetitionLogic repetitionLogic;
-    UsersCollectionsModel usersCollections;
+    CollectionsModel currentUsersCollections;
+    FlashcardCollection currentCollection;
 
     /**
      * Luokan konstruktori.
@@ -27,7 +27,8 @@ public class Controller {
         this.users = new Users();
         this.currentUser = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
-        this.usersCollections = new UsersCollectionsModel(this.currentUser.getOwnCollections());
+        this.currentUsersCollections = new CollectionsModel(this.currentUser.getOwnCollections());
+        this.currentCollection= new FlashcardCollection("");
     }
 
     /**
@@ -57,9 +58,9 @@ public class Controller {
      * kirjautua, false jos ei voi kirjautua.
      */
     public boolean canSignInUser(String username, char[] password) {
-        User oldUser = new User(username, String.valueOf(password));
-        if (this.users.containsUser(oldUser) && this.users.getUser(oldUser).getPassword().equals(String.valueOf(password))) {
-            this.currentUser = this.users.getUser(oldUser);
+        User prospectUser = new User(username, String.valueOf(password));
+        if (this.users.containsUser(prospectUser) && this.users.getUser(prospectUser).getPassword().equals(String.valueOf(password))) {
+            this.currentUser = this.users.getUser(prospectUser);
             return true;
         }
         return false;
@@ -70,13 +71,35 @@ public class Controller {
      *
      * @return Ohjelman tämänhetkinen käyttäjä
      */
-    public User currentUser() {
+    public User getCurrentUser() {
         return this.currentUser;
     }
 
-    public UsersCollectionsModel getCurrentUsersCollections() {
-        return usersCollections;
+    /**
+     * Metodi palauttaa JListin mallina toimivan CollectionsModel-mallin.
+     * @return CollectionsModel joka perii AbstractListModel-luokan ominaisuudet
+     * @see AbstractListModel
+     */
+    public CollectionsModel getCurrentUsersCollections() {
+        return currentUsersCollections;
+    }
+
+    /**
+     * Metodi palauttaa kokoelmalistauksesta käyttäjän valitseman kokoelman, 
+     * tämä on käytössä kun käyttäjä valitsee mitä kokoelmaa haluaa kerrata.
+     * 
+     * @return juuri nyt valittuna oleva kokoelma
+     */
+    public FlashcardCollection getCurrentCollection() {
+        return currentCollection;
+    }
+
+    /**
+     * Metodi asettaa listauksesta jonkun kokoelman valituksi kun käyttäjä sen valitsee.
+     */
+    public void setCurrentCollection() {
+        this.currentCollection = this.currentUsersCollections.getCurrentCollection();
     }
     
-
+    
 }

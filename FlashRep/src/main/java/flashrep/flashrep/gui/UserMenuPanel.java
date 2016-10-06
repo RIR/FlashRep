@@ -27,7 +27,7 @@ public class UserMenuPanel extends JPanel {
     private Views views;
     private Controller controller;
     private JList collectionlist;
-    private UsersCollectionsModel model;
+    private CollectionsModel model;
 
     /**
      * Luokan konstruktori jolle annetaan parametreina näkymiä hallitseva
@@ -50,7 +50,7 @@ public class UserMenuPanel extends JPanel {
         // luodaan komponentit
 
         //Aloitusruudun teksti luodaan, keskitetään ja lisätään
-        JLabel label1 = new JLabel("Käyttäjä: " + this.controller.currentUser().toString());
+        JLabel label1 = new JLabel("Käyttäjä: " + this.controller.getCurrentUser().toString());
         label1.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(label1);
         for (int i = 0; i < 3; i++) {

@@ -27,7 +27,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
     private JButton createNewCollectionButton;
     private JButton removeCollectionButton;
     private JButton signOutButton;
-    private UsersCollectionsModel model;
+    private CollectionsModel model;
 
     /**
      * Luokan konstruktori joka saa parametreina kuunneltavat/muutettavat
@@ -42,7 +42,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
      * @param removeCollectionButton Painike kokoelman poistamista varten
      * @param signOutButton Uloskirjautumispainike
      */
-    public UserMenuListener(Views views, Controller controller, JList collectionList, UsersCollectionsModel model, JButton studyNowButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
+    public UserMenuListener(Views views, Controller controller, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
         this.views = views;
         this.controller = controller;
         this.collectionList = collectionList;
@@ -58,13 +58,14 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         String ac = e.getActionCommand();
 
         if (ac.equals("study")) {
+            this.model.setCurrentCollection(collectionList.getSelectedIndex());
             this.views.switchToView("StudyView");
         }
 
         if (ac.equals("create")) {
             String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Luo uusi kokoelma", JOptionPane.INFORMATION_MESSAGE);
             if (collectionName != null && !collectionName.isEmpty()) {
-            this.model.addNewCollection(collectionName);
+                this.model.addNewCollection(collectionName);
             }
         }
         if (ac.equals("remove")) {

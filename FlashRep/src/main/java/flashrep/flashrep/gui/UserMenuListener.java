@@ -18,11 +18,12 @@ import javax.swing.event.ListSelectionListener;
  * Luokka käyttäjävalikon toimintojen kuuntelua varten.
  *
  */
-public class UserMenuListener implements ActionListener, ListSelectionListener {
+public class UserMenuListener implements ActionListener {
 
     private Views views;
     private Controller controller;
     private JList collectionList;
+    private JButton renameButton;
     private JButton studyNowButton;
     private JButton createNewCollectionButton;
     private JButton removeCollectionButton;
@@ -42,11 +43,12 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
      * @param removeCollectionButton Painike kokoelman poistamista varten
      * @param signOutButton Uloskirjautumispainike
      */
-    public UserMenuListener(Views views, Controller controller, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
+    public UserMenuListener(Views views, Controller controller, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton renameButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
         this.views = views;
         this.controller = controller;
         this.collectionList = collectionList;
         this.model = model;
+        this.renameButton = renameButton;
         this.studyNowButton = studyNowButton;
         this.createNewCollectionButton = createNewCollectionButton;
         this.removeCollectionButton = removeCollectionButton;
@@ -61,7 +63,12 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
             this.model.setCurrentCollection(collectionList.getSelectedIndex());
             this.views.switchToView("StudyView");
         }
-
+        if (ac.equals("rename")) {
+            String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Nimeä kokoelma uudelleen", JOptionPane.INFORMATION_MESSAGE);
+            if (collectionName != null && !collectionName.isEmpty()) {
+                this.model.setName(collectionName, collectionList.getSelectedIndex());
+            }
+        }
         if (ac.equals("create")) {
             String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Luo uusi kokoelma", JOptionPane.INFORMATION_MESSAGE);
             if (collectionName != null && !collectionName.isEmpty()) {
@@ -74,21 +81,6 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
         if (ac.equals("signOut")) {
             this.views.switchToView("SignInMenu");
-        }
-    }
-
-    @Override
-    public void valueChanged(ListSelectionEvent e) {
-        if (e.getValueIsAdjusting() == false) {
-
-            if (collectionList.getSelectedIndex() == -1) {
-                //No selection, disable fire button.
-                removeCollectionButton.setEnabled(false);
-
-            } else {
-                //Selection, enable the fire button.
-                removeCollectionButton.setEnabled(true);
-            }
         }
     }
 }

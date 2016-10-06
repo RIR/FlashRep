@@ -12,15 +12,20 @@ import javax.swing.AbstractListModel;
  */
 /**
  * Luokka joka luo mallin jonka pohjalta käyttäjän kokoelmalistaus toimii myös
- * graafisessa käyttöliittymässä, luokka perii luokan AbstractListModel ominaisuudet.
+ * graafisessa käyttöliittymässä, luokka perii luokan AbstractListModel
+ * ominaisuudet.
+ *
  * @author Raine Rantanen
  */
 public class CollectionsModel extends AbstractListModel {
+
     private List<FlashcardCollection> collections;
     private FlashcardCollection currentCollection;
 
     /**
-     * Luokan konstruktori joka asettaa kokoelmalistaukseksi parametrina annettavan listauksen.
+     * Luokan konstruktori joka asettaa kokoelmalistaukseksi parametrina
+     * annettavan listauksen.
+     *
      * @param Collections Kokoelmalistaus
      */
     public CollectionsModel(List<FlashcardCollection> Collections) {
@@ -28,8 +33,9 @@ public class CollectionsModel extends AbstractListModel {
     }
 
     /**
-     * Metodi lisää kokoelmalistaukseen uuden kokoelman joka saa nimeksi 
+     * Metodi lisää kokoelmalistaukseen uuden kokoelman joka saa nimeksi
      * parametrina annettavan nimen.
+     *
      * @param collectionName Kokoelmalle annettava nimi
      */
     public void addNewCollection(String collectionName) {
@@ -39,7 +45,9 @@ public class CollectionsModel extends AbstractListModel {
     }
 
     /**
-     * Metodi poistaa parametrina annettavan indeksin mukaisen kokoelman listauksesta.
+     * Metodi poistaa parametrina annettavan indeksin mukaisen kokoelman
+     * listauksesta.
+     *
      * @param index Poistettavan kokoelman indeksi listauksessa
      */
     public void removeCollection(int index) {
@@ -49,7 +57,8 @@ public class CollectionsModel extends AbstractListModel {
 
     /**
      * Metodi palauttaa kokoelmalistauksen kokoelmien lukumäärän.
-     * @return 
+     *
+     * @return
      */
     @Override
     public int getSize() {
@@ -57,8 +66,10 @@ public class CollectionsModel extends AbstractListModel {
     }
 
     /**
-     * Metodi palauttaa parametrina annettavan indeksin mukaisen kokoelman listauksesta.
-     * @param index Indeksinumero 
+     * Metodi palauttaa parametrina annettavan indeksin mukaisen kokoelman
+     * listauksesta.
+     *
+     * @param index Indeksinumero
      * @return Indeksinumeron mukainen kokoelma
      */
     @Override
@@ -67,21 +78,28 @@ public class CollectionsModel extends AbstractListModel {
     }
 
     /**
-     * Metodi asettaa parametrina annettavan indeksin mukaisen kokoelman listauksesta
-     * valituksi.
+     * Metodi asettaa parametrina annettavan indeksin mukaisen kokoelman
+     * listauksesta valituksi.
+     *
      * @param index Indeksinumero
      */
-    public void setCurrentCollection(int index) {     
+    public void setCurrentCollection(int index) {        
         this.currentCollection = this.collections.get(index);
     }
 
     /**
      * Metodi palauttaa listauksesta valituksi asetetun kokoelman.
-     * @return 
+     *
+     * @return
      */
     public FlashcardCollection getCurrentCollection() {
         return currentCollection;
     }
-
+    
+    public void setName(String name, int index) {
+        setCurrentCollection(index);
+        currentCollection.setName(name);
+        fireContentsChanged(this, 0, getSize());
+    }
     
 }

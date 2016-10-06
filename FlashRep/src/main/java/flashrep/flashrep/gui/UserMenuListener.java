@@ -18,7 +18,7 @@ import javax.swing.event.ListSelectionListener;
  * Luokka käyttäjävalikon toimintojen kuuntelua varten.
  *
  */
-public class UserMenuListener implements ActionListener {
+public class UserMenuListener implements ActionListener, ListSelectionListener {
 
     private Views views;
     private Controller controller;
@@ -53,6 +53,10 @@ public class UserMenuListener implements ActionListener {
         this.createNewCollectionButton = createNewCollectionButton;
         this.removeCollectionButton = removeCollectionButton;
         this.signOutButton = signOutButton;
+
+        if (this.model.getSize() == 0) {
+            disableButtons();
+        }
     }
 
     @Override
@@ -76,11 +80,45 @@ public class UserMenuListener implements ActionListener {
             }
         }
         if (ac.equals("remove")) {
-            this.model.removeCollection(collectionList.getSelectedIndex());
+            this.model.removeCollection(collectionList.getSelectedIndices());
         }
 
         if (ac.equals("signOut")) {
             this.views.switchToView("SignInMenu");
         }
+
+        if (this.model.getSize() == 0) {
+            disableButtons();
+        } else {
+            enableButtons();
+            this.collectionList.setSelectedIndex(0);
+        }
+
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        if (e.getValueIsAdjusting() == false) {
+            if (collectionList.getSelectedIndex() == -1) {
+                disableButtons();
+            } else if (collectionList.getSelectedIndices().length > 1) {
+                disableButtons();
+                this.removeCollectionButton.setEnabled(true);
+            } else {
+                enableButtons();
+            }
+        }
+    }
+
+    private void disableButtons() {
+        this.studyNowButton.setEnabled(false);
+        this.renameButton.setEnabled(false);
+        this.removeCollectionButton.setEnabled(false);
+    }
+
+    private void enableButtons() {
+        this.studyNowButton.setEnabled(true);
+        this.renameButton.setEnabled(true);
+        this.removeCollectionButton.setEnabled(true);
     }
 }

@@ -3,6 +3,7 @@ package flashrep.flashrep.gui;
 import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.logic.Controller;
 import flashrep.flashrep.useraccounts.User;
+import java.lang.reflect.Array;
 import java.util.List;
 import javax.swing.AbstractListModel;
 
@@ -45,14 +46,17 @@ public class CollectionsModel extends AbstractListModel {
     }
 
     /**
-     * Metodi poistaa parametrina annettavan indeksin mukaisen kokoelman
+     * Metodi poistaa parametrina annettavat indeksin mukaiset kokoelmat
      * listauksesta.
      *
      * @param index Poistettavan kokoelman indeksi listauksessa
      */
-    public void removeCollection(int index) {
-        collections.remove(index);
-        fireContentsChanged(this, 0, getSize());
+    public void removeCollection(int[] index) {
+        for (int i = index.length - 1; i >= 0; i--) {
+            int collection = index[i];
+            this.collections.remove(collection);
+            fireContentsChanged(this, 0, getSize());
+        }
     }
 
     /**
@@ -83,7 +87,7 @@ public class CollectionsModel extends AbstractListModel {
      *
      * @param index Indeksinumero
      */
-    public void setCurrentCollection(int index) {        
+    public void setCurrentCollection(int index) {
         this.currentCollection = this.collections.get(index);
     }
 
@@ -95,11 +99,11 @@ public class CollectionsModel extends AbstractListModel {
     public FlashcardCollection getCurrentCollection() {
         return currentCollection;
     }
-    
+
     public void setName(String name, int index) {
         setCurrentCollection(index);
         currentCollection.setName(name);
         fireContentsChanged(this, 0, getSize());
     }
-    
+
 }

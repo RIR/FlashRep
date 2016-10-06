@@ -105,8 +105,9 @@ public class UserMenuPanel extends JPanel {
         createNewCollectionButton.setActionCommand("create");
         signOutButton.setActionCommand("signOut");
 
-        //Luodaan kuuntelija ja lisätään se nappuloiden käyttöön
+        //Luodaan kuuntelija ja lisätään se nappuloiden ja listan käyttöön
         UserMenuListener listener = new UserMenuListener(views, controller, collectionlist, model, studyNowButton, renameButton,createNewCollectionButton, removeCollectionButton, signOutButton);
+        collectionlist.addListSelectionListener(listener);
         studyNowButton.addActionListener(listener);
         renameButton.addActionListener(listener);
         removeCollectionButton.addActionListener(listener);

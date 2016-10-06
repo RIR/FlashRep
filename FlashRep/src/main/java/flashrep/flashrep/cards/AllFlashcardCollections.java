@@ -24,8 +24,8 @@ public class AllFlashcardCollections {
     }
 
     /**
-     * Luokan konstruktori, asettaa kokoelmalistaukselle parametrina annetun
-     * nimen.
+     * Luokan konstruktori joka asettaa kokoelmalistaukselle parametrina 
+     * annettavan nimen.
      *
      * @param name Kokoelmalistaukselle annettava nimi
      */
@@ -37,7 +37,7 @@ public class AllFlashcardCollections {
     /**
      * Metodi lisää korttikokoelman kokoelmalistaukseen.
      *
-     * @param flashcardCollection Parametrina annettava korttikokoelma
+     * @param flashcardCollection Lisättävä korttikokoelma
      */
     public void addCollection(FlashcardCollection flashcardCollection) {
         this.flashcardCollections.add(flashcardCollection);
@@ -47,7 +47,7 @@ public class AllFlashcardCollections {
      * Metodi poistaa korttikokoelman kokoelmalistauksesta, jos kokoelma löytyy
      * listauksesta.
      *
-     * @param flashcardCollection Parametrina annettava korttikokoelma
+     * @param flashcardCollection Poistettava korttikokoelma
      */
     public void removeCollection(FlashcardCollection flashcardCollection) {
         if (this.flashcardCollections.contains(flashcardCollection)) {
@@ -93,17 +93,12 @@ public class AllFlashcardCollections {
     /**
      * Metodi asettaa kokoelmalistaukselle parametrina annettavan nimen.
      *
-     * @param name Parametrina annettava nimi
+     * @param name Annettava nimi
      */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Metodi antaa kokoelmalistaukselle hajautusarvon ja palauttaa sen.
-     *
-     * @return kokoelmalistauksen hajautusarvo
-     */
     @Override  
     public int hashCode() {
         int hash = 7;
@@ -112,15 +107,6 @@ public class AllFlashcardCollections {
         return hash;
     }
 
-    /**
-     * Metodi vertailee metodia käyttävää kokoelmalistausta ja parametrina
-     * annettavaa kokoelmalistausta keskenään tarkistaakseen ovatko ne sama
-     * kokoelmalistaus.
-     *
-     * @param allFlashcardCollections Parametrina annettava kokoelmalistaus
-     * @return true jos kokoelmalistaukset ovat samat, tai false jos
-     * kokoelmalistaukset eivät ole samat.
-     */
     @Override
     public boolean equals(Object allFlashcardCollections) {
         if (this == allFlashcardCollections) {

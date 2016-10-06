@@ -36,14 +36,15 @@ public class UserMenuPanel extends JPanel {
     public UserMenuPanel(Views views, Controller controller) {
         this.views = views;
         this.controller = controller;
-        BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
-        this.setLayout(layout);
         initComponents();
     }
 
     //Luodaan valikon komponentit
     private void initComponents() {
         // luodaan komponentit
+
+        BoxLayout mainLayout = new BoxLayout(this, BoxLayout.Y_AXIS);
+        this.setLayout(mainLayout);
 
         //Aloitusruudun teksti luodaan, keskitetään ja lisätään
         JLabel label1 = new JLabel("Käyttäjä: " + this.controller.getCurrentUser().toString());
@@ -57,10 +58,10 @@ public class UserMenuPanel extends JPanel {
         JPanel userMenuPanel = new JPanel(new GridLayout(0, 2, 10, 10));
         JPanel listPanel = new JPanel();
         JPanel buttonsPanelWrapper = new JPanel();
-        BoxLayout layout = new BoxLayout(listPanel, BoxLayout.Y_AXIS);
-        BoxLayout layout2 = new BoxLayout(buttonsPanelWrapper, BoxLayout.Y_AXIS);
-        listPanel.setLayout(layout);
-        buttonsPanelWrapper.setLayout(layout2);
+        BoxLayout listPanelLayout = new BoxLayout(listPanel, BoxLayout.Y_AXIS);
+        BoxLayout buttonsPanelWrapperLayout = new BoxLayout(buttonsPanelWrapper, BoxLayout.Y_AXIS);
+        listPanel.setLayout(listPanelLayout);
+        buttonsPanelWrapper.setLayout(buttonsPanelWrapperLayout);
         JPanel buttonsPanel = new JPanel(new GridLayout(8, 0, 20, 20));
 
         userMenuPanel.add(listPanel);
@@ -106,7 +107,7 @@ public class UserMenuPanel extends JPanel {
         signOutButton.setActionCommand("signOut");
 
         //Luodaan kuuntelija ja lisätään se nappuloiden ja listan käyttöön
-        UserMenuListener listener = new UserMenuListener(views, controller, collectionlist, model, studyNowButton, renameButton,createNewCollectionButton, removeCollectionButton, signOutButton);
+        UserMenuListener listener = new UserMenuListener(views, controller, collectionlist, model, studyNowButton, renameButton, createNewCollectionButton, removeCollectionButton, signOutButton);
         collectionlist.addListSelectionListener(listener);
         studyNowButton.addActionListener(listener);
         renameButton.addActionListener(listener);

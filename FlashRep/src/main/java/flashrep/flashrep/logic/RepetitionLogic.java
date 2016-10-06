@@ -4,10 +4,6 @@ import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Rajapintaluokka joka määrittää korttikokoelman korttien toistolta vaaditut
  * metodit .
  */
@@ -16,7 +12,7 @@ public interface RepetitionLogic {
     /**
      * Metodi lataa parametrina annettavan korttikokoelman toistojonoon.
      *
-     * @param flashcardCollection Parametrina annettava korttikokoelma
+     * @param flashcardCollection Toistojonoon ladattava korttikokoelma
      */
     public void loadFlashcardCollectionIntoRotation(FlashcardCollection flashcardCollection);
 
@@ -31,7 +27,7 @@ public interface RepetitionLogic {
     /**
      * Metodi asettaa parametrina annettavan kortin toistojonoon.
      *
-     * @param flashcard parametrina annettava kortti
+     * @param flashcard Toistojonoon annettava kortti
      */
     public void insertCardInToRotation(Flashcard flashcard);
 

@@ -57,11 +57,6 @@ public class SignInMenuListener implements ActionListener {
         this.controller = controller;
     }
 
-    /**
-     * Metodi reagoi Käyttäjävalikon toimintoihin.
-     *
-     * @param e Käyttäjävalikon tapahtuma
-     */
     @Override
     public void actionPerformed(ActionEvent e) {
         String ac = e.getActionCommand();

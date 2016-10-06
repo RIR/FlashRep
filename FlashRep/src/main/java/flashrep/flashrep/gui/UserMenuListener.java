@@ -59,36 +59,46 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         }
     }
 
+    //kuuntelija nappeja varten
     @Override
     public void actionPerformed(ActionEvent e) {
         String ac = e.getActionCommand();
 
+        //Jos on painettu opiskele nyt nappia 
         if (ac.equals("study")) {
             this.model.setCurrentCollection(collectionList.getSelectedIndex());
+            this.controller.setCurrentCollection();
             this.views.switchToView("StudyView");
         }
+        // Jos on painettu uudelleennimeämisnappia
         if (ac.equals("rename")) {
             String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Nimeä kokoelma uudelleen", JOptionPane.INFORMATION_MESSAGE);
             if (collectionName != null && !collectionName.isEmpty()) {
                 this.model.setName(collectionName, collectionList.getSelectedIndex());
             }
         }
+        // Jos on painettu luo uusi kokoelma nappia
         if (ac.equals("create")) {
             String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Luo uusi kokoelma", JOptionPane.INFORMATION_MESSAGE);
             if (collectionName != null && !collectionName.isEmpty()) {
                 this.model.addNewCollection(collectionName);
             }
         }
+
+        // Jos on painettu poista kokoelma nappia
         if (ac.equals("remove")) {
             this.model.removeCollection(collectionList.getSelectedIndices());
         }
 
+        // Jos on painettu uloskirjautumisnappia
         if (ac.equals("signOut")) {
             this.views.switchToView("SignInMenu");
         }
 
+        // Jos lista tyhjä 
         if (this.model.getSize() == 0) {
             disableButtons();
+            //muuten
         } else {
             enableButtons();
             this.collectionList.setSelectedIndex(0);
@@ -96,6 +106,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
     }
 
+    //kuuntelijan metodi joka reagoi listan muutoksiin
     @Override
     public void valueChanged(ListSelectionEvent e) {
         if (e.getValueIsAdjusting() == false) {
@@ -110,12 +121,14 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         }
     }
 
+    //Metodi poistaa osan napeista käytöstä
     private void disableButtons() {
         this.studyNowButton.setEnabled(false);
         this.renameButton.setEnabled(false);
         this.removeCollectionButton.setEnabled(false);
     }
 
+    // Metodi palauttaa kaikki napit käyttöön
     private void enableButtons() {
         this.studyNowButton.setEnabled(true);
         this.renameButton.setEnabled(true);

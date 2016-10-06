@@ -27,7 +27,7 @@ public class CollectionsModel extends AbstractListModel {
      * Luokan konstruktori joka asettaa kokoelmalistaukseksi parametrina
      * annettavan listauksen.
      *
-     * @param Collections Kokoelmalistaus
+     * @param Collections Annettava kokoelmalistaus
      */
     public CollectionsModel(List<FlashcardCollection> Collections) {
         this.collections = Collections;
@@ -49,7 +49,7 @@ public class CollectionsModel extends AbstractListModel {
      * Metodi poistaa parametrina annettavat indeksin mukaiset kokoelmat
      * listauksesta.
      *
-     * @param index Poistettavan kokoelman indeksi listauksessa
+     * @param index Poistettavien kokoelmien indeksit listauksessa
      */
     public void removeCollection(int[] index) {
         for (int i = index.length - 1; i >= 0; i--) {
@@ -62,7 +62,7 @@ public class CollectionsModel extends AbstractListModel {
     /**
      * Metodi palauttaa kokoelmalistauksen kokoelmien lukumäärän.
      *
-     * @return
+     * @return Kokoelmalistauksen kokoelmien lukumäärä
      */
     @Override
     public int getSize() {
@@ -94,12 +94,19 @@ public class CollectionsModel extends AbstractListModel {
     /**
      * Metodi palauttaa listauksesta valituksi asetetun kokoelman.
      *
-     * @return
+     * @return Käyttäjän tällä hetkellä valitsema kokoelma
      */
     public FlashcardCollection getCurrentCollection() {
         return currentCollection;
     }
 
+    /**
+     * Metodi asettaaa käyttäjän tällä hetkellä valitsemalle kokoelmalle nimen
+     * Tämä metodi käytössä siis kun käyttäjä uudelleennimeää kokoelman.
+     *
+     * @param name Annettava nimi
+     * @param index Valittavan kokoelman indeksinumero kokoelmalistauksessa
+     */
     public void setName(String name, int index) {
         setCurrentCollection(index);
         currentCollection.setName(name);

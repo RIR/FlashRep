@@ -83,7 +83,7 @@ public class UserTest {
     @Test
     public void rateCardIsWorkingWithNumberNotInCorrectScale() {
         user.rateCard(flashcard, 7);
-        assertEquals(1, flashcard.getRating());
+        assertEquals(4, flashcard.getRating());
     }
 
     @Test

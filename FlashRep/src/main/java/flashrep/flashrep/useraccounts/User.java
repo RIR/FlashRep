@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author Raine Rantanen
- */
-/**
- * Luokka käyttäjän tarjoaa metodeita käyttäjän käsittelyyn.
+ * Luokka tarjoaa metodeita käyttäjän käsittelyyn.
  */
 public class User {
 
@@ -23,8 +20,8 @@ public class User {
      * Luokan konstruktori joka asettaa käyttäjälle parametreina annettavat
      * käyttäjätunnuksen ja salasanan.
      *
-     * @param userName parametrina annettava käyttäjätunnus
-     * @param password parametrina annettava salasana
+     * @param userName Annettava käyttäjätunnus
+     * @param password Annettava salasana
      */
     public User(String userName, String password) {
         this.userName = userName;
@@ -44,7 +41,7 @@ public class User {
     /**
      * Metodi asettaa käyttäjälle parametrina annettavan käyttäjätunnuksen.
      *
-     * @param userName parametrina annettava käyttäjätunnus
+     * @param userName Annettava käyttäjätunnus
      */
     public void setUserName(String userName) {
         this.userName = userName;
@@ -62,7 +59,7 @@ public class User {
     /**
      * Metodi asettaa käyttäjälle parametrina annettavan salasanan.
      *
-     * @param password parametrina annettava salasana
+     * @param password Annettava salasana
      */
     public void setPassword(String password) {
         this.password = password;
@@ -72,8 +69,8 @@ public class User {
      * Metodi asettaa parametrina annettavalle kortille parametrina annettavan
      * luokituksen.
      *
-     * @param flashcard parametrina annettava kortti
-     * @param rating parametrina annettava luokitus
+     * @param flashcard Annettava kortti
+     * @param rating Annettava luokitus
      */
     public void rateCard(Flashcard flashcard, int rating) {
         flashcard.setRating(rating);
@@ -83,7 +80,7 @@ public class User {
      * Metodi lisää parametrina annettavan korttikokoelman käyttäjän omaan
      * kokoelmalistaukseen.
      *
-     * @param flashcardCollection parametrina annettava korttikokoelma
+     * @param flashcardCollection Lisättävä korttikokoelma
      */
     public void addToOwnCollections(FlashcardCollection flashcardCollection) {
         this.ownCollections.add(flashcardCollection);
@@ -93,7 +90,7 @@ public class User {
      * Metodi poistaa parametrina annettavan korttikokoelman käyttäjän omasta
      * kokoelmalistauksesta.
      *
-     * @param flashcardCollection parametrina annettava korttikokoelma
+     * @param flashcardCollection Poistettava korttikokoelma
      */
     public void removeFromOwnCollections(FlashcardCollection flashcardCollection) {
         this.ownCollections.remove(flashcardCollection);
@@ -112,17 +109,12 @@ public class User {
      * Metodi asettaa parametrina annettavan kokoelmalistauksen käyttäjän
      * kokoelmalistaukseksi.
      *
-     * @param collections parametrina annettava kokoelmalistaus List-muodossa
+     * @param collections Kokoelmalistaukseksi asetettava kokoelmalistaus List-muodossa
      */
     public void setOwnCollections(List<FlashcardCollection> collections) {
         this.ownCollections = collections;
     }
 
-    /**
-     * Metodi asettaa käyttäjälle hajautusarvon ja palauttaa sen.
-     *
-     * @return käyttäjän hajautusarvo
-     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -130,14 +122,6 @@ public class User {
         return hash;
     }
 
-    /**
-     * Metodi vertailee metodia käyttävän käyttäjän ja parametrina annettavan
-     * käyttäjän yhtäläisyyttä.
-     *
-     * @param user parametrina annettava käyttäjä
-     * @return true, jos käyttäjät ovat sama käyttäjä, false jos käyttäjät eivät
-     * ole sama käyttäjä.
-     */
     @Override
     public boolean equals(Object user) {
         if (this == user) {

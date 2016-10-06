@@ -19,14 +19,14 @@ public class Flashcard implements Comparable<Flashcard> {
     /**
      * Luokan konstruktori, asettaa kortille annetun kysymyksen ja vastauksen.
      *
-     * @param question parametrina kortille annettava kysymys
-     * @param answer parametrina kortille annettava vastaus
+     * @param question Kortille annettava kysymys
+     * @param answer Kortille annettava vastaus
      */
     public Flashcard(String question, String answer) {
         ++this.idLaskuri;
         this.question = question;
         this.answer = answer;
-        this.rating = 1;
+        this.rating = 4;
         this.id = idLaskuri;
 
     }
@@ -52,7 +52,7 @@ public class Flashcard implements Comparable<Flashcard> {
     /**
      * Metodi asettaa kortille annetun kysymyksen.
      *
-     * @param question kortille annettava kysymys
+     * @param question Kortille annettava kysymys
      */
     public void setQuestion(String question) {
         this.question = question;
@@ -61,7 +61,7 @@ public class Flashcard implements Comparable<Flashcard> {
     /**
      * Metodi asettaa kortille annetun vastauksen.
      *
-     * @param answer parametrina kortille annettava vastaus
+     * @param answer Kortille annettava vastaus
      */
     public void setAnswer(String answer) {
         this.answer = answer;
@@ -79,7 +79,7 @@ public class Flashcard implements Comparable<Flashcard> {
     /**
      * Metodi asettaa kortille luokituksen Annettava arvo oltava välillä 1-4.
      *
-     * @param rating parametrina kortille annettava luokitus
+     * @param rating Kortille annettava luokitus
      */
     public void setRating(int rating) {
         if (rating >= 1 && rating <= 4) {
@@ -107,15 +107,6 @@ public class Flashcard implements Comparable<Flashcard> {
         this.answer = question;
     }
 
-    /**
-     * Metodi vertailee metodia käyttävää korttia ja parametrina annettua
-     * korttia keskenään tarkistaakseen ovatko ne sama kortti.
-     *
-     * @param flashcard Parametrina annettu toinen kortti johon tämän
-     * kortin tietoja verrataan
-     * @return true, jos kortit ovat keskenään samat tai false jos kortit eivät
-     * ole samat.
-     */
     @Override
     public boolean equals(Object flashcard) {
         if (flashcard == null) {
@@ -132,11 +123,6 @@ public class Flashcard implements Comparable<Flashcard> {
         return this.question.equals(thatFlashcard.question) && this.answer.equals(thatFlashcard.answer);
     }
 
-    /**
-     * Metodi antaa kortille hajautusarvon ja palauttaa sen.
-     *
-     * @return kortin hajautusarvo
-     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -146,16 +132,15 @@ public class Flashcard implements Comparable<Flashcard> {
     }
 
     /**
-     * Metodi vertailee metodia käyttävän kortin ja parametrina annettavan kortin
-     * keskinäistä järjestystä käyttäen korttien luokitusta ja niiden
+     * Metodi vertailee metodia käyttävän kortin ja parametrina annettavan
+     * kortin keskinäistä järjestystä käyttäen korttien luokitusta ja niiden
      * id-tunnuksia. Järjestyksellä on merkitystä erityisesti
      * toistovälikertauksessa.
      *
      * @param f2 parametrina annettava toinen kortti
-     * @return negatiivinen arvo, jos metodia käyttävä kortti on
-     * järjestyksessä aikaisempi, 0 jos kortit ovat järjestykseltään samat ja
-     * positiivinen arvo jos parametrina annettu kortti on järjestyksessä
-     * aikaisempi.
+     * @return negatiivinen arvo, jos metodia käyttävä kortti on järjestyksessä
+     * aikaisempi, 0 jos kortit ovat järjestykseltään samat ja positiivinen arvo
+     * jos parametrina annettu kortti on järjestyksessä aikaisempi.
      */
     @Override
     public int compareTo(Flashcard f2) {

@@ -15,17 +15,16 @@ public class Users {
     private List<User> users;
 
     /**
-     * Luokan konstruktori joka luo listan käyttäjiä varten.
+     * Luokan konstruktori.
      */
     public Users() {
         users = new ArrayList<>();
     }
 
     /**
-     * Metodi lisää parametrina annettavan käyttäjän käyttäjälistaukseen ja
-     * palauttaa true jos lisäys onnistui, false jos lisäys ei onnistunut.
-     *
-     * @param user Parametrina annettava käyttäjä
+     * Metodi lisää parametrina annettavan käyttäjän käyttäjälistaukseen
+     * jos käyttäjää ei listalla vielä ole.
+     * @param user Lisättävä käyttäjä
      */
     public void addUser(User user) {
         if (!containsUser(user)) {
@@ -36,7 +35,7 @@ public class Users {
     /**
      * Metodi poistaa parametrina annettavan käyttäjän käyttäjälistauksesta.
      *
-     * @param user Parametrina annettava käyttäjä
+     * @param user Poistettava käyttäjä
      */
     public void removeUser(User user) {
         if (containsUser(user)) {

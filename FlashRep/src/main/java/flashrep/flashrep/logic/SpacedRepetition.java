@@ -8,9 +8,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- * @author Raine Rantanen
- */
-/**
  * Luokka korttikokoelmien aikavälikertaukseen, toteuttaa
  * RepetitionLogic-rajapinnan.
  */
@@ -24,7 +21,7 @@ public class SpacedRepetition implements RepetitionLogic {
      * Luokan konstruktori, asettaa parametrina annettavan korttikokoelman
      * toistojonoon.
      *
-     * @param flashcardCollection Parametrina annettava korttikokoelma
+     * @param flashcardCollection Toistojonoon ladattava korttikokoelma
      */
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
         this.rotationQueue = new PriorityQueue<Flashcard>();
@@ -35,7 +32,7 @@ public class SpacedRepetition implements RepetitionLogic {
     /**
      * Metodi lataa parametrina annettavan korttikokoelman toistojonoon.
      *
-     * @param flashcardCollection Parametrina annettava toistojono
+     * @param flashcardCollection Toistojonoon ladattava korttikokoelma
      */
     public void loadFlashcardCollectionIntoRotation(FlashcardCollection flashcardCollection) {
         this.flashcardCollection = flashcardCollection;
@@ -64,7 +61,7 @@ public class SpacedRepetition implements RepetitionLogic {
      * Metodi asettaa parametrina annettavan kortin toistojonoon, jos ei ole
      * valittu, että kortti poistetaan toistojonosta.
      *
-     * @param flashcard Parametrina annettava kortti
+     * @param flashcard Toistojonoon annettava kortti
      */
     public void insertCardInToRotation(Flashcard flashcard) {
         if (!isRemovedFromRotation()) {
@@ -72,7 +69,11 @@ public class SpacedRepetition implements RepetitionLogic {
         }
     }
 
-    //Yksityinen metodi ei JavaDociin??
+    /*Yksityinen metodi ei JavaDociin??
+    Metodi tarkistaa booleanin tilan ja avustaa insertCardIntoRotation-metodia 
+    päättämään asetetaanko jokin kortti takaisin toistojonoon.
+    */
+    
     private boolean isRemovedFromRotation() {
         return removeFromRotation;
     }

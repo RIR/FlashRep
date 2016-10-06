@@ -20,7 +20,7 @@ public class FlashcardCollection {
      * Luokan konstruktori, asettaa korttikokoelmalle parametrina annettavan
      * nimen.
      *
-     * @param name Parametrina annettava nimi
+     * @param name Annettava nimi
      */
     public FlashcardCollection(String name) {
         this.name = name;
@@ -30,7 +30,7 @@ public class FlashcardCollection {
     /**
      * Metodi lisää korttikokoelmaan parametrina annettavan kortin.
      *
-     * @param flashcard parametrina annettava kortti
+     * @param flashcard Lisättävä kortti
      */
     public void addCardToCollection(Flashcard flashcard) {
         this.flashcards.add(flashcard);
@@ -39,7 +39,7 @@ public class FlashcardCollection {
     /**
      * Metodi poistaa parametrina annettavan kortin korttikokoelmasta.
      *
-     * @param flashcard parametrina annettava kortti
+     * @param flashcard Poistettava kortti
      */
     public void removeCardFromCollection(Flashcard flashcard) {
         if (this.flashcards.contains(flashcard)) {
@@ -77,7 +77,7 @@ public class FlashcardCollection {
     /**
      * Metodi asettaa korttikokoelmalle parametrina annettavan nimen.
      *
-     * @param name Parametrina annettava nimi
+     * @param name Annettava nimi
      */
     public void setName(String name) {
         this.name = name;
@@ -92,11 +92,6 @@ public class FlashcardCollection {
         return this.flashcards.size();
     }
 
-    /**
-     * Metodi antaa korttikokoelmalle hajautusarvon ja palauttaa sen.
-     *
-     * @return korttikokoelman hajautusarvo
-     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -105,15 +100,6 @@ public class FlashcardCollection {
         return hash;
     }
 
-    /**
-     * Metodi vertailee keskenään metodia käyttävää korttikokoelmaa ja
-     * parametrina annettavaa korttikokoelmaa keskenään tarkistaakseen ovatko
-     * korttikokoelmat sama kokoelma.
-     *
-     * @param flashcardcollection parametrina annettava korttikokoelma
-     * @return true jos kokoelmat ovat sama kokoelma ja false jos ne eivät ole
-     * sama kokoelma
-     */
     @Override
     public boolean equals(Object flashcardcollection) {
         if (this == flashcardcollection) {

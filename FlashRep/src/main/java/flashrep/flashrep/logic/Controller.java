@@ -8,7 +8,7 @@ import flashrep.flashrep.useraccounts.Users;
 
 /**
  * Luokka jonka avulla käyttöliittymä saa käyttöönsä ohjelman käyttäjä-,
- * kokoelma ja logiikkaluokat ja niiden toiminnot.
+ * kortti- ja logiikkapakettien luokkia ja toimintoja.
  *
  */
 public class Controller {
@@ -79,7 +79,7 @@ public class Controller {
     }
 
     /**
-     * Metodi palauttaa JListin mallina toimivan käyttäjän listauksen.
+     * Metodi palauttaa JListin mallina toimivan käyttäjän kokoelmalistauksen.
      *
      * @return CollectionsModel joka perii AbstractListModel-luokan ominaisuudet
      * @see AbstractListModel
@@ -89,8 +89,7 @@ public class Controller {
     }
 
     /**
-     * Metodi palauttaa kokoelmalistauksesta käyttäjän valitseman kokoelman,
-     * tämä on käytössä kun käyttäjä valitsee mitä kokoelmaa haluaa kerrata.
+     * Metodi palauttaa kokoelmalistauksesta käyttäjän valitseman kokoelman.
      *
      * @return juuri nyt valittuna oleva kokoelma
      */

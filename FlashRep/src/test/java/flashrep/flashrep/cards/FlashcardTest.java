@@ -58,7 +58,7 @@ public class FlashcardTest {
 
     @Test
     public void constructorSetsRatingRight() {
-        assertEquals(1, flashcard.getRating());
+        assertEquals(4, flashcard.getRating());
     }
 
     @Test
@@ -75,13 +75,13 @@ public class FlashcardTest {
     @Test
     public void setRatingWillNotSetRatingWithNumberTooLow() {
         flashcard.setRating(0);
-        assertEquals(1, flashcard.getRating());
+        assertEquals(4, flashcard.getRating());
     }
 
     @Test
     public void setRatingWillNotSetRatingWithNumberTooHigh() {
         flashcard.setRating(17);
-        assertEquals(1, flashcard.getRating());
+        assertEquals(4, flashcard.getRating());
     }
 
     @Test

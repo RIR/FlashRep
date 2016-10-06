@@ -1,9 +1,6 @@
 package flashrep.flashrep.gui;
 
 import flashrep.flashrep.cards.FlashcardCollection;
-import flashrep.flashrep.logic.Controller;
-import flashrep.flashrep.useraccounts.User;
-import java.lang.reflect.Array;
 import java.util.List;
 import javax.swing.AbstractListModel;
 

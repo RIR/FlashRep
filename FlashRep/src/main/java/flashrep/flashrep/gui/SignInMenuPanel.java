@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 public class SignInMenuPanel extends JPanel {
 
     private Views views;
-    private Controller controller;
+    private AppControlLogic controller;
 
     /**
      * Luokan konstruktori joka injektoi kontrollerin.
@@ -30,7 +30,7 @@ public class SignInMenuPanel extends JPanel {
      * @param views Ikkunanäkymät
      * @param controller  Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public SignInMenuPanel(Views views, Controller controller) {
+    public SignInMenuPanel(Views views, AppControlLogic controller) {
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
         this.views=views;

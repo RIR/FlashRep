@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -21,7 +21,7 @@ import javax.swing.event.ListSelectionListener;
 public class UserMenuListener implements ActionListener, ListSelectionListener {
 
     private Views views;
-    private Controller controller;
+    private AppControlLogic controller;
     private JList collectionList;
     private JButton renameButton;
     private JButton studyNowButton;
@@ -43,7 +43,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
      * @param removeCollectionButton Painike kokoelman poistamista varten
      * @param signOutButton Uloskirjautumispainike
      */
-    public UserMenuListener(Views views, Controller controller, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton renameButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
+    public UserMenuListener(Views views, AppControlLogic controller, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton renameButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
         this.views = views;
         this.controller = controller;
         this.collectionList = collectionList;

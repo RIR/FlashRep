@@ -14,7 +14,7 @@ Päivä | Tunnit | Kuvaus
 29.09.2016 |8h|GUIn vääntöä, joka edistyy erittäin hitaasti. Jumissa aika ajoin ja iso aika menee selaillessa oppaita. 
 30.09.2016 |8h|GUIn opiskelua ja puurtamista, vaikeaa on ja olin pahasti jumissa pienissä yksityiskohdissa. Lopussa alkoi hivenen selkiämään. Maanantaina varmaan pajaan tarkastelemaan ohjelman rakennetta sun muuta. Samalla päivitetty viikon tarvittavat raportit.
 3.10.2016 |3h|Pajassa käynti, jossa tarkisteltiin ohjelman rakennetta. Samalla muokkailin ohjelmaa haluttuun suuntaan.
-4.10.2016 |8h|GUIn tekoa ja ohjelman muokkausta. Taas ongelmia GUI-nippeleiden kanssa, nämä vie todella paljon aikaa.
+4.10.2016 |6h|GUIn tekoa ja ohjelman muokkausta. Taas ongelmia GUI-nippeleiden kanssa, nämä vie todella paljon aikaa.
 5.10.2016 |6h|GUIn tekoa ja ohjelman muokkausta.
 6.10.2016 |6h|GUIn tekoa, luokkakaavioiden ja raporttien päivitys.
 ... | ... | ...

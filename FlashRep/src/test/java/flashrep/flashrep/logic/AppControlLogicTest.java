@@ -12,13 +12,13 @@ import static org.junit.Assert.*;
  *
  * @author Raine Rantanen
  */
-public class ControllerTest {
+public class AppControlLogicTest {
 
-    Controller controller;
+    AppControlLogic controller;
     String userName;
     char[] password;
 
-    public ControllerTest() {
+    public AppControlLogicTest() {
     }
 
     @BeforeClass
@@ -31,7 +31,7 @@ public class ControllerTest {
 
     @Before
     public void setUp() {
-        controller = new Controller();
+        controller = new AppControlLogic();
         userName = "user";
         password = new char[]{'p', 'a', 's', 's'};
     }

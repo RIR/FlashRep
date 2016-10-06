@@ -8,7 +8,7 @@
 <div id="overview"><a href="../../../../apidocs/flashrep/flashrep/gui/SignInMenuListener.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> flashrep.flashrep.gui;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> flashrep.flashrep.logic.Controller;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> flashrep.flashrep.logic.AppControlLogic;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.awt.event.ActionEvent;
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.awt.event.ActionListener;
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> javax.swing.JButton;
@@ -34,7 +34,7 @@
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">private</strong> JPasswordField repeatPasswordField;
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">private</strong> JButton signInOrCreateUserButton;
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>      <strong class="jxr_keyword">private</strong> <a href="../../../flashrep/flashrep/gui/Views.html">Views</a> views;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">private</strong> <a href="../../../flashrep/flashrep/logic/Controller.html">Controller</a> controller;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">private</strong> <a href="../../../flashrep/flashrep/logic/AppControlLogic.html">AppControlLogic</a> controller;
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     * Luokan konstruktori joka injektoi kuuntelijan käyttöön parametreina</em>
@@ -53,7 +53,7 @@
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     * @param views Views-paneeli ikkunanäkymien vaihtoa varten</em>
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     * @param controller kontrolleri käyttäjä- ja korttiluokkien käyttöä varten</em>
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">public</strong> <a href="../../../flashrep/flashrep/gui/SignInMenuListener.html">SignInMenuListener</a>(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, <a href="../../../flashrep/flashrep/gui/Views.html">Views</a> views, <a href="../../../flashrep/flashrep/logic/Controller.html">Controller</a> controller) {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">public</strong> <a href="../../../flashrep/flashrep/gui/SignInMenuListener.html">SignInMenuListener</a>(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, <a href="../../../flashrep/flashrep/gui/Views.html">Views</a> views, <a href="../../../flashrep/flashrep/logic/AppControlLogic.html">AppControlLogic</a> controller) {
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          <strong class="jxr_keyword">this</strong>.usernameField = usernameField;
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">this</strong>.isUserPasswordField = isUserPasswordField;
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">this</strong>.createPasswordText = createPasswordText;

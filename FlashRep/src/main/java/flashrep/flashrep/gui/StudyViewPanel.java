@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.Component;
 import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.GridLayout;
@@ -19,9 +19,9 @@ import javax.swing.ListSelectionModel;
 public class StudyViewPanel extends JPanel {
 
     private Views views;
-    private Controller controller;
+    private AppControlLogic controller;
 
-    public StudyViewPanel(Views views, Controller controller) {
+    public StudyViewPanel(Views views, AppControlLogic controller) {
         this.views = views;
         this.controller = controller;
         initComponents();

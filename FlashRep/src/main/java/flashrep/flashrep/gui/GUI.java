@@ -1,8 +1,9 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -17,7 +18,7 @@ import javax.swing.WindowConstants;
 public class GUI implements Runnable {
 
     private JFrame frame;
-    private Controller controller;
+    private AppControlLogic controller;
 
     /**
      * Luokan konstruktori joka injektoi käyttöliittymän käyttöön parametrina
@@ -25,7 +26,7 @@ public class GUI implements Runnable {
      *
      * @param controller Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public GUI(Controller controller) {
+    public GUI(AppControlLogic controller) {
         this.controller = controller;
     }
 
@@ -43,6 +44,7 @@ public class GUI implements Runnable {
 
         frame.pack();
         frame.setVisible(true);
+        centerFrame();
     }
 
     private void initComponents(Container container) {
@@ -50,6 +52,14 @@ public class GUI implements Runnable {
         Views views = new Views(controller);
         views.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         container.add(views);
+    }
+
+    /* Tämä suoraan Jarmo Kallion ohjelmasta SInkTheShips, 
+    keskittää aloittaessa ohjelman ruudun keskelle.
+     */
+    private void centerFrame() {
+        Dimension xy = Toolkit.getDefaultToolkit().getScreenSize();
+        this.frame.setLocation(xy.width / 2 - this.frame.getWidth() / 2, xy.height / 2 - this.frame.getHeight() / 2);
     }
 
     /**

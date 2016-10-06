@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -26,7 +26,7 @@ public class SignInMenuListener implements ActionListener {
     private JPasswordField repeatPasswordField;
     private JButton signInOrCreateUserButton;
     private Views views;
-    private Controller controller;
+    private AppControlLogic controller;
 
     /**
      * Luokan konstruktori joka injektoi kuuntelijan käyttöön parametreina
@@ -45,7 +45,7 @@ public class SignInMenuListener implements ActionListener {
      * @param views Views-paneeli ikkunanäkymien vaihtoa varten
      * @param controller kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public SignInMenuListener(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, Views views, Controller controller) {
+    public SignInMenuListener(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, Views views, AppControlLogic controller) {
         this.usernameField = usernameField;
         this.isUserPasswordField = isUserPasswordField;
         this.createPasswordText = createPasswordText;

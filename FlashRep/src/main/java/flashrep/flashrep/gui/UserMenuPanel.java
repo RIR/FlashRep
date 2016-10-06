@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
@@ -21,7 +21,7 @@ import javax.swing.ListSelectionModel;
 public class UserMenuPanel extends JPanel {
 
     private Views views;
-    private Controller controller;
+    private AppControlLogic controller;
     private JList collectionlist;
     private CollectionsModel model;
 
@@ -33,7 +33,7 @@ public class UserMenuPanel extends JPanel {
      * @param views Views-luokan olio
      * @param controller Kontrolleri
      */
-    public UserMenuPanel(Views views, Controller controller) {
+    public UserMenuPanel(Views views, AppControlLogic controller) {
         this.views = views;
         this.controller = controller;
         initComponents();

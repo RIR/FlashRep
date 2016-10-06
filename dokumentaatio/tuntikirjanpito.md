@@ -16,5 +16,5 @@ Päivä | Tunnit | Kuvaus
 3.10.2016 |3h|Pajassa käynti, jossa tarkisteltiin ohjelman rakennetta. Samalla muokkailin ohjelmaa haluttuun suuntaan.
 4.10.2016 |6h|GUIn tekoa ja ohjelman muokkausta. Taas ongelmia GUI-nippeleiden kanssa, nämä vie todella paljon aikaa.
 5.10.2016 |6h|GUIn tekoa ja ohjelman muokkausta.
-6.10.2016 |6h|GUIn tekoa, luokkakaavioiden ja raporttien päivitys.
+6.10.2016 |8h|GUIn tekoa, JavaDocia,luokkakaavioiden ja raporttien päivitys sekä katselmointi.
 ... | ... | ...

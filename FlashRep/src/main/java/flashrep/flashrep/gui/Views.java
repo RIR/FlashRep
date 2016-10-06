@@ -1,6 +1,6 @@
 package flashrep.flashrep.gui;
 
-import flashrep.flashrep.logic.Controller;
+import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -21,7 +21,7 @@ public class Views extends JPanel {
     final static String STUDYPANEL="StudyView";
 
     private CardLayout cardLayout;
-    private Controller controller;
+    private AppControlLogic controller;
     private JPanel view1;
     private JPanel view2;
     private JPanel view3;
@@ -31,7 +31,7 @@ public class Views extends JPanel {
      *
      * @param controller Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
-    public Views(Controller controller) {
+    public Views(AppControlLogic controller) {
         cardLayout = new CardLayout();
         this.setLayout(cardLayout);
         this.controller = controller;

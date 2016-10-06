@@ -3,15 +3,18 @@ package flashrep.flashrep.logic;
 import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.gui.CollectionsModel;
+import flashrep.flashrep.gui.GUI;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
+import javax.swing.SwingUtilities;
 
 /**
- * Luokka jonka avulla käyttöliittymä saa käyttöönsä ohjelman käyttäjä-, kortti-
+ * Luokka joka käynnistää käyttöliittymän ja 
+ * jonka avulla käyttöliittymä saa käyttöönsä ohjelman käyttäjä-, kortti-
  * ja logiikkapakettien luokkia ja toimintoja.
  *
  */
-public class Controller {
+public class AppControlLogic {
 
     Users users;
     User currentUser;
@@ -23,12 +26,20 @@ public class Controller {
     /**
      * Luokan konstruktori.
      */
-    public Controller() {
+    public AppControlLogic() {
         this.users = new Users();
         this.currentUser = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
         this.currentUsersCollections = new CollectionsModel(this.allFlashcardCollections.getCollections());
         this.currentCollection = new FlashcardCollection("");
+    }
+
+    /**
+     * Metodi käynnistää ohjelman käyttämän käyttöliittymän.
+     */
+    public void start() {
+        GUI gui = new GUI(this);
+        SwingUtilities.invokeLater(gui);
     }
 
     /**

@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 19,
+      <title>File: 18,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,20 +47,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.gui.StudyViewListener.java">flashrep/flashrep/gui/StudyViewListener.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.logic.Controller.java">flashrep/flashrep/logic/Controller.java</a>
                 </td>
                 <td>
                   0
@@ -117,6 +103,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.cards.FlashcardCollection.java">flashrep/flashrep/cards/FlashcardCollection.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.main.Main.java">flashrep/flashrep/main/Main.java</a>
                 </td>
                 <td>
                   0
@@ -200,20 +200,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.app.FlashRepApp.java">flashrep/flashrep/app/FlashRepApp.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.cards.Flashcard.java">flashrep/flashrep/cards/Flashcard.java</a>
                 </td>
                 <td>
@@ -229,6 +215,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.logic.RepetitionLogic.java">flashrep/flashrep/logic/RepetitionLogic.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.logic.AppControlLogic.java">flashrep/flashrep/logic/AppControlLogic.java</a>
                 </td>
                 <td>
                   0
@@ -285,20 +285,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.gui.GUI.java">flashrep/flashrep/gui/GUI.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.app.Main.java">flashrep/flashrep/app/Main.java</a>
                 </td>
                 <td>
                   0

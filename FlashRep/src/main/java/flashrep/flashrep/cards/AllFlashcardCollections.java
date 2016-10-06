@@ -24,7 +24,7 @@ public class AllFlashcardCollections {
     }
 
     /**
-     * Luokan konstruktori joka asettaa kokoelmalistaukselle parametrina 
+     * Luokan konstruktori joka asettaa kokoelmalistaukselle parametrina
      * annettavan nimen.
      *
      * @param name Kokoelmalistaukselle annettava nimi
@@ -99,7 +99,7 @@ public class AllFlashcardCollections {
         this.name = name;
     }
 
-    @Override  
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 61 * hash + Objects.hashCode(this.flashcardCollections);

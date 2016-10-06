@@ -7,8 +7,8 @@ import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
 
 /**
- * Luokka jonka avulla käyttöliittymä saa käyttöönsä ohjelman käyttäjä-,
- * kortti- ja logiikkapakettien luokkia ja toimintoja.
+ * Luokka jonka avulla käyttöliittymä saa käyttöönsä ohjelman käyttäjä-, kortti-
+ * ja logiikkapakettien luokkia ja toimintoja.
  *
  */
 public class Controller {

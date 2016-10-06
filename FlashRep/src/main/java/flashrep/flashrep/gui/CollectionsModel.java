@@ -27,10 +27,10 @@ public class CollectionsModel extends AbstractListModel {
      * Luokan konstruktori joka asettaa kokoelmalistaukseksi parametrina
      * annettavan listauksen.
      *
-     * @param Collections Annettava kokoelmalistaus
+     * @param collections Annettava kokoelmalistaus
      */
-    public CollectionsModel(List<FlashcardCollection> Collections) {
-        this.collections = Collections;
+    public CollectionsModel(List<FlashcardCollection> collections) {
+        this.collections = collections;
     }
 
     /**

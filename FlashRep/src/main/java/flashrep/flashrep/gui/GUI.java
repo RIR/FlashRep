@@ -11,7 +11,6 @@ import javax.swing.WindowConstants;
  *
  * @author Raine Rantanen
  */
-
 /**
  * Käyttöliittymäluokka
  */
@@ -21,11 +20,13 @@ public class GUI implements Runnable {
     private Controller controller;
 
     /**
-     * Luokan konstruktori joka injektoi käyttöliittymän käyttöön parametrina annettavan kontrollerin.
+     * Luokan konstruktori joka injektoi käyttöliittymän käyttöön parametrina
+     * annettavan kontrollerin.
+     *
      * @param controller Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
     public GUI(Controller controller) {
-        this.controller=controller;
+        this.controller = controller;
     }
 
     /**
@@ -47,13 +48,14 @@ public class GUI implements Runnable {
     private void initComponents(Container container) {
         // lisätään näkymät
         Views views = new Views(controller);
-        views.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+        views.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         container.add(views);
     }
 
     /**
      * Metodi palauttaa käyttöliittymän ikkunan.
-     * @return 
+     *
+     * @return
      */
     public JFrame getFrame() {
         return frame;

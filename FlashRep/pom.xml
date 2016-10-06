@@ -36,14 +36,12 @@
                 
                 <configuration>
                     
-                    <targetClasses>              
-                        <param>flashrep.flashrep.app.*</param>                     
+                    <targetClasses>                                                        
                         <param>flashrep.flashrep.cards.*</param>
                         <param>flashrep.flashrep.logic.*</param>
                         <param>flashrep.flashrep.useraccounts.*</param>
                     </targetClasses>
-                    <targetTests>                   
-                        <param>flashrep.flashrep.app.*</param>                   
+                    <targetTests>                                                      
                         <param>flashrep.flashrep.cards.*</param>
                         <param>flashrep.flashrep.logic.*</param>
                         <param>flashrep.flashrep.useraccounts.*</param>

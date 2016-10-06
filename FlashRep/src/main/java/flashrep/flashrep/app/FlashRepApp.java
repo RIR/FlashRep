@@ -10,17 +10,18 @@ import javax.swing.SwingUtilities;
  */
 /**
  * Luokka jossa luodaan ohjelman tarvitsemat toiminnot.
-*/
+ */
 public class FlashRepApp {
+
     private Controller controller;
 
     /**
      * Luokan konstruktori.
      */
     public FlashRepApp() {
-        this.controller=new Controller();
+        this.controller = new Controller();
     }
-    
+
     /**
      * Metodi käynnistää ohjelman käyttämän käyttöliittymän.
      */
@@ -28,6 +29,5 @@ public class FlashRepApp {
         GUI gui = new GUI(this.controller);
         SwingUtilities.invokeLater(gui);
     }
-    
-    
+
 }

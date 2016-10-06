@@ -94,12 +94,14 @@ public class SignInMenuListener implements ActionListener {
                 JOptionPane.showMessageDialog(views, "Salasanat eivät täsmänneet");
 
             } else //Jos käyttäjän lisääminen onnistuu jatketaan käyttäjävalikkoon ja tyhjennetään kentät
-            if (this.controller.canAddNewUser(usernameField.getText(), createPasswordField.getPassword())) {
-                this.views.switchToView("UserMenu");
-                clearFields();
-                //Jos käyttäjätunnus on jo varattu näytetään viesti
-            } else {
-                JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
+            {
+                if (this.controller.canAddNewUser(usernameField.getText(), createPasswordField.getPassword())) {
+                    this.views.switchToView("UserMenu");
+                    clearFields();
+                    //Jos käyttäjätunnus on jo varattu näytetään viesti
+                } else {
+                    JOptionPane.showMessageDialog(views, "Käyttäjätunnus on jo varattu, valitse toinen");
+                }
             }
         }
         //Jos kirjautumisnappia painetaan

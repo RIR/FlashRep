@@ -23,6 +23,7 @@
 
 ![Sekvenssikaavio uuden käyttäjän kirjautumisesta] (Sekvenssiokaavio_kirjautuminen_uusiKayttaja_onnistuu.png "sekvenssikaavio uuden käyttäjän kirjautumisesta kun onnistuu")
 
+
 ![Sekvenssikaavio uuden kokoelman luonnista] (Sekvenssiokaavio_kokoelmanLuominen.png "sekvenssikaavio uuden kokoelman luonnista")
 
 

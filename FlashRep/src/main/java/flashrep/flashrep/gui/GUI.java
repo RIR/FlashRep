@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -38,13 +39,27 @@ public class GUI implements Runnable {
         frame = new JFrame("FlashRep");
         frame.setPreferredSize(new Dimension(700, 350));
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         initComponents(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
+
         centerFrame();
+
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                Object[] buttons = {"Kyllä", "Ei"};
+                if (JOptionPane.showOptionDialog(frame,
+                        "Haluatko tosiaan sulkea ohjelman?", "Sulje ohjelma?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[1]) == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
     }
 
     private void initComponents(Container container) {
@@ -70,4 +85,5 @@ public class GUI implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
+
 }

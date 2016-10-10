@@ -1,5 +1,6 @@
 package flashrep.flashrep.useraccounts;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Luokka tarjoaa metodeita käyttäjälistauksen käsittelyyn.
  */
-public class Users {
+public class Users implements Serializable{
 
     private List<User> users;
 

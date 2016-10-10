@@ -9,9 +9,9 @@ import flashrep.flashrep.useraccounts.Users;
 import javax.swing.SwingUtilities;
 
 /**
- * Luokka joka käynnistää käyttöliittymän ja 
- * jonka avulla käyttöliittymä saa käyttöönsä ohjelman käyttäjä-, kortti-
- * ja logiikkapakettien luokkia ja toimintoja.
+ * Luokka joka käynnistää käyttöliittymän ja jonka avulla käyttöliittymä saa
+ * käyttöönsä ohjelman käyttäjä-, kortti- ja logiikkapakettien luokkia ja
+ * toimintoja.
  *
  */
 public class AppControlLogic {
@@ -116,4 +116,11 @@ public class AppControlLogic {
         this.currentCollection = this.currentUsersCollections.getCurrentCollection();
     }
 
+    public void startNewRepetition() {
+        repetitionLogic = new SpacedRepetition(currentCollection);
+    }
+
+    public RepetitionLogic getRepetitionLogic() {
+        return repetitionLogic;
+    }
 }

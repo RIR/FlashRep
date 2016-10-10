@@ -2,10 +2,7 @@ package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * Luokka korttikokoelmien aikavälikertaukseen, toteuttaa
@@ -25,7 +22,8 @@ public class SpacedRepetition implements RepetitionLogic {
      */
     public SpacedRepetition(FlashcardCollection flashcardCollection) {
         this.rotationQueue = new PriorityQueue<Flashcard>();
-        this.loadFlashcardCollectionIntoRotation(flashcardCollection);
+        this.flashcardCollection = flashcardCollection;
+        this.rotationQueue.addAll(this.flashcardCollection.getCards());
         removeFromRotation = false;
     }
 
@@ -72,8 +70,7 @@ public class SpacedRepetition implements RepetitionLogic {
     /*Yksityinen metodi ei JavaDociin??
     Metodi tarkistaa booleanin tilan ja avustaa insertCardIntoRotation-metodia 
     päättämään asetetaanko jokin kortti takaisin toistojonoon.
-    */
-    
+     */
     private boolean isRemovedFromRotation() {
         return removeFromRotation;
     }

@@ -47,10 +47,12 @@ public class StudyViewPanel extends JPanel {
         }
 
         JPanel cardPanel = new JPanel(new GridLayout(3, 1, 10, 10));
+        JLabel noCardsLabel = new JLabel("Kokoelma on tyhjä. Lisää kortteja tai vaihda kokoelmaa.");
         JLabel questionLabel = new JLabel();
         JSeparator separator = new JSeparator(JSeparator.HORIZONTAL);
         JLabel answerLabel = new JLabel();
 
+        cardPanel.add(noCardsLabel);
         cardPanel.add(questionLabel);
         cardPanel.add(separator);
         cardPanel.add(answerLabel);
@@ -86,7 +88,17 @@ public class StudyViewPanel extends JPanel {
         functionButtonsPanel.add(removeCardButton);
         functionButtonsPanel.add(backToUsermenuButton);
 
-        StudyViewListener studyViewListener = new StudyViewListener(views, controller, easyButton, goodButton, hardButton, veryHardButton, showAnswerButton, createNewCardButton, removeCardButton, backToUsermenuButton);
+        easyButton.setActionCommand("easy");
+        goodButton.setActionCommand("good");
+        hardButton.setActionCommand("hard");
+        veryHardButton.setActionCommand("veryHard");
+
+        showAnswerButton.setActionCommand("showAnswer");
+        createNewCardButton.setActionCommand("createNewCard");
+        removeCardButton.setActionCommand("removeCard");
+        backToUsermenuButton.setActionCommand("backToUsermenu");
+
+        StudyViewListener studyViewListener = new StudyViewListener(views, controller, noCardsLabel, questionLabel, answerLabel, easyButton, goodButton, hardButton, veryHardButton, showAnswerButton, createNewCardButton, removeCardButton, backToUsermenuButton);
         easyButton.addActionListener(studyViewListener);
         goodButton.addActionListener(studyViewListener);
         hardButton.addActionListener(studyViewListener);
@@ -96,8 +108,6 @@ public class StudyViewPanel extends JPanel {
         createNewCardButton.addActionListener(studyViewListener);
         removeCardButton.addActionListener(studyViewListener);
         backToUsermenuButton.addActionListener(studyViewListener);
-        
-        
 
     }
 

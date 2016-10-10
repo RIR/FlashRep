@@ -1,6 +1,7 @@
 package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.AllFlashcardCollections;
+import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.gui.CollectionsModel;
 import flashrep.flashrep.gui.GUI;
@@ -19,9 +20,10 @@ public class AppControlLogic {
     Users users;
     User currentUser;
     AllFlashcardCollections allFlashcardCollections;
+    FlashcardCollection currentCollection;
+    Flashcard currentCard;
     RepetitionLogic repetitionLogic;
     CollectionsModel currentUsersCollections;
-    FlashcardCollection currentCollection;
 
     /**
      * Luokan konstruktori.
@@ -123,4 +125,13 @@ public class AppControlLogic {
     public RepetitionLogic getRepetitionLogic() {
         return repetitionLogic;
     }
+
+    public Flashcard getCurrentCard() {
+        return currentCard;
+    }
+
+    public void setCurrentCard() {
+        this.currentCard = this.repetitionLogic.showCard();
+    }
+
 }

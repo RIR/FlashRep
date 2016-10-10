@@ -122,6 +122,10 @@ public class AppControlLogic {
         repetitionLogic = new SpacedRepetition(currentCollection);
     }
 
+    public void quitRepetition() {
+        this.currentCollection = this.repetitionLogic.getFlashcardCollection();
+    }
+
     public RepetitionLogic getRepetitionLogic() {
         return repetitionLogic;
     }

@@ -74,20 +74,21 @@ public class SpacedRepetitionTest {
     }
 
     @Test
-    public void showCardReturnsNullIfRotationQueueIsEmpty() {  
-       flashcardCollection.removeAllCardsFromCollection();
-       spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
+    public void showCardReturnsNullIfRotationQueueIsEmpty() {
+        flashcardCollection.removeAllCardsFromCollection();
+        spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         assertEquals(null, spacedRepetition.showCard());
     }
+
     @Test
-    public void showCardWorksWithSingleCard() {  
+    public void showCardWorksWithSingleCard() {
         addCardsIntoCollectionHelper(1, flashcardCollection);
         spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         assertEquals(flashcardCollection.getCards().get(0), spacedRepetition.showCard());
     }
 
     @Test
-    public void showCardWorksWithMultipleCards() {     
+    public void showCardWorksWithMultipleCards() {
         addCardsIntoCollectionHelper(10, flashcardCollection);
         spacedRepetition.loadFlashcardCollectionIntoRotation(flashcardCollection);
         for (int i = 0; i < 10; i++) {
@@ -111,5 +112,10 @@ public class SpacedRepetitionTest {
     public void insertCardIntoRotationGivesRightOrderWhenCardsRated() {
         flashcardCollection.removeAllCardsFromCollection();
         placecardToCorrectPlaceHelper(4, new SpacedRepetition(flashcardCollection));
+    }
+
+    @Test
+    public void getRotationSizeReturnsRightSize() {
+        assertEquals(20, spacedRepetition.getRotationSize());
     }
 }

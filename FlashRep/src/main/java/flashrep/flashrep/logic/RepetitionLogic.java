@@ -35,4 +35,8 @@ public interface RepetitionLogic {
      * Metodi poistaa metodia käyttävän kortin toistojonosta.
      */
     public void removeFromRotation();
+
+    public FlashcardCollection getFlashcardCollection();
+
+    public int getRotationSize();
 }

@@ -65,6 +65,7 @@ public class SpacedRepetition implements RepetitionLogic {
         if (!isRemovedFromRotation()) {
             this.rotationQueue.add(flashcard);
         }
+        this.removeFromRotation = false;
     }
 
     /*Yksityinen metodi ei JavaDociin??
@@ -99,5 +100,9 @@ public class SpacedRepetition implements RepetitionLogic {
         this.flashcardCollection.removeAllCardsFromCollection();
         this.flashcardCollection.getCards().addAll(rotationQueue);
         return this.flashcardCollection;
+    }
+    
+    public int getRotationSize (){
+    return this.rotationQueue.size();
     }
 }

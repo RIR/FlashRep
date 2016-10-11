@@ -1,5 +1,6 @@
 package flashrep.flashrep.cards;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
 /**
  * Luokka tarjoaa metodeita kortin käsittelyyn.
  */
-public class Flashcard implements Comparable<Flashcard> {
+public class Flashcard implements Comparable<Flashcard>, Serializable {
 
     private String question;
     private String answer;

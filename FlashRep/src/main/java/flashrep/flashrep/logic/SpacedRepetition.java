@@ -2,12 +2,13 @@ package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
+import java.io.Serializable;
 import java.util.PriorityQueue;
 
 /**
  * Luokka korttikokoelmien kertaukseen, toteuttaa RepetitionLogic-rajapinnan.
  */
-public class SpacedRepetition implements RepetitionLogic {
+public class SpacedRepetition implements RepetitionLogic, Serializable {
 
     private Flashcard currentFlashcard;
     private PriorityQueue<Flashcard> rotationQueue;

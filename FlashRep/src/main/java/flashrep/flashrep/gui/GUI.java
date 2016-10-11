@@ -56,6 +56,7 @@ public class GUI implements Runnable {
                         "Haluatko tosiaan sulkea ohjelman?", "Sulje ohjelma?",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[1]) == JOptionPane.YES_OPTION) {
+                    controller.getDataHandler().saveData();
                     System.exit(0);
                 }
             }

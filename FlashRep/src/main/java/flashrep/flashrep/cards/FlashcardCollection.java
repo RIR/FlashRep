@@ -1,5 +1,6 @@
 package flashrep.flashrep.cards;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,7 +12,7 @@ import java.util.Objects;
 /**
  * Luokka tarjoaa metodeita korttikokoelman käsittelyyn.
  */
-public class FlashcardCollection {
+public class FlashcardCollection implements Serializable {
 
     private String name;
     private List<Flashcard> flashcards;
@@ -67,12 +68,12 @@ public class FlashcardCollection {
 
     /**
      * Metodi asettaa parametrina annettavan listan listaksi.
+     *
      * @param flashcards Annettava lista
      */
     public void setCards(List<Flashcard> flashcards) {
         this.flashcards = flashcards;
     }
-    
 
     /**
      * Metodi palauttaa korttikokoelman nimen.

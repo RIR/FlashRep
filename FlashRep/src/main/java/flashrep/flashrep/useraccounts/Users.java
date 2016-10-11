@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Luokka tarjoaa metodeita käyttäjälistauksen käsittelyyn.
  */
-public class Users implements Serializable{
+public class Users implements Serializable {
 
     private List<User> users;
 
@@ -23,8 +23,9 @@ public class Users implements Serializable{
     }
 
     /**
-     * Metodi lisää parametrina annettavan käyttäjän käyttäjälistaukseen
-     * jos käyttäjää ei listalla vielä ole.
+     * Metodi lisää parametrina annettavan käyttäjän käyttäjälistaukseen jos
+     * käyttäjää ei listalla vielä ole.
+     *
      * @param user Lisättävä käyttäjä
      */
     public void addUser(User user) {
@@ -61,11 +62,12 @@ public class Users implements Serializable{
     }
 
     /**
-     * Metodi palauttaa parametrina annettavan käyttäjän
-     * jos käyttäjä löytyy käyttäjälistauksesta tai null jos 
-     * käyttäjää ei löydy.
+     * Metodi palauttaa parametrina annettavan käyttäjän jos käyttäjä löytyy
+     * käyttäjälistauksesta tai null jos käyttäjää ei löydy.
+     *
      * @param user Haettava käyttäjä
-     * @return käyttäjä jos haettava käyttäjä löytyy tai null jos käyttäjää ei löydy
+     * @return käyttäjä jos haettava käyttäjä löytyy tai null jos käyttäjää ei
+     * löydy
      */
     public User getUser(User user) {
         if (containsUser(user)) {
@@ -86,6 +88,17 @@ public class Users implements Serializable{
     public List<User> getUsers() {
         return users;
     }
+
+    /**
+     * Metodi asettaa käyttäjälistaukseksi parametrina annettavan
+     * käyttäjälistauksen.
+     * @param users Käyttäjälistaus
+     */
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+    
+    
 
     /**
      * Metodi palauttaa true jos käyttäjä löytyy käyttäjälistauksesta, muuten

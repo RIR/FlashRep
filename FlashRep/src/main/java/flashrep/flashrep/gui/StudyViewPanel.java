@@ -70,14 +70,16 @@ public class StudyViewPanel extends JPanel {
         questionLabel.setAlignmentX(CENTER_ALIGNMENT);
         questionLabel.setAlignmentY(TOP_ALIGNMENT);
         answerLabel.setAlignmentX(CENTER_ALIGNMENT);
-        answerLabel.setAlignmentY(BOTTOM_ALIGNMENT);
+        questionLabel.setAlignmentY(BOTTOM_ALIGNMENT);
         separator.setAlignmentY(CENTER_ALIGNMENT);
 
+        cardPanel.add(Box.createRigidArea(new Dimension(10, 10)));
         cardPanel.add(questionLabel);
-        cardPanel.add(Box.createGlue());
+        cardPanel.add(Box.createRigidArea(new Dimension(10, 10)));
         cardPanel.add(separator);
-        cardPanel.add(Box.createGlue());
+        cardPanel.add(Box.createRigidArea(new Dimension(10, 10)));
         cardPanel.add(answerLabel);
+        cardPanel.add(Box.createRigidArea(new Dimension(10, 10)));
         cardPanel.setBackground(Color.white);
 
         cardPanel.setAlignmentY(Component.CENTER_ALIGNMENT);

@@ -1,6 +1,7 @@
 package flashrep.flashrep.gui;
 
 import flashrep.flashrep.cards.FlashcardCollection;
+import java.io.Serializable;
 import java.util.List;
 import javax.swing.AbstractListModel;
 
@@ -15,7 +16,7 @@ import javax.swing.AbstractListModel;
  *
  * @author Raine Rantanen
  */
-public class CollectionsModel extends AbstractListModel {
+public class CollectionsModel extends AbstractListModel implements Serializable {
 
     private List<FlashcardCollection> collections;
     private FlashcardCollection currentCollection;

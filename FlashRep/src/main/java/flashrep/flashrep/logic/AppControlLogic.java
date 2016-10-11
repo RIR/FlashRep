@@ -5,8 +5,10 @@ import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.gui.CollectionsModel;
 import flashrep.flashrep.gui.GUI;
+import flashrep.flashrep.io.dataHandler;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
+import java.io.Serializable;
 import javax.swing.SwingUtilities;
 
 /**
@@ -15,15 +17,16 @@ import javax.swing.SwingUtilities;
  * toimintoja.
  *
  */
-public class AppControlLogic {
+public class AppControlLogic implements Serializable {
 
-    Users users;
-    User currentUser;
-    AllFlashcardCollections allFlashcardCollections;
-    FlashcardCollection currentCollection;
-    Flashcard currentCard;
-    RepetitionLogic repetitionLogic;
-    CollectionsModel currentUsersCollections;
+    private Users users;
+    private User currentUser;
+    private AllFlashcardCollections allFlashcardCollections;
+    private FlashcardCollection currentCollection;
+    private Flashcard currentCard;
+    private RepetitionLogic repetitionLogic;
+    private CollectionsModel currentUsersCollections;
+    private dataHandler dataHandler;
 
     /**
      * Luokan konstruktori.
@@ -34,6 +37,7 @@ public class AppControlLogic {
         this.allFlashcardCollections = new AllFlashcardCollections();
         this.currentUsersCollections = new CollectionsModel(this.allFlashcardCollections.getCollections());
         this.currentCollection = new FlashcardCollection("");
+        this.dataHandler = new dataHandler(this);
     }
 
     /**
@@ -42,8 +46,20 @@ public class AppControlLogic {
     public void start() {
         GUI gui = new GUI(this);
         SwingUtilities.invokeLater(gui);
+        this.dataHandler.readData();
     }
 
+
+
+    /**
+     * Metodi palauttaa käyttäjät, tässä luokassa käytössä, jotta saadaan 
+     * tallennettua käyttäjät oikein.
+     * @return Käyttäjälistaus
+     */ 
+    public Users getUsers() {
+        return users;
+    }
+  
     /**
      * Metodi joka tarkistaa kirjautumisvalikossa voiko lisätä uuden käyttäjän
      * ja lisää sen jos voi.
@@ -90,7 +106,7 @@ public class AppControlLogic {
     public User getCurrentUser() {
         return this.currentUser;
     }
-
+    
     /**
      * Metodi palauttaa JListin mallina toimivan käyttäjän kokoelmalistauksen.
      *
@@ -161,4 +177,7 @@ public class AppControlLogic {
         this.currentCard = this.repetitionLogic.showCard();
     }
 
+    public dataHandler getDataHandler() {
+        return dataHandler;
+    }
 }

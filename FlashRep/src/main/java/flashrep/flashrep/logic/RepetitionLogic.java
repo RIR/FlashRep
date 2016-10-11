@@ -2,6 +2,7 @@ package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
+import java.io.Serializable;
 
 /**
  * Rajapintaluokka joka määrittää korttikokoelman korttien toistolta vaaditut

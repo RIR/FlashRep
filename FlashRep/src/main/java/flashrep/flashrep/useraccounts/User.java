@@ -109,10 +109,27 @@ public class User {
      * Metodi asettaa parametrina annettavan kokoelmalistauksen käyttäjän
      * kokoelmalistaukseksi.
      *
-     * @param collections Kokoelmalistaukseksi asetettava kokoelmalistaus List-muodossa
+     * @param collections Kokoelmalistaukseksi asetettava kokoelmalistaus
+     * List-muodossa
      */
     public void setOwnCollections(List<FlashcardCollection> collections) {
         this.ownCollections = collections;
+    }
+
+    /**
+     * Metodi etsii listalta parametrina annettavaa korttikokoelmaa vastaavan
+     * kokoelman ja päivittää sen kortit parametrina annettavan kokoelman
+     * korteilla Tämä käytössä graafisessa käyttöliittymässä kun poistutaan
+     * toistonäkymästä ja tallennetaan korttitiedot.
+     *
+     * @param flashcardCollection Annettava korttikokoelma
+     */
+    public void setCollection(FlashcardCollection flashcardCollection) {
+        for (FlashcardCollection collection : ownCollections) {
+            if (collection.equals(flashcardCollection)) {
+                collection.setCards(flashcardCollection.getCards());
+            }
+        }
     }
 
     @Override

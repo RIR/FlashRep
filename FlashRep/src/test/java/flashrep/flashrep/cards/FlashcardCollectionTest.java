@@ -143,10 +143,6 @@ public class FlashcardCollectionTest {
     public void equalsIsWorking() {
         FlashcardCollection newCollection = new FlashcardCollection("Suomi-Englanti");
         assertEquals(flashCardCollection, newCollection);
-        flashCardCollection.addCardToCollection(flashcard);
-        assertNotEquals(flashCardCollection, newCollection);
-        newCollection.addCardToCollection(flashcard);
-        assertEquals(flashCardCollection, newCollection);
     }
 
 }

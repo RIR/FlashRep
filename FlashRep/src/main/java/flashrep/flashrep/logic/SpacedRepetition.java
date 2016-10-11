@@ -5,11 +5,12 @@ import flashrep.flashrep.cards.FlashcardCollection;
 import java.util.PriorityQueue;
 
 /**
- * Luokka korttikokoelmien aikavälikertaukseen, toteuttaa
+ * Luokka korttikokoelmien kertaukseen, toteuttaa
  * RepetitionLogic-rajapinnan.
  */
 public class SpacedRepetition implements RepetitionLogic {
-
+    
+    private Flashcard currentFlashcard;
     private PriorityQueue<Flashcard> rotationQueue;
     private boolean removeFromRotation;
     private FlashcardCollection flashcardCollection;
@@ -49,7 +50,8 @@ public class SpacedRepetition implements RepetitionLogic {
     public Flashcard showCard() {
         this.removeFromRotation = false;
         if (!this.rotationQueue.isEmpty()) {
-            return this.rotationQueue.poll();
+            this.currentFlashcard = this.rotationQueue.poll();
+            return this.currentFlashcard;
         }
         return null;
     }
@@ -98,11 +100,12 @@ public class SpacedRepetition implements RepetitionLogic {
      */
     public FlashcardCollection getFlashcardCollection() {
         this.flashcardCollection.removeAllCardsFromCollection();
+        this.flashcardCollection.addCardToCollection(currentFlashcard);
         this.flashcardCollection.getCards().addAll(rotationQueue);
         return this.flashcardCollection;
     }
     
-    public int getRotationSize (){
-    return this.rotationQueue.size();
+    public int getRotationSize() {
+        return this.rotationQueue.size();
     }
 }

@@ -66,6 +66,15 @@ public class FlashcardCollection {
     }
 
     /**
+     * Metodi asettaa parametrina annettavan listan listaksi.
+     * @param flashcards Annettava lista
+     */
+    public void setCards(List<Flashcard> flashcards) {
+        this.flashcards = flashcards;
+    }
+    
+
+    /**
      * Metodi palauttaa korttikokoelman nimen.
      *
      * @return korttikokoelman nimi
@@ -113,9 +122,6 @@ public class FlashcardCollection {
         }
         final FlashcardCollection other = (FlashcardCollection) flashcardcollection;
         if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.flashcards, other.flashcards)) {
             return false;
         }
         return true;

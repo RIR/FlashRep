@@ -71,7 +71,7 @@ public class StudyViewListener implements ActionListener {
                     Flashcard flashcard = new Flashcard(q, a);
                     this.controller.getRepetitionLogic().insertCardInToRotation(flashcard);
                 } else {
-                    System.out.println("Annoithan sekä kysymyksen, että vastauksen?");
+                    JOptionPane.showMessageDialog(null, "Kysymys ja/tai vastaus puuttui!");
                 }
                 if (this.controller.getCurrentCard() == null) {
                     showCard();
@@ -125,7 +125,7 @@ public class StudyViewListener implements ActionListener {
             setRatingButtonsNotVisible();
             this.showAnswerButton.setVisible(false);
             this.removeCardButton.setEnabled(false);
-
+            this.controller.setCurrentCard();
         }
     }
 

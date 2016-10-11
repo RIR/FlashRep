@@ -118,22 +118,46 @@ public class AppControlLogic {
         this.currentCollection = this.currentUsersCollections.getCurrentCollection();
     }
 
+    /**
+     * Metodi luo uuden kertauksen valitulle korttikokoelmalle.
+     */
     public void startNewRepetition() {
         repetitionLogic = new SpacedRepetition(currentCollection);
     }
 
+    /**
+     * Metodi lopettaa kertauksen ja tallentaa kortit kokoelmaan, tämä käytössä
+     * koska graafisessa käyttöliittymässä kortteja voi poistaa kokoelmasta
+     * toistonäkymässä.
+     */
     public void quitRepetition() {
         this.currentCollection = this.repetitionLogic.getFlashcardCollection();
+        this.currentUser.setCollection(currentCollection);
+        this.currentUsersCollections = new CollectionsModel(this.currentUser.getOwnCollections());
+
     }
 
+    /**
+     * Metodi palauttaa valittuna olevan toistologiikan.
+     *
+     * @return Valittuna oleva toistologiikka
+     */
     public RepetitionLogic getRepetitionLogic() {
         return repetitionLogic;
     }
 
+    /**
+     * Metodi palauttaa juuri nyt käsiteltävän kortin.
+     *
+     * @return Käsiteltävä kortti
+     */
     public Flashcard getCurrentCard() {
         return currentCard;
     }
 
+    /**
+     * Metodi asettaa kortin käsiteltäväksi.
+     */
     public void setCurrentCard() {
         this.currentCard = this.repetitionLogic.showCard();
     }

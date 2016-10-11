@@ -17,4 +17,6 @@ Päivä | Tunnit | Kuvaus
 4.10.2016 |6h|GUIn tekoa ja ohjelman muokkausta. Taas ongelmia GUI-nippeleiden kanssa, nämä vie todella paljon aikaa.
 5.10.2016 |6h|GUIn tekoa ja ohjelman muokkausta.
 6.10.2016 |8h|GUIn tekoa, JavaDocia,luokkakaavioiden ja raporttien päivitys sekä katselmointi.
+7.10.2016 |2h|GUIn tekoa, refaktorointia ja samalla kaiken päivittämistä.
+10.10.2016 |5h|GUIn tekoa, joka johtanee taas refaktorointiin.
 ... | ... | ...

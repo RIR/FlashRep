@@ -5,11 +5,10 @@ import flashrep.flashrep.cards.FlashcardCollection;
 import java.util.PriorityQueue;
 
 /**
- * Luokka korttikokoelmien kertaukseen, toteuttaa
- * RepetitionLogic-rajapinnan.
+ * Luokka korttikokoelmien kertaukseen, toteuttaa RepetitionLogic-rajapinnan.
  */
 public class SpacedRepetition implements RepetitionLogic {
-    
+
     private Flashcard currentFlashcard;
     private PriorityQueue<Flashcard> rotationQueue;
     private boolean removeFromRotation;
@@ -51,9 +50,10 @@ public class SpacedRepetition implements RepetitionLogic {
         this.removeFromRotation = false;
         if (!this.rotationQueue.isEmpty()) {
             this.currentFlashcard = this.rotationQueue.poll();
-            return this.currentFlashcard;
+        } else {
+            this.currentFlashcard = null;
         }
-        return null;
+        return this.currentFlashcard;
     }
 
     //Pitäisi ehkä olla yksityinen metodi? 
@@ -100,11 +100,13 @@ public class SpacedRepetition implements RepetitionLogic {
      */
     public FlashcardCollection getFlashcardCollection() {
         this.flashcardCollection.removeAllCardsFromCollection();
-        this.flashcardCollection.addCardToCollection(currentFlashcard);
+        if (this.currentFlashcard != null) {
+            this.flashcardCollection.addCardToCollection(currentFlashcard);
+        }
         this.flashcardCollection.getCards().addAll(rotationQueue);
         return this.flashcardCollection;
     }
-    
+
     public int getRotationSize() {
         return this.rotationQueue.size();
     }

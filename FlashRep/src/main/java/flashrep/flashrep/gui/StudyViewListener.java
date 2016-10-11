@@ -8,30 +8,33 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class StudyViewListener implements ActionListener {
-
+    
     private Views views;
     private AppControlLogic controller;
-
+    
     private JLabel noCardsLabel;
+    private JPanel cardPanel;
     private JLabel questionLabel;
     private JLabel answerLabel;
     private JButton easyButton;
     private JButton goodButton;
     private JButton hardButton;
     private JButton veryHardButton;
-
+    
     private JButton showAnswerButton;
     private JButton createNewCardButton;
     private JButton removeCardButton;
     private JButton backToUsermenuButton;
-
-    public StudyViewListener(Views views, AppControlLogic controller, JLabel noCardsLabel, JLabel questionLabel, JLabel answerLabel, JButton easyButton, JButton goodButton, JButton hardButton, JButton veryHardButton, JButton showAnswerButton, JButton createNewCardButton, JButton removeCardButton, JButton backToUsermenuButton) {
+    
+    public StudyViewListener(Views views, AppControlLogic controller, JLabel noCardsLabel, JPanel cardPanel, JLabel questionLabel, JLabel answerLabel, JButton easyButton, JButton goodButton, JButton hardButton, JButton veryHardButton, JButton showAnswerButton, JButton createNewCardButton, JButton removeCardButton, JButton backToUsermenuButton) {
         this.views = views;
         this.controller = controller;
         this.noCardsLabel = noCardsLabel;
+        this.cardPanel = cardPanel;
         this.questionLabel = questionLabel;
         this.answerLabel = answerLabel;
         this.easyButton = easyButton;
@@ -42,14 +45,14 @@ public class StudyViewListener implements ActionListener {
         this.createNewCardButton = createNewCardButton;
         this.removeCardButton = removeCardButton;
         this.backToUsermenuButton = backToUsermenuButton;
-
+        
         showCard();
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String ac = e.getActionCommand();
-
+        
         if (ac.equals("showAnswer")) {
             this.answerLabel.setVisible(true);
             this.showAnswerButton.setVisible(false);
@@ -65,7 +68,7 @@ public class StudyViewListener implements ActionListener {
             int option = JOptionPane.showConfirmDialog(null, card, "Uusi kortti", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
             String q = question.getText();
             String a = answer.getText();
-
+            
             if (option == JOptionPane.OK_OPTION) {
                 if (!q.isEmpty() && !a.isEmpty()) {
                     Flashcard flashcard = new Flashcard(q, a);
@@ -81,13 +84,13 @@ public class StudyViewListener implements ActionListener {
         if (ac.equals("removeCard")) {
             this.controller.getRepetitionLogic().removeFromRotation();
             showCard();
-
+            
         }
         if (ac.equals("backToUserMenu")) {
             this.controller.quitRepetition();
             this.views.switchToView("UserMenu");
         }
-
+        
         if (ac.equals("easy")) {
             this.controller.getCurrentCard().setRating(1);
             this.controller.getRepetitionLogic().insertCardInToRotation(this.controller.getCurrentCard());
@@ -108,9 +111,9 @@ public class StudyViewListener implements ActionListener {
             this.controller.getRepetitionLogic().insertCardInToRotation(this.controller.getCurrentCard());
             showCard();
         }
-
+        
     }
-
+    
     private void showCard() {
         if (this.controller.getRepetitionLogic().getRotationSize() != 0) {
             setCollectionEmptyTextNotVisible();
@@ -119,7 +122,7 @@ public class StudyViewListener implements ActionListener {
             this.removeCardButton.setEnabled(true);
             this.controller.setCurrentCard();
             setQuestionAndAnswerLabels();
-
+            
         } else {
             setCollectionEmptyTextVisible();
             setRatingButtonsNotVisible();
@@ -128,37 +131,39 @@ public class StudyViewListener implements ActionListener {
             this.controller.setCurrentCard();
         }
     }
-
+    
     private void setCollectionEmptyTextVisible() {
+        this.cardPanel.setVisible(false);
         this.questionLabel.setVisible(false);
         this.answerLabel.setVisible(false);
         this.noCardsLabel.setVisible(true);
     }
-
+    
     private void setCollectionEmptyTextNotVisible() {
+        this.cardPanel.setVisible(true);
         this.questionLabel.setVisible(true);
         this.answerLabel.setVisible(false);
         this.noCardsLabel.setVisible(false);
-
+        
     }
-
+    
     private void setRatingButtonsVisible() {
         this.easyButton.setVisible(true);
         this.goodButton.setVisible(true);
         this.hardButton.setVisible(true);
         this.veryHardButton.setVisible(true);
     }
-
+    
     private void setRatingButtonsNotVisible() {
         this.easyButton.setVisible(false);
         this.goodButton.setVisible(false);
         this.hardButton.setVisible(false);
         this.veryHardButton.setVisible(false);
     }
-
+    
     private void setQuestionAndAnswerLabels() {
         this.questionLabel.setText(this.controller.getCurrentCard().getQuestion());
         this.answerLabel.setText(this.controller.getCurrentCard().getAnswer());
     }
-
+    
 }

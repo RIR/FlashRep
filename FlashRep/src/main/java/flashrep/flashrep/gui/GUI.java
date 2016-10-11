@@ -37,7 +37,7 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("FlashRep");
-        frame.setPreferredSize(new Dimension(700, 350));
+        frame.setPreferredSize(new Dimension(800, 400));
 
         frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 

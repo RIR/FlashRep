@@ -134,7 +134,6 @@ public class AppControlLogic {
         this.currentCollection = this.repetitionLogic.getFlashcardCollection();
         this.currentUser.setCollection(currentCollection);
         this.currentUsersCollections = new CollectionsModel(this.currentUser.getOwnCollections());
-
     }
 
     /**

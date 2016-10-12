@@ -109,7 +109,6 @@ public class AppControlLogic implements Serializable {
      * Metodi palauttaa JListin mallina toimivan käyttäjän kokoelmalistauksen.
      *
      * @return CollectionsModel joka perii AbstractListModel-luokan ominaisuudet
-     * @see AbstractListModel
      */
     public CollectionsModel getCurrentUsersCollections() {
         return this.currentUsersCollections;

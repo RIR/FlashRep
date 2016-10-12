@@ -17,11 +17,11 @@ Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos ol
 
 	Käyttäjävalikossa näet listattuna omat korttikokoelmasi. Näkymä näyttää ohjelmaa käyttävän käyttäjän tunnuksen. Ohjelma kertoo myös kuinka monta korttia kulloinkin valitussa kokoelmassa on. Ruudun oikealla sijaitsevista painikkeista voit toimia seuraavasti:
 
-- Opiskele nyt: Ohjelma siirtyy valitsemasi kokoelman toistonäkymään
-- Nimeä uudelleen: Voit antaa valitsemallesi kokoelmalle uuden nimen Ohjelma näyttää ponnahdusikkunan, jossa nimi annetaan.
-- Luo uusi kokoelma: Ohjelma näyttää ponnahdusikkunan jossa se pyytää sinulta nimeä luotavalle kokoelmalle. Jos annat nimen, niin ohjelma luo kokoelmiisi uuden korttikokoelman antamallasi nimellä.
-- Poista kokoelma: Ohjelma poistaa valitsemasi kokoelman listauksesta.
-- Kirjaudu ulos: Ohjelma kirjaa sinut ulos käyttäjävalikosta ja palaa kirjautumisvalikkoon.
+	- Opiskele nyt: Ohjelma siirtyy valitsemasi kokoelman toistonäkymään
+	- Nimeä uudelleen: Voit antaa valitsemallesi kokoelmalle uuden nimen Ohjelma näyttää ponnahdusikkunan, jossa nimi annetaan.
+	- Luo uusi kokoelma: Ohjelma näyttää ponnahdusikkunan jossa se pyytää sinulta nimeä luotavalle kokoelmalle. Jos annat nimen, niin ohjelma luo kokoelmiisi uuden korttikokoelman antamallasi nimellä.
+	- Poista kokoelma: Ohjelma poistaa valitsemasi kokoelman listauksesta.
+	- Kirjaudu ulos: Ohjelma kirjaa sinut ulos käyttäjävalikosta ja palaa kirjautumisvalikkoon.
 
 *	Toistonäkymä
 

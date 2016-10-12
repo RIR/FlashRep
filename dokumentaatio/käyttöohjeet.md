@@ -7,7 +7,7 @@ Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos ol
 
 *	Kirjautuminen
 
-	Kun ohjelma käynnistyy tulee näkyviin kirjautumisvalikko.Ohjelma pyytää kirjautumaan sisään tai luomaan uudet tunnukset.
+	Kun ohjelma käynnistyy tulee näkyviin kirjautumisvalikko. Ohjelma pyytää kirjautumaan sisään tai luomaan uudet tunnukset.
 
 	Jos olet uusi käyttäjä, valitse vasemmalta painike "Ei, haluan luoda uudet tunnukset!" ja keksi itsellesi käyttäjätunnus sekä salasana. Keksimäsi salasana on annettava kahteen kertaan. Tämän jälkeen voit luoda itsellesi tunnuksen painamalla alhaalta "Luo tunnukset"-painiketta. Jos tunnukset eivät ole vielä kenenkään käytössä, ja salasanat täsmäsivät keskenään, ohjelma hyväksyy tunnuksesi ja lisää sinut ohjelman käyttäjiin. Samalla siirryt käyttäjävalikkoon. Jos käyttäjätunnus on varattu tai salasanat eivät täsmänneet, ohjelma näyttää virheviestin.
 
@@ -33,9 +33,9 @@ Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos ol
 
 	Painikkeiden toiminnot:
 
-- Näytä vastaus: Näyttää vastauksen näytetylle kysymykselle ja näyttää arviointipainikkeet.
-- Luo uusi kortti: Ohjelma näyttää ponnahdusikkunan jossa se pyytää sinua antamaan kysymyksen ja vastauksen. Kun annat nämä ja painat ok, luodaan kortti antamillasi arvoilla ja se lisätään kokoelmaan.
-- Poista kortti: Ohjelma poistaa näytetyn kortin kokoelmasta.
-- Tallenna ja palaa kokoelmavalikkoon: Ohjelma tallentaa kokoelman nykyisessä tilassa ja palaa käyttäjävalikkoon. 
+	- Näytä vastaus: Näyttää vastauksen näytetylle kysymykselle ja näyttää arviointipainikkeet.
+	- Luo uusi kortti: Ohjelma näyttää ponnahdusikkunan jossa se pyytää sinua antamaan kysymyksen ja vastauksen. Kun annat nämä ja painat ok, luodaan kortti antamillasi arvoilla ja se lisätään kokoelmaan.
+	- Poista kortti: Ohjelma poistaa näytetyn kortin kokoelmasta.
+	- Tallenna ja palaa kokoelmavalikkoon: Ohjelma tallentaa kokoelman nykyisessä tilassa ja palaa käyttäjävalikkoon. 
 	HUOM TÄMÄ TÄRKEÄÄ! Jos suljet ohjelman kesken käytön tässä valikossa tallentamatta, menetät tällä hetkellä toistettavana olevaan kokoelmaan toiston aikana tehdyt muutokset.
-- Arviointipainikkeet, Helppo, Hyvä, Melko vaikea, Tosi vaikea: Arvio kysymyksen vaikeudesta. Paina sitä painiketta joka mielestäsi parhaiten kuvaa kysymyksen vaikeusastetta.
+	- Arviointipainikkeet, Helppo, Hyvä, Melko vaikea, Tosi vaikea: Arvio kysymyksen vaikeudesta. Paina sitä painiketta joka mielestäsi parhaiten kuvaa kysymyksen vaikeusastetta.

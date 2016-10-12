@@ -36,7 +36,5 @@ Painikkeiden toiminnot:
 - Luo uusi kortti: Ohjelma näyttää ponnahdusikkunan jossa se pyytää sinua antamaan kysymyksen ja vastauksen. Kun annat nämä ja painat ok, luodaan kortti antamillasi arvoilla ja se lisätään kokoelmaan.
 - Poista kortti: Ohjelma poistaa näytetyn kortin kokoelmasta.
 - Tallenna ja palaa kokoelmavalikkoon: Ohjelma tallentaa kokoelman nykyisessä tilassa ja palaa käyttäjävalikkoon. 
-!HUOM TÄMÄ TÄRKEÄÄ Jos suljet ohjelman kesken käytön tässä valikossa tallentamatta, menetät tällä hetkellä toistettavana olevaan kokoelmaan toiston aikana tehdyt muutokset.
+HUOM TÄMÄ TÄRKEÄÄ! Jos suljet ohjelman kesken käytön tässä valikossa tallentamatta, menetät tällä hetkellä toistettavana olevaan kokoelmaan toiston aikana tehdyt muutokset.
 - Arviointipainikkeet, Helppo, Hyvä, Melko vaikea, Tosi vaikea: Arvio kysymyksen vaikeudesta. Paina sitä painiketta joka mielestäsi parhaiten kuvaa kysymyksen vaikeusastetta.
-
-

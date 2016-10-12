@@ -2,6 +2,8 @@ package flashrep.flashrep.gui;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.logic.AppControlLogic;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -60,17 +62,27 @@ public class StudyViewListener implements ActionListener {
             setRatingButtonsVisible();
         }
         if (ac.equals("createNewCard")) {
-            JTextField question = new JTextField();
-            JTextField answer = new JTextField();
-            Object[] card = {
-                "Kysymys: ", question,
-                "Vastaus:", answer
-            };
-            int option = JOptionPane.showConfirmDialog(null, card, "Uusi kortti", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-            String q = question.getText();
-            String a = answer.getText();
+            JPanel newCardPanel = new JPanel(new GridLayout(2, 1, 10, 10));
+            JPanel row1Panel = new JPanel();
+            JPanel row2Panel = new JPanel();
+            Object[] buttons = {"Ok", "Peruuta"};
+            JTextField questionField = new JTextField(40);
+            JTextField answerField = new JTextField(40);
 
-            if (option == JOptionPane.OK_OPTION) {
+            row1Panel.add(new JLabel("Kysymys: "));
+            row1Panel.add(questionField);
+            row2Panel.add(new JLabel("Vastaus: "));
+            row2Panel.add(answerField);
+            newCardPanel.add(row1Panel);
+            newCardPanel.add(row2Panel);
+
+            int result = JOptionPane.showOptionDialog(null, newCardPanel, "Luo uusi kortti",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, buttons, null);
+            if (result == JOptionPane.OK_OPTION) {
+                String q = questionField.getText();
+                String a = answerField.getText();
+
                 if (!q.isEmpty() && !a.isEmpty()) {
                     Flashcard flashcard = new Flashcard(q, a);
                     this.controller.getRepetitionLogic().insertCardInToRotation(flashcard);

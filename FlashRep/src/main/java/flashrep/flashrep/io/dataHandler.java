@@ -34,7 +34,6 @@ public class dataHandler implements Serializable {
             fos = new FileOutputStream(this.filename);
             out = new ObjectOutputStream(fos);
             out.writeObject(this.controller);
-
             out.close();
             fos.close();
         } catch (Exception ex) {
@@ -49,8 +48,7 @@ public class dataHandler implements Serializable {
         try {
             fis = new FileInputStream(this.filename);
             in = new ObjectInputStream(fis);
-            AppControlLogic newController = (AppControlLogic) in.readObject();
-            controller.getUsers().setUsers(newController.getUsers().getUsers());
+            controller.getUsers().setUsers(((AppControlLogic) in.readObject()).getUsers().getUsers());
             in.close();
             fis.close();
         } catch (Exception ex) {

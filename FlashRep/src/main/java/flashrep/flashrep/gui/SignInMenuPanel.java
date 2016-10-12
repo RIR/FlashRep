@@ -28,13 +28,13 @@ public class SignInMenuPanel extends JPanel {
      * Luokan konstruktori joka injektoi kontrollerin.
      *
      * @param views Ikkunanäkymät
-     * @param controller  Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
+     * @param controller Kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
      */
     public SignInMenuPanel(Views views, AppControlLogic controller) {
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.setLayout(layout);
-        this.views=views;
-        this.controller=controller;
+        this.views = views;
+        this.controller = controller;
         initComponents();
     }
 
@@ -45,9 +45,9 @@ public class SignInMenuPanel extends JPanel {
         JLabel label1 = new JLabel("Kirjaudu tai luo tunnus");
         label1.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(label1);
-      
+
         //Lisätään paneeli paneelin sisälle jotta saadaan haluttu tyyli
-        JPanel signInMenuPanel = new JPanel(new GridLayout(0, 2,10,10));
+        JPanel signInMenuPanel = new JPanel(new GridLayout(0, 2, 10, 10));
         add(signInMenuPanel);
 
         //Luodaan tekstit, kentät ja painikkeet

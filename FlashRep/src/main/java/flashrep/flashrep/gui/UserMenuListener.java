@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -74,16 +76,39 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         }
         // Jos on painettu uudelleennimeämisnappia
         if (ac.equals("rename")) {
-            String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Nimeä kokoelma uudelleen", JOptionPane.INFORMATION_MESSAGE);
-            if (collectionName != null && !collectionName.isEmpty()) {
-                this.model.setName(collectionName, collectionList.getSelectedIndex());
+            Object[] buttons = {"Ok", "Peruuta"};
+            JPanel renamePanel = new JPanel();
+            renamePanel.add(new JLabel("Anna uusi nimi kokoelmalle: "));
+            JTextField collectionNameField = new JTextField(40);
+            renamePanel.add(collectionNameField);
+
+            int result = JOptionPane.showOptionDialog(null, renamePanel, "Nimeä kokoelma uudelleen",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, buttons, null);
+            if (result == JOptionPane.OK_OPTION) {
+                String collectionName = collectionNameField.getText();
+                if (collectionName != null && !collectionName.isEmpty()) {
+                    this.model.setName(collectionName, collectionList.getSelectedIndex());
+                }
             }
         }
         // Jos on painettu luo uusi kokoelma nappia
         if (ac.equals("create")) {
-            String collectionName = JOptionPane.showInputDialog(views, "Anna nimi kokoelmalle:", "Luo uusi kokoelma", JOptionPane.INFORMATION_MESSAGE);
-            if (collectionName != null && !collectionName.isEmpty()) {
-                this.model.addNewCollection(collectionName);
+            Object[] buttons = {"Ok", "Peruuta"};
+            JPanel namePanel = new JPanel();
+            namePanel.add(new JLabel("Anna nimi kokoelmalle: "));
+            JTextField collectionNameField = new JTextField(40);
+            namePanel.add(collectionNameField);
+
+            int result = JOptionPane.showOptionDialog(null, namePanel, "Luo uusi kokoelma",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, buttons, null);
+            if (result == JOptionPane.OK_OPTION) {
+
+                String collectionName = collectionNameField.getText();
+                if (collectionName != null && !collectionName.isEmpty()) {
+                    this.model.addNewCollection(collectionName);
+                }
             }
         }
 
@@ -142,6 +167,9 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         this.removeCollectionButton.setEnabled(true);
     }
 
+    /* Metodi asettaa käyttäjän valitseman kokoelman valituksi ja 
+    ja päivittää samalla korttilaskurin.
+    */
     private void currentCollectionAction() {
         this.model.setCurrentCollection(collectionList.getSelectedIndex());
         this.controller.setCurrentCollection();

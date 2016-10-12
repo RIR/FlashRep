@@ -110,7 +110,7 @@ public class StudyViewPanel extends JPanel {
         JButton showAnswerButton = new JButton("Näytä vastaus");
         JButton createNewCardButton = new JButton("Luo uusi kortti");
         JButton removeCardButton = new JButton("Poista kortti");
-        JButton backToUsermenuButton = new JButton("Palaa kokoelmavalikkoon");
+        JButton backToUsermenuButton = new JButton("Tallenna ja palaa kokoelmavalikkoon");
 
         functionButtonsPanel.add(showAnswerButton);
         functionButtonsPanel.add(createNewCardButton);

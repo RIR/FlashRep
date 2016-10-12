@@ -17,7 +17,7 @@
 
 ***Tämänhetkinen luokkakaavio:***
 
-![Määrittelyvaiheen luokkakaavio](MaarittelyvaiheenLuokkakaavio.png "Määrittelyvaiheen luokkakaavio")
+![Luokkakaavio](Luokkakaavio.png "Luokkakaavio")
 
 ***Sekvenssikaavioita***
 

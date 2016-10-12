@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Luokka tarjoaa metodeita käyttäjälistauksen käsittelyyn.
  */
 public class Users implements Serializable {
@@ -92,13 +88,12 @@ public class Users implements Serializable {
     /**
      * Metodi asettaa käyttäjälistaukseksi parametrina annettavan
      * käyttäjälistauksen.
+     *
      * @param users Käyttäjälistaus
      */
     public void setUsers(List<User> users) {
         this.users = users;
     }
-    
-    
 
     /**
      * Metodi palauttaa true jos käyttäjä löytyy käyttäjälistauksesta, muuten
@@ -108,9 +103,6 @@ public class Users implements Serializable {
      * @return true jos käyttäjä löytyy, false jos käyttäjää ei löydy
      */
     public boolean containsUser(User user) {
-        if (this.users.contains(user)) {
-            return true;
-        }
-        return false;
+        return this.users.contains(user);
     }
 }

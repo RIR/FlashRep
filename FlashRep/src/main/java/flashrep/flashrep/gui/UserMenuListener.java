@@ -3,7 +3,6 @@ package flashrep.flashrep.gui;
 import flashrep.flashrep.logic.AppControlLogic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -13,10 +12,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-/**
- *
- * @author Raine Rantanen
- */
 /**
  * Luokka käyttäjävalikon toimintojen kuuntelua varten.
  *
@@ -64,7 +59,6 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         }
     }
 
-    //kuuntelija nappeja varten
     @Override
     public void actionPerformed(ActionEvent e) {
         String ac = e.getActionCommand();
@@ -169,7 +163,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
     /* Metodi asettaa käyttäjän valitseman kokoelman valituksi ja 
     ja päivittää samalla korttilaskurin.
-    */
+     */
     private void currentCollectionAction() {
         this.model.setCurrentCollection(collectionList.getSelectedIndex());
         this.controller.setCurrentCollection();

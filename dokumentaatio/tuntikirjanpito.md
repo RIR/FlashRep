@@ -19,4 +19,6 @@ Päivä | Tunnit | Kuvaus
 6.10.2016 |8h|GUIn tekoa, JavaDocia,luokkakaavioiden ja raporttien päivitys sekä katselmointi.
 7.10.2016 |2h|GUIn tekoa, refaktorointia ja samalla kaiken päivittämistä.
 10.10.2016 |5h|GUIn tekoa, joka johtanee taas refaktorointiin.
+11.10.2016 |5h|GUIn tekoa, refaktorointia, ohjelman tallennustoiminnan tekoa. JARin luku ei onnistu omalta koneelta.
+12.10.2016 |6h|GUIn tekoa, luokan lisäys ja samalla testien lisäystä, luokkakaavion päivitys, JavaDocin lisäilyä.
 ... | ... | ...

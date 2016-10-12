@@ -1,32 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package flashrep.flashrep.io;
 
 import flashrep.flashrep.logic.AppControlLogic;
-import flashrep.flashrep.useraccounts.Users;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- *
- * @author Raine Rantanen
+ * Luokka ohjelman tietojen tallentamiseen ja lukemiseen tiedostosta.
  */
-public class dataHandler implements Serializable {
+public class DataHandler implements Serializable {
 
     private AppControlLogic controller;
-    private final String filename = "flashrep.ser";
+    private final String filename = "flashRep.ser";
 
-    public dataHandler(AppControlLogic controller) {
+    /**
+     * Luokan konstruktori joka saa parametrina annettavan kontrollerin joka
+     * sitten tallennetaan tiedostoon.
+     *
+     * @param controller Ohjelman kontrolleriluokka
+     */
+    public DataHandler(AppControlLogic controller) {
         this.controller = controller;
     }
 
+    /**
+     * Metodi tietojen tallennukseen tiedostoon.
+     */
     public void saveData() {
         FileOutputStream fos = null;
         ObjectOutputStream out = null;
@@ -37,14 +39,20 @@ public class dataHandler implements Serializable {
             out.close();
             fos.close();
         } catch (Exception ex) {
-            ex.printStackTrace();
         }
     }
 
+    /**
+     * Metodi tietojen lukemiseen tiedostosta.
+     */
     public void readData() {
+        File file = new File(this.filename);
         FileInputStream fis = null;
         ObjectInputStream in = null;
 
+        if (!file.exists()) {
+            saveData();
+        }
         try {
             fis = new FileInputStream(this.filename);
             in = new ObjectInputStream(fis);
@@ -52,8 +60,6 @@ public class dataHandler implements Serializable {
             in.close();
             fis.close();
         } catch (Exception ex) {
-            ex.printStackTrace();
         }
     }
-
 }

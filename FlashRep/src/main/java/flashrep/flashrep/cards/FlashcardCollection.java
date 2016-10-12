@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Luokka tarjoaa metodeita korttikokoelman käsittelyyn.
  */
 public class FlashcardCollection implements Serializable {

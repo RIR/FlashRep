@@ -2,7 +2,6 @@ package flashrep.flashrep.gui;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.logic.AppControlLogic;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/**
+ * Luokka joka toteuttaa toistonäkymän toimintojen kuuntelun.
+ *
+ */
 public class StudyViewListener implements ActionListener {
 
     private Views views;
@@ -32,6 +34,27 @@ public class StudyViewListener implements ActionListener {
     private JButton removeCardButton;
     private JButton backToUsermenuButton;
 
+    /**
+     * Luokan konstruktori joka injektoi kuuntelijan käyttöön parametreina
+     * annettavat oliot.
+     *
+     * @param views Paneeli näkymien vaihtoa varten
+     * @param controller Kontrolleriluokka ohjelman luokkien kommunikointia
+     * varten
+     * @param noCardsLabel Teksti, kun kokoelma tyhjä
+     * @param haveCardsLabel Teksti joka kertoo paljon kokoelmassa on kortteja
+     * @param cardPanel Paneeli johon näytettävä kortti kuuluu
+     * @param questionLabel Kysymysteksti
+     * @param answerLabel Vastausteksti
+     * @param easyButton Arviointinappula, helppo
+     * @param goodButton Arviointinappula, ok
+     * @param hardButton Arviointinappula, vaikea
+     * @param veryHardButton Arviointinappula, Tosi vaikea
+     * @param showAnswerButton Nappula joka näyttää vastauksen
+     * @param createNewCardButton Nappula uuden kortin luontia varten
+     * @param removeCardButton Nappula kortin poistoa varten
+     * @param backToUsermenuButton Nappula käyttäjävalikkoon palaamiseen
+     */
     public StudyViewListener(Views views, AppControlLogic controller, JLabel noCardsLabel, JLabel haveCardsLabel, JPanel cardPanel, JLabel questionLabel, JLabel answerLabel, JButton easyButton, JButton goodButton, JButton hardButton, JButton veryHardButton, JButton showAnswerButton, JButton createNewCardButton, JButton removeCardButton, JButton backToUsermenuButton) {
         this.views = views;
         this.controller = controller;
@@ -124,6 +147,7 @@ public class StudyViewListener implements ActionListener {
 
     }
 
+    // Metodi tekstien asettelua ja seuraavan kortin näyttöä varten
     private void showCard() {
         if (this.controller.getRepetitionLogic().getRotationSize() != 0) {
             setCollectionEmptyTextNotVisible();
@@ -143,6 +167,7 @@ public class StudyViewListener implements ActionListener {
         }
     }
 
+    //Metodi asettaa näkymän kun kokoelma tyhjä
     private void setCollectionEmptyTextVisible() {
         this.cardPanel.setVisible(false);
         this.questionLabel.setVisible(false);
@@ -151,6 +176,7 @@ public class StudyViewListener implements ActionListener {
         this.haveCardsLabel.setVisible(false);
     }
 
+    //Metodi asettaa näkymän kun kokoelmassa on kortteja
     private void setCollectionEmptyTextNotVisible() {
         this.cardPanel.setVisible(true);
         this.questionLabel.setVisible(true);
@@ -160,6 +186,7 @@ public class StudyViewListener implements ActionListener {
 
     }
 
+    //Metodi asettaa arviointipainikkeet näkyviksi
     private void setRatingButtonsVisible() {
         this.easyButton.setVisible(true);
         this.goodButton.setVisible(true);
@@ -167,6 +194,7 @@ public class StudyViewListener implements ActionListener {
         this.veryHardButton.setVisible(true);
     }
 
+    //Metodi piilottaa arviointipainikkeet
     private void setRatingButtonsNotVisible() {
         this.easyButton.setVisible(false);
         this.goodButton.setVisible(false);
@@ -174,11 +202,13 @@ public class StudyViewListener implements ActionListener {
         this.veryHardButton.setVisible(false);
     }
 
+    //Metodi asettaa kysymys ja vastaustekstit kortin mukaisesti
     private void setQuestionAndAnswerLabels() {
         this.questionLabel.setText(this.controller.getCurrentCard().getQuestion());
         this.answerLabel.setText(this.controller.getCurrentCard().getAnswer());
     }
 
+    // Metodi toteuttaa toiston
     private void repetition() {
         this.controller.getRepetitionLogic().insertCardInToRotation(this.controller.getCurrentCard());
         showCard();

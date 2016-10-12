@@ -20,6 +20,7 @@ import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 
 /**
+ * JPanelin toiminnot perivä luokka joka toteuttaa toistonäkymän.
  *
  * @author Raine Rantanen
  */
@@ -28,6 +29,13 @@ public class StudyViewPanel extends JPanel {
     private Views views;
     private AppControlLogic controller;
 
+    /**
+     * Luokan konstruktori joka saa parametreina annettavan kontrolleriluokan ja
+     * näkymiä hallitsevan Views-luokan.
+     *
+     * @param views Näkymiä hallitseva luokka
+     * @param controller Ohjelman kontrollilogiikkaluokka
+     */
     public StudyViewPanel(Views views, AppControlLogic controller) {
         this.views = views;
         this.controller = controller;
@@ -143,7 +151,6 @@ public class StudyViewPanel extends JPanel {
         createNewCardButton.addActionListener(studyViewListener);
         removeCardButton.addActionListener(studyViewListener);
         backToUsermenuButton.addActionListener(studyViewListener);
-
     }
 
 }

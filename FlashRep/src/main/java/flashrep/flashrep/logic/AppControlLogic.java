@@ -5,7 +5,7 @@ import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.gui.CollectionsModel;
 import flashrep.flashrep.gui.GUI;
-import flashrep.flashrep.io.dataHandler;
+import flashrep.flashrep.io.DataHandler;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
 import java.io.Serializable;
@@ -15,7 +15,6 @@ import javax.swing.SwingUtilities;
  * Luokka joka käynnistää käyttöliittymän ja jonka avulla käyttöliittymä saa
  * käyttöönsä ohjelman käyttäjä-, kortti- ja logiikkapakettien luokkia ja
  * toimintoja.
- *
  */
 public class AppControlLogic implements Serializable {
 
@@ -26,7 +25,7 @@ public class AppControlLogic implements Serializable {
     private Flashcard currentCard;
     private RepetitionLogic repetitionLogic;
     private CollectionsModel currentUsersCollections;
-    private dataHandler dataHandler;
+    private DataHandler dataHandler;
 
     /**
      * Luokan konstruktori.
@@ -37,7 +36,7 @@ public class AppControlLogic implements Serializable {
         this.allFlashcardCollections = new AllFlashcardCollections();
         this.currentUsersCollections = new CollectionsModel(this.allFlashcardCollections.getCollections());
         this.currentCollection = new FlashcardCollection("");
-        this.dataHandler = new dataHandler(this);
+        this.dataHandler = new DataHandler(this);
     }
 
     /**
@@ -176,7 +175,13 @@ public class AppControlLogic implements Serializable {
         this.currentCard = this.repetitionLogic.showCard();
     }
 
-    public dataHandler getDataHandler() {
+    /**
+     * Metodi palauttaa luokan joka hoitaa tietojen lukemisen ja tallennuksen
+     * tiedostosta.
+     *
+     * @return Tietojen luku/tallennusluokka
+     */
+    public DataHandler getDataHandler() {
         return dataHandler;
     }
 }

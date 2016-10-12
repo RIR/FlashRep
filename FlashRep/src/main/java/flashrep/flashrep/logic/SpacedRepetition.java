@@ -57,7 +57,6 @@ public class SpacedRepetition implements RepetitionLogic, Serializable {
         return this.currentFlashcard;
     }
 
-    //Pitäisi ehkä olla yksityinen metodi? 
     /**
      * Metodi asettaa parametrina annettavan kortin toistojonoon, jos ei ole
      * valittu, että kortti poistetaan toistojonosta.
@@ -71,7 +70,7 @@ public class SpacedRepetition implements RepetitionLogic, Serializable {
         this.removeFromRotation = false;
     }
 
-    /*Yksityinen metodi ei JavaDociin??
+    /*
     Metodi tarkistaa booleanin tilan ja avustaa insertCardIntoRotation-metodia 
     päättämään asetetaanko jokin kortti takaisin toistojonoon.
      */
@@ -108,6 +107,11 @@ public class SpacedRepetition implements RepetitionLogic, Serializable {
         return this.flashcardCollection;
     }
 
+    /**
+     * Metodi palauttaa toistojonon korttien lukumäärän.
+     *
+     * @return Toistojonon koko
+     */
     public int getRotationSize() {
         return this.rotationQueue.size();
     }

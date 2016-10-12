@@ -2,7 +2,6 @@ package flashrep.flashrep.logic;
 
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
-import java.io.Serializable;
 
 /**
  * Rajapintaluokka joka määrittää korttikokoelman korttien toistolta vaaditut
@@ -37,7 +36,18 @@ public interface RepetitionLogic {
      */
     public void removeFromRotation();
 
+    /**
+     * Metodi palauttaa toistologiikan käyttämän korttikokoelman niin kuin se on
+     * mahdollisten korttien lisäysten ja poistojen jälkeen.
+     *
+     * @return Toistologiikan käyttämä korttikokoelma
+     */
     public FlashcardCollection getFlashcardCollection();
 
+    /**
+     * Metodi palauttaa toistojonon korttien lukumäärän.
+     *
+     * @return Toistojonon koko
+     */
     public int getRotationSize();
 }

@@ -6,8 +6,7 @@ import javax.swing.JPasswordField;
 
 /**
  * @author Raine Rantanen
- */
-/**
+ *
  * Ohjelman pääluokka josta ohjelma käynnistyy.
  */
 public class Main {

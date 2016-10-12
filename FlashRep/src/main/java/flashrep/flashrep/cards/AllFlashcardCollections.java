@@ -13,7 +13,7 @@ import java.util.Objects;
  * Luokka tarjoaa metodeita kokoelmalistauksen käsittelyyn.
  */
 public class AllFlashcardCollections implements Serializable {
-    
+
     private List<FlashcardCollection> flashcardCollections;
     private String name;
 
@@ -99,8 +99,7 @@ public class AllFlashcardCollections implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -108,7 +107,7 @@ public class AllFlashcardCollections implements Serializable {
         hash = 61 * hash + Objects.hashCode(this.name);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object allFlashcardCollections) {
         if (this == allFlashcardCollections) {
@@ -129,10 +128,10 @@ public class AllFlashcardCollections implements Serializable {
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
         return this.name;
     }
-    
+
 }

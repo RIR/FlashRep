@@ -10,10 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Käyttöliittymäluokka
  */
 public class GUI implements Runnable {

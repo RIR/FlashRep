@@ -6,10 +6,6 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Luokka joka luo mallin jonka pohjalta käyttäjän kokoelmalistaus toimii myös
  * graafisessa käyttöliittymässä, luokka perii luokan AbstractListModel
  * ominaisuudet.
@@ -110,5 +106,4 @@ public class CollectionsModel extends AbstractListModel implements Serializable 
         currentCollection.setName(name);
         fireContentsChanged(this, 0, getSize());
     }
-
 }

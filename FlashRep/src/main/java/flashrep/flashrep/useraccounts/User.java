@@ -1,6 +1,5 @@
 package flashrep.flashrep.useraccounts;
 
-import flashrep.flashrep.cards.AllFlashcardCollections;
 import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import java.io.Serializable;
@@ -11,7 +10,7 @@ import java.util.Objects;
 /**
  * Luokka tarjoaa metodeita käyttäjän käsittelyyn.
  */
-public class User  implements Serializable{
+public class User implements Serializable {
 
     private String userName;
     private String password;

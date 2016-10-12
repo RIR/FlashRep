@@ -12,10 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Käyttäjävalikkoluokka.
  */
 public class UserMenuPanel extends JPanel {
@@ -27,8 +23,7 @@ public class UserMenuPanel extends JPanel {
 
     /**
      * Luokan konstruktori jolle annetaan parametreina näkymiä hallitseva
-     * Views-luokan olio sekä kortti- ja käyttäjäluokkia hallinnoiva
-     * kontrolleri.
+     * Views-luokan olio sekä ohjelman kontrollilogiikkaa hallinnoiva luokka.
      *
      * @param views Views-luokan olio
      * @param controller Kontrolleri

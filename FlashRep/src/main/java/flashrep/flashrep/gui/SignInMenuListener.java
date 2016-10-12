@@ -10,10 +10,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Raine Rantanen
- */
-/**
  * Luokka joka toteuttaa kirjautumisvalikon toimintojen kuuntelun.
  */
 public class SignInMenuListener implements ActionListener {
@@ -43,7 +39,8 @@ public class SignInMenuListener implements ActionListener {
      * @param signInOrCreateUserButton Käyttäjävalikon painike
      * kirjautumiseen/tunnusten luontiin
      * @param views Views-paneeli ikkunanäkymien vaihtoa varten
-     * @param controller kontrolleri käyttäjä- ja korttiluokkien käyttöä varten
+     * @param controller Kontrolleriluokka ohjelman luokkien kommunikointia
+     * varten
      */
     public SignInMenuListener(JTextField usernameField, JPasswordField isUserPasswordField, JLabel createPasswordText, JPasswordField createPasswordField, JLabel repeatPasswordText, JPasswordField repeatPasswordField, JButton signInOrCreateUserButton, Views views, AppControlLogic controller) {
         this.usernameField = usernameField;

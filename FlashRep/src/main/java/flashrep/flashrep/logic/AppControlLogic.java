@@ -49,17 +49,16 @@ public class AppControlLogic implements Serializable {
         this.dataHandler.readData();
     }
 
-
-
     /**
-     * Metodi palauttaa käyttäjät, tässä luokassa käytössä, jotta saadaan 
+     * Metodi palauttaa käyttäjät, tässä luokassa käytössä, jotta saadaan
      * tallennettua käyttäjät oikein.
+     *
      * @return Käyttäjälistaus
-     */ 
+     */
     public Users getUsers() {
         return users;
     }
-  
+
     /**
      * Metodi joka tarkistaa kirjautumisvalikossa voiko lisätä uuden käyttäjän
      * ja lisää sen jos voi.
@@ -106,7 +105,7 @@ public class AppControlLogic implements Serializable {
     public User getCurrentUser() {
         return this.currentUser;
     }
-    
+
     /**
      * Metodi palauttaa JListin mallina toimivan käyttäjän kokoelmalistauksen.
      *

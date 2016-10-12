@@ -57,6 +57,12 @@ public class StudyViewPanel extends JPanel {
         noCardsLabel.setAlignmentY(Component.CENTER_ALIGNMENT);
         add(noCardsLabel);
 
+        JLabel haveCardsLabel = new JLabel("Kokoelmassa on " + this.controller.getRepetitionLogic().getRotationSize() + " korttia.");
+        haveCardsLabel.setFont(new Font("", Font.BOLD, 16));
+        haveCardsLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        haveCardsLabel.setAlignmentY(Component.TOP_ALIGNMENT);
+        add(haveCardsLabel);
+
         JPanel cardPanel = new JPanel();
         BoxLayout cardPanelLayout = new BoxLayout(cardPanel, BoxLayout.Y_AXIS);
         cardPanel.setLayout(cardPanelLayout);
@@ -127,7 +133,7 @@ public class StudyViewPanel extends JPanel {
         removeCardButton.setActionCommand("removeCard");
         backToUsermenuButton.setActionCommand("backToUserMenu");
 
-        StudyViewListener studyViewListener = new StudyViewListener(views, controller, noCardsLabel, cardPanel, questionLabel, answerLabel, easyButton, goodButton, hardButton, veryHardButton, showAnswerButton, createNewCardButton, removeCardButton, backToUsermenuButton);
+        StudyViewListener studyViewListener = new StudyViewListener(views, controller, noCardsLabel, haveCardsLabel, cardPanel, questionLabel, answerLabel, easyButton, goodButton, hardButton, veryHardButton, showAnswerButton, createNewCardButton, removeCardButton, backToUsermenuButton);
         easyButton.addActionListener(studyViewListener);
         goodButton.addActionListener(studyViewListener);
         hardButton.addActionListener(studyViewListener);

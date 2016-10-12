@@ -70,7 +70,7 @@ public class AppControlLogicTest {
     public void getCurrentUserIsSignedInUser() {
         this.controller.canAddNewUser(userName, password);
         User user = new User(userName, String.valueOf(password));
-        assertEquals(this.controller.currentUser, user);
+        assertEquals(this.controller.getCurrentUser(), user);
     }
-   
+
 }

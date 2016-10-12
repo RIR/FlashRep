@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
@@ -22,6 +23,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
     private Views views;
     private AppControlLogic controller;
+    private JLabel currentCollectionLabel;
     private JList collectionList;
     private JButton renameButton;
     private JButton studyNowButton;
@@ -43,9 +45,10 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
      * @param removeCollectionButton Painike kokoelman poistamista varten
      * @param signOutButton Uloskirjautumispainike
      */
-    public UserMenuListener(Views views, AppControlLogic controller, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton renameButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
+    public UserMenuListener(Views views, AppControlLogic controller, JLabel currentCollectionLabel, JList collectionList, CollectionsModel model, JButton studyNowButton, JButton renameButton, JButton createNewCollectionButton, JButton removeCollectionButton, JButton signOutButton) {
         this.views = views;
         this.controller = controller;
+        this.currentCollectionLabel = currentCollectionLabel;
         this.collectionList = collectionList;
         this.model = model;
         this.renameButton = renameButton;
@@ -98,10 +101,12 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         // Jos lista tyhjä 
         if (this.model.getSize() == 0) {
             disableButtons();
+            this.currentCollectionLabel.setText("");
             //muuten
         } else {
             enableButtons();
             this.collectionList.setSelectedIndex(0);
+            setCurrentCollectionLabel();
         }
 
     }
@@ -112,11 +117,16 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         if (e.getValueIsAdjusting() == false) {
             if (collectionList.getSelectedIndex() == -1) {
                 disableButtons();
+                this.currentCollectionLabel.setText("");
             } else if (collectionList.getSelectedIndices().length > 1) {
                 disableButtons();
                 this.removeCollectionButton.setEnabled(true);
+                this.currentCollectionLabel.setText("");
             } else {
                 enableButtons();
+                this.model.setCurrentCollection(collectionList.getSelectedIndex());
+                this.controller.setCurrentCollection();
+                setCurrentCollectionLabel();
             }
         }
     }
@@ -133,5 +143,9 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         this.studyNowButton.setEnabled(true);
         this.renameButton.setEnabled(true);
         this.removeCollectionButton.setEnabled(true);
+    }
+
+    private void setCurrentCollectionLabel() {
+        this.currentCollectionLabel.setText("Kokoelmassa " + this.controller.getCurrentCollection().toString() + " on " + this.controller.getCurrentCollection().getSize() + " korttia.");
     }
 }

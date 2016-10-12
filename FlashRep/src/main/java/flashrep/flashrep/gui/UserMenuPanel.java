@@ -47,12 +47,15 @@ public class UserMenuPanel extends JPanel {
         this.setLayout(mainLayout);
 
         //Aloitusruudun teksti luodaan, keskitetään ja lisätään
-        JLabel label1 = new JLabel("Käyttäjä: " + this.controller.getCurrentUser().toString());
-        label1.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(label1);
-        for (int i = 0; i < 3; i++) {
-            add(new JLabel("\n"));
-        }
+        JLabel currentUserLabel = new JLabel("Käyttäjä: " + this.controller.getCurrentUser().toString());
+        currentUserLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(currentUserLabel);
+        add(new JLabel("\n"));
+
+        JLabel currentCollectionLabel = new JLabel();
+        currentCollectionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(currentCollectionLabel);
+        add(new JLabel("\n"));
 
         //Luodaan ja lisätään kömpelösti paneeleja jotta saadaan jotenkin haluttu näkö
         JPanel userMenuPanel = new JPanel(new GridLayout(0, 2, 10, 10));
@@ -107,7 +110,7 @@ public class UserMenuPanel extends JPanel {
         signOutButton.setActionCommand("signOut");
 
         //Luodaan kuuntelija ja lisätään se nappuloiden ja listan käyttöön
-        UserMenuListener listener = new UserMenuListener(views, controller, collectionlist, model, studyNowButton, renameButton, createNewCollectionButton, removeCollectionButton, signOutButton);
+        UserMenuListener listener = new UserMenuListener(views, controller, currentCollectionLabel, collectionlist, model, studyNowButton, renameButton, createNewCollectionButton, removeCollectionButton, signOutButton);
         collectionlist.addListSelectionListener(listener);
         studyNowButton.addActionListener(listener);
         renameButton.addActionListener(listener);

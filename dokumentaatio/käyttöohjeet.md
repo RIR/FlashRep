@@ -11,7 +11,7 @@ Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos ol
 
 	Jos olet uusi käyttäjä, valitse vasemmalta painike "Ei, haluan luoda uudet tunnukset!" ja keksi itsellesi käyttäjätunnus sekä salasana. Keksimäsi salasana on annettava kahteen kertaan. Tämän jälkeen voit luoda itsellesi tunnuksen painamalla alhaalta "Luo tunnukset"-painiketta. Jos tunnukset eivät ole vielä kenenkään käytössä, ja salasanat täsmäsivät keskenään, ohjelma hyväksyy tunnuksesi ja lisää sinut ohjelman käyttäjiin. Samalla siirryt käyttäjävalikkoon. Jos käyttäjätunnus on varattu tai salasanat eivät täsmänneet, ohjelma näyttää virheviestin.
 
-	Jos olet käyttäjä jo entuudestaan, valitse vasemmalta painike "Kyllä, salasanani on:" ja anna käyttäjätunnuksesi sekä salasanasi. Paina "Kirjaudu"-painiketta, jonka jälkeen jos antamasi tunnus ja salasana täsmäävät, siirryt käyttäjävalikkoon. Muuten ohjelma näyttää virheviestin.
+	Jos olet käyttäjä jo entuudestaan, valitse vasemmalta painike "Kyllä, salasanani on:" ja anna käyttäjätunnuksesi sekä salasanasi. Paina "Kirjaudu"-painiketta, jonka jälkeen jos antamasi tunnus ja salasana täsmäävät siirryt käyttäjävalikkoon. Muuten ohjelma näyttää virheviestin.
 
 *	 Käyttäjävalikko
 

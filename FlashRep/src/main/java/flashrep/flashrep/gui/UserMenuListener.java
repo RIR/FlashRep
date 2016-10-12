@@ -69,8 +69,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
         //Jos on painettu opiskele nyt nappia 
         if (ac.equals("study")) {
-            this.model.setCurrentCollection(collectionList.getSelectedIndex());
-            this.controller.setCurrentCollection();
+            currentCollectionAction();
             this.views.switchToView("StudyView");
         }
         // Jos on painettu uudelleennimeämisnappia
@@ -106,7 +105,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         } else {
             enableButtons();
             this.collectionList.setSelectedIndex(0);
-            setCurrentCollectionLabel();
+            currentCollectionAction();
         }
 
     }
@@ -124,9 +123,7 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
                 this.currentCollectionLabel.setText("");
             } else {
                 enableButtons();
-                this.model.setCurrentCollection(collectionList.getSelectedIndex());
-                this.controller.setCurrentCollection();
-                setCurrentCollectionLabel();
+                currentCollectionAction();
             }
         }
     }
@@ -145,7 +142,10 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
         this.removeCollectionButton.setEnabled(true);
     }
 
-    private void setCurrentCollectionLabel() {
+    private void currentCollectionAction() {
+        this.model.setCurrentCollection(collectionList.getSelectedIndex());
+        this.controller.setCurrentCollection();
         this.currentCollectionLabel.setText("Kokoelmassa " + this.controller.getCurrentCollection().toString() + " on " + this.controller.getCurrentCollection().getSize() + " korttia.");
     }
+
 }

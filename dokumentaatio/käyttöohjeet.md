@@ -29,7 +29,7 @@ Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos ol
 
 	Näkymä kertoo toistettavan kokoelman. Lisäksi ohjelma kertoo onko kokoelma tyhjä tai jos ei ole, niin kuinka monta korttia siinä on. Toistonäkymän käyttö toimii seuraavasti:
 
-	Jos kokoelma on tyhjä on käytössä vain "Luo kortti"- ja "Tallenna ja palaa kokoelmavalikkoon"-painikkeet. Taas jos kokoelmassa on kortteja on aluksi näkyvillä näiden lisäksi myös "Näytä vastaus"- ja "Poista kortti"-painikkeet.
+	Jos kokoelma on tyhjä, on käytössä vain "Luo kortti"- ja "Tallenna ja palaa kokoelmavalikkoon"-painikkeet. Taas jos kokoelmassa on kortteja, on aluksi näkyvillä näiden lisäksi myös "Näytä vastaus"- ja "Poista kortti"-painikkeet.
 
 	Painikkeiden toiminnot:
 

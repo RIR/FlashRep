@@ -14,6 +14,8 @@ Flash-korttien kertaukseen perustuva oppimisohjelma. Ohjelma on tarkoitus toteut
 
 [Käyttöohjeet](dokumentaatio/kayttoohjeet.md)
 
+[Testausdokumentaatio](dokumentaatio/testausdokumentti.md)
+
 
 
 

@@ -145,4 +145,11 @@ public class FlashcardCollectionTest {
         assertEquals(flashCardCollection, newCollection);
     }
 
+    @Test
+    public void setCardsSetsCards() {
+        flashcards.add(flashcard);
+        flashCardCollection.setCards(flashcards);
+        assertEquals(flashCardCollection.getCards(), flashcards);
+    }
+
 }

@@ -1,5 +1,10 @@
 package flashrep.flashrep.logic;
 
+import flashrep.flashrep.cards.AllFlashcardCollections;
+import flashrep.flashrep.cards.Flashcard;
+import flashrep.flashrep.cards.FlashcardCollection;
+import flashrep.flashrep.gui.CollectionsModel;
+import flashrep.flashrep.io.DataHandler;
 import flashrep.flashrep.useraccounts.User;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -73,4 +78,54 @@ public class AppControlLogicTest {
         assertEquals(this.controller.getCurrentUser(), user);
     }
 
+    @Test
+    public void getCurrentUsersCollectionsSizeIsZeroAtFirst() {
+        this.controller.canAddNewUser(userName, password);
+        assertEquals(this.controller.getCurrentUsersCollections().getSize(), 0);
+    }
+
+    @Test
+    public void getCurrentUsersCollectionsSizeIsOneAfterAddingCollection() {
+        this.controller.canAddNewUser(userName, password);
+        this.controller.getCurrentUsersCollections().addNewCollection("new collection");
+        assertEquals(this.controller.getCurrentUsersCollections().getSize(), 1);
+    }
+
+    @Test
+    public void getCurrentCollectionIsNotChosenAtFirst() {
+        this.controller.canAddNewUser(userName, password);
+        assertEquals(this.controller.getCurrentCollection(), new FlashcardCollection(""));
+    }
+
+    @Test
+    public void startNewRepetitionStartsNewRepetitionWithCurrentCollection() {
+        FlashcardCollection collection = new FlashcardCollection("");
+        SpacedRepetition spacedRepetition = new SpacedRepetition(collection);
+
+        this.controller.canAddNewUser(userName, password);
+        this.controller.startNewRepetition();
+
+        assertEquals(this.controller.getRepetitionLogic().getFlashcardCollection(), spacedRepetition.getFlashcardCollection());
+    }
+
+    @Test
+    public void quitRepetitionUpdatesCurrentCollectionForUser() {
+        this.controller.canAddNewUser(userName, password);
+        this.controller.getCurrentUser().addToOwnCollections(new FlashcardCollection(""));
+        this.controller.startNewRepetition();
+        Flashcard flashcard = new Flashcard("Kysymys", "Vastaus");
+        this.controller.getRepetitionLogic().insertCardInToRotation(flashcard);
+        this.controller.quitRepetition();
+        for (FlashcardCollection c : this.controller.getCurrentUser().getOwnCollections()) {
+            if (c.equals(this.controller.getCurrentCollection())) {
+                assertTrue(c.getCards().contains(flashcard));
+            }
+        }
+    }
+
+    @Test
+    public void getCurrentCardIsNullAtFirst() {
+        this.controller.canAddNewUser(userName, password);
+        assertNull(this.controller.getCurrentCard());
+    }
 }

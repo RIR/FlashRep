@@ -40,11 +40,13 @@
                         <param>flashrep.flashrep.cards.*</param>
                         <param>flashrep.flashrep.logic.*</param>
                         <param>flashrep.flashrep.useraccounts.*</param>
+                        <param>flashrep.flashrep.io.*</param>
                     </targetClasses>
                     <targetTests>                                                      
                         <param>flashrep.flashrep.cards.*</param>
                         <param>flashrep.flashrep.logic.*</param>
                         <param>flashrep.flashrep.useraccounts.*</param>
+                        <param>flashrep.flashrep.io.*</param>
                     </targetTests>
                   
                 </configuration>

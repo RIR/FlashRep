@@ -59,6 +59,8 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
 
         if (this.model.getSize() == 0) {
             disableButtons();
+        } else {
+            this.collectionList.setSelectedIndex(0);
         }
     }
 

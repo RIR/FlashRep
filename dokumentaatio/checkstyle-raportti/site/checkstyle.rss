@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 19,
+      <title>File: 22,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,6 +47,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.gui.StudyViewListener.java">flashrep/flashrep/gui/StudyViewListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.gui.AdminMenuPanel.java">flashrep/flashrep/gui/AdminMenuPanel.java</a>
                 </td>
                 <td>
                   0
@@ -117,6 +131,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.cards.FlashcardCollection.java">flashrep/flashrep/cards/FlashcardCollection.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.gui.AdminMenuListener.java">flashrep/flashrep/gui/AdminMenuListener.java</a>
                 </td>
                 <td>
                   0
@@ -285,6 +313,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#flashrep.flashrep.cards.AllFlashcardCollections.java">flashrep/flashrep/cards/AllFlashcardCollections.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#flashrep.flashrep.gui.UsersModel.java">flashrep/flashrep/gui/UsersModel.java</a>
                 </td>
                 <td>
                   0

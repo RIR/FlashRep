@@ -56,6 +56,8 @@ public class AdminMenuListener implements ActionListener, ListSelectionListener 
 
         if (this.model.getSize() == 0) {
             disableButtons();
+        } else {
+            this.userlist.setSelectedIndex(0);
         }
     }
 

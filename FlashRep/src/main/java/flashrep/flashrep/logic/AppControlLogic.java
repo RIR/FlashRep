@@ -119,6 +119,10 @@ public class AppControlLogic implements Serializable {
         return this.currentUser;
     }
 
+    /**
+     * Metodi asettaa käyttäjälistauksesta käyttäjän valituksi kun pääkäyttäjä
+     * sen valitsee.
+     */
     public void setCurrentUser() {
         this.currentUser = this.userlist.getCurrentUser();
     }

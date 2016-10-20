@@ -1,4 +1,4 @@
-**Aihe:** Flash-korttien kertaukseen perustuva oppimisohjelma. Ohjelmaan lisätään tietoja kysymys-vastauspareissa. Kun tietty kysymys tulee kohdalle ja käyttäjä tarkistaa vastauksen, voi käyttäjä samalla arvioida kysymyksen vaikeutta. Kortteja sitten kierrätetään niin, että vaikempia kysymyksiä kysytään useammin kuin helppoja. Ohjelmassa voi olla monta eri kokoelmaa kortteja. Ainakin aluksi oppija itse toimii kokoelmien ja korttien lisääjänä. Kokoelmia voi lisätä omassa kokoelmavalikossa ja kortteja voi lisätä kokoelmakohtaisesti korttien toistonäkymässä. Myöhemmin aikomus mahdollisesti lisätä mahdollisuus ladata kokoelmia käyttöön oman valikon ulkopuolelta. Ohjelman ylläpitäjäkäyttäjä hallinnoi käyttäjätilejä.
+**Aihe:** Flash-korttien kertaukseen perustuva oppimisohjelma. Ohjelmaan lisätään tietoja kysymys-vastauspareissa. Kun tietty kysymys tulee kohdalle ja käyttäjä tarkistaa vastauksen, voi käyttäjä samalla arvioida kysymyksen vaikeutta. Kortteja sitten kierrätetään niin, että vaikempia kysymyksiä kysytään useammin kuin helppoja. Ohjelmassa voi olla monta eri kokoelmaa kortteja. Oppija itse toimii kokoelmien ja korttien lisääjänä. Kokoelmia voi lisätä omassa kokoelmavalikossa ja kortteja voi lisätä kokoelmakohtaisesti korttien toistonäkymässä. Myöhemmin aikomus mahdollisesti lisätä mahdollisuus ladata kokoelmia käyttöön oman valikon ulkopuolelta. Ohjelman ylläpitäjäkäyttäjä hallinnoi käyttäjätilejä. Korttien toisto toteutettu rajapinnan kautta niin, että myöhemmin on mahdollista ottaa erilaisia toistologiikoita käyttöön. 
 
 **Käyttäjät:** Oppija ja ylläpitäjäkäyttäjä
 
@@ -7,7 +7,7 @@
   - Onnistuu jos käyttäjätunnus ja salasana oikein
 
 **Ylläpitäjän toiminnot:** 
-- Käyttäjien lisääminen ja poistaminen
+- Käyttäjien lisääminen ja poistaminen. Käyttäjien salasanojen muuttaminen.
 
 **Oppijan toiminnot:** 
 - Käytettävän oppimiskokoelman valinta
@@ -34,4 +34,4 @@ AppControlLogic-luokka siis hoitaa käytännössä ohjelman käyttölogiikan ja 
 
 Käyttöliittymä on toteutettu niin, että itse GUI-luokassa luodaan JFrame ja Views-luokka joka toteuttaa JPanelin toiminnot. Views-luokan funktio on käyttöliittymän näkymien hallinnointi. Se käyttää Javan Cardlayout-asettelua ja siihen on toteutettu metodi jota kutsumalla voidaan ohjelmassa vaihtaa ikkunanäkymää toiseen.
 
-Viewsin hallinnoimat ikkunapaneelit ja niiden kuuntelijat on taas jaettu eri luokkiin niin, että yhtä paneeliluokkaa kohden on yksi kuuntelijaluokka. Luokkakaaviossa näkyvä CollectionsModel-luokka perii Javan AbstractListModel-luokan ominaisuudet ja on käytössä ohjelman käyttäjävalikossa. Sen avulla saadaan graafisessa käyttöliittymässä käyttäjän kokoelmalistaus näkyviin JListin muodossa ja listan muutoksiin voidaan myös reagoida.
+Viewsin hallinnoimat ikkunapaneelit ja niiden kuuntelijat on taas jaettu eri luokkiin niin, että yhtä paneeliluokkaa kohden on yksi kuuntelijaluokka. Luokkakaaviossa näkyvät CollectionsModel- ja UsersModel-luokat perivät Javan AbstractListModel-luokan ominaisuudet ja ovat käytössä ohjelman käyttäjä- ja pääkäyttäjävalikoissa. Niiden avulla saadaan graafisessa käyttöliittymässä listaukset näkyviin JListin muodossa ja listojen muutoksiin voidaan myös reagoida.

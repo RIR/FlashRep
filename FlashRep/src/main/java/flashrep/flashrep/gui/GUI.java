@@ -77,7 +77,7 @@ public class GUI implements Runnable {
     /**
      * Metodi palauttaa käyttöliittymän ikkunan.
      *
-     * @return
+     * @return Käyttöliittymän ikkuna
      */
     public JFrame getFrame() {
         return frame;

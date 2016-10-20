@@ -85,6 +85,7 @@ public class UsersModel extends AbstractListModel implements Serializable {
      * käytössä esim kun käyttäjä unohtanut salasanan ja admin kertoo sen.
      *
      * @param index Valittavan käyttäjän indeksinumero listauksessa
+     * @return Valitun käyttäjän salasana
      */
     public String getPassword(int index) {
         setCurrentUser(index);

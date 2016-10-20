@@ -4,6 +4,7 @@
 
 Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos olet toistonäkymässä, muista tallentaa ennen ohjelman sulkemista. Mielekkäin käytäntö on kirjautua ulos ennen ohjelman sulkemista .
 
+###Kaikille käyttäjille
 
 *	Kirjautuminen
 
@@ -39,3 +40,20 @@ Voit sulkea ohjelman painamalla yläkulmasta löytyvää punaista rastia. Jos ol
 	- Tallenna ja palaa kokoelmavalikkoon: Ohjelma tallentaa kokoelman nykyisessä tilassa ja palaa käyttäjävalikkoon. 
 	HUOM TÄMÄ TÄRKEÄÄ! Jos suljet ohjelman kesken käytön tässä valikossa tallentamatta, menetät tällä hetkellä toistettavana olevaan kokoelmaan toiston aikana tehdyt muutokset.
 	- Arviointipainikkeet, Helppo, Hyvä, Melko vaikea, Tosi vaikea: Arvio kysymyksen vaikeudesta. Paina sitä painiketta joka mielestäsi parhaiten kuvaa kysymyksen vaikeusastetta.
+	
+###Pääkäyttäjälle
+
+*	Kirjautuminen
+
+	Pääset kirjautumaan pääkäyttäjävalikkoon antamalla käyttäjätunnuksen: **admin** ja salasanan: **admin**
+	
+* 	Pääkäyttäjävalikko
+
+	Valikossa on listattuna kaikki ohjelman käyttäjät. Huom! admin-tunnuksilla ei voi kirjautua ohjelman peruskäyttäjäksi. Jos haluat itse käyttää ohjelman perustoimintoja, luo itsellesi myös käyttäjätunnukset. Admin-käyttäjä hallinnoi vain käyttäjiä. 
+	
+	Painikkeiden toiminnot:
+	
+	- Näytä käyttäjän salasana: Näyttää valitun käyttäjän salasanan.
+	- Aseta käyttäjän salasana: Asettaa käyttäjälle uuden antamasi salasanan.
+	- Poista käyttäjä(t): Poistaa valitsemasi käyttäjät.
+	- Kirjaudu ulos: Palaa kirjautumisvalikkoon.

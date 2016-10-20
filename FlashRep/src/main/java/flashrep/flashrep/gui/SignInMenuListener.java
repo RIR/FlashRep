@@ -108,6 +108,9 @@ public class SignInMenuListener implements ActionListener {
                 //siirrytään käyttäjävalikkoon ja tyhjennetään kentät            
                 this.views.switchToView("UserMenu");
                 clearFields();
+            } else if (this.controller.isAdmin(usernameField.getText(), isUserPasswordField.getPassword())) {
+                this.views.switchToView("AdminMenu");
+                clearFields();
             } else {
                 JOptionPane.showMessageDialog(views, "Käyttäjätunnus tai salasana on väärin!");
             }

@@ -22,6 +22,8 @@ public class AppControlLogicTest {
     AppControlLogic controller;
     String userName;
     char[] password;
+    String adminName;
+    char[] adminPass;
 
     public AppControlLogicTest() {
     }
@@ -39,6 +41,8 @@ public class AppControlLogicTest {
         controller = new AppControlLogic();
         userName = "user";
         password = new char[]{'p', 'a', 's', 's'};
+        adminName = "admin";
+        adminPass = new char[]{'a', 'd', 'm', 'i', 'n'};
     }
 
     @After
@@ -47,6 +51,13 @@ public class AppControlLogicTest {
 
     @Test
     public void hello() {
+    }
+
+    @Test
+    public void isAdminWorks() {
+        assertEquals(false, this.controller.isAdmin(userName, password));
+        assertEquals(true, this.controller.isAdmin(adminName, adminPass));
+
     }
 
     @Test

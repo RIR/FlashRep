@@ -35,8 +35,11 @@ public class UserMenuListener implements ActionListener, ListSelectionListener {
      *
      * @param views Ikkunanäkymiä hallitseva views-luokan olio
      * @param controller Kontrolleri joka hallinnoi käyttäjä/korttiluokkia
+     * @param currentCollectionLabel Valittu kokoelma teksti
      * @param collectionList Kokoelmalistaus
+     * @param model Malli JListia varten
      * @param studyNowButton Painike opiskelunäkymään siirtymistä varten
+     * @param renameButton Uuudelleennimeämispainike
      * @param createNewCollectionButton Painike uuden kokoelmaan luontia varten
      * käyttäjän kokoelmalistaukseen
      * @param removeCollectionButton Painike kokoelman poistamista varten

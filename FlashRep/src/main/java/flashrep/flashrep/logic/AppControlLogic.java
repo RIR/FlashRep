@@ -5,6 +5,7 @@ import flashrep.flashrep.cards.Flashcard;
 import flashrep.flashrep.cards.FlashcardCollection;
 import flashrep.flashrep.gui.CollectionsModel;
 import flashrep.flashrep.gui.GUI;
+import flashrep.flashrep.gui.UsersModel;
 import flashrep.flashrep.io.DataHandler;
 import flashrep.flashrep.useraccounts.User;
 import flashrep.flashrep.useraccounts.Users;
@@ -25,6 +26,7 @@ public class AppControlLogic implements Serializable {
     private Flashcard currentCard;
     private RepetitionLogic repetitionLogic;
     private CollectionsModel currentUsersCollections;
+    private UsersModel userlist;
     private DataHandler dataHandler;
 
     /**
@@ -35,6 +37,7 @@ public class AppControlLogic implements Serializable {
         this.currentUser = new User("", "");
         this.allFlashcardCollections = new AllFlashcardCollections();
         this.currentUsersCollections = new CollectionsModel(this.allFlashcardCollections.getCollections());
+        this.userlist = new UsersModel(users);
         this.currentCollection = new FlashcardCollection("");
         this.dataHandler = new DataHandler(this);
     }
@@ -49,13 +52,17 @@ public class AppControlLogic implements Serializable {
     }
 
     /**
-     * Metodi palauttaa käyttäjät, tässä luokassa käytössä, jotta saadaan
-     * tallennettua käyttäjät oikein.
+     * Metodi tarkistaa kirjautumisvalikossa onko kyseessä pääkäyttäjä.
      *
-     * @return Käyttäjälistaus
+     * @param username Käyttäjätunnus
+     * @param password Salasana
+     * @return true jos käyttäjä on pääkäyttäjä, muuten false
      */
-    public Users getUsers() {
-        return users;
+    public boolean isAdmin(String username, char[] password) {
+        if (username.equals("admin") && String.valueOf(password).equals("admin")) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -67,6 +74,10 @@ public class AppControlLogic implements Serializable {
      * @return true jos käyttäjän voi lisätä, false jos käyttäjää ei voi lisätä
      */
     public boolean canAddNewUser(String username, char[] password) {
+        if (username.equals("admin")) {
+            return false;
+        }
+
         User prospectUser = new User(username, String.valueOf(password));
         if (!this.users.containsUser(prospectUser)) {
             this.users.addUser(prospectUser);
@@ -87,6 +98,9 @@ public class AppControlLogic implements Serializable {
      * kirjautua, false jos ei voi kirjautua.
      */
     public boolean canSignInUser(String username, char[] password) {
+        if (username.equals("admin")) {
+            return false;
+        }
         User prospectUser = new User(username, String.valueOf(password));
         if (this.users.containsUser(prospectUser) && this.users.getUser(prospectUser).getPassword().equals(String.valueOf(password))) {
             this.currentUser = this.users.getUser(prospectUser);
@@ -103,6 +117,10 @@ public class AppControlLogic implements Serializable {
      */
     public User getCurrentUser() {
         return this.currentUser;
+    }
+
+    public void setCurrentUser() {
+        this.currentUser = this.userlist.getCurrentUser();
     }
 
     /**
@@ -183,4 +201,24 @@ public class AppControlLogic implements Serializable {
     public DataHandler getDataHandler() {
         return dataHandler;
     }
+
+    /**
+     * Metodi palauttaa JListin mallina toimivan käyttäjälistauksen.
+     *
+     * @return UsersModel joka perii AbstractListModel-luokan ominaisuudet
+     */
+    public UsersModel getUserList() {
+        return userlist;
+    }
+
+    /**
+     * Metodi palauttaa käyttäjät, tässä luokassa käytössä, jotta saadaan
+     * tallennettua käyttäjät oikein.
+     *
+     * @return Käyttäjälistaus
+     */
+    public Users getUsers() {
+        return users;
+    }
+
 }

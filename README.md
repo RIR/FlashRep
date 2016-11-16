@@ -6,8 +6,6 @@ Flash-korttien kertaukseen perustuva oppimisohjelma. Ohjelma on tarkoitus toteut
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
-[Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
-
 [pit-raportti] ( https://htmlpreview.github.io/?https://github.com/RIR/FlashRep/blob/master/dokumentaatio/pit-raportti/201610201226/index.html)
 
 [CheckStyle-raportti] ( https://htmlpreview.github.io/?https://github.com/RIR/FlashRep/blob/master/dokumentaatio/checkstyle-raportti/site/checkstyle.html)
